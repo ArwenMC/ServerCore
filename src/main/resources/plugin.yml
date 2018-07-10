@@ -1,0 +1,17 @@
+name: Server-Core
+version: 0.1
+author: ArwenMC
+authors: ["Alexander Milanovich"]
+main: io.github.Arwen.Main
+commands:
+  fly:
+    usage: /fly
+    description: Command Which Allows Player To Fly!
+  gamemode:
+    aliases: [gm]
+    usuage: /gamemode
+    description: Command Which Allows Player To Switch Gamemodes!
+  help:
+    aliases: [?]
+    usuage: /help
+    description: Command Which Helps Players!
