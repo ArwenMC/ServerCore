@@ -5,6 +5,17 @@ Messages:
   FlyEnabled: '&aYour flight mode is enabled'
   FlyDisabled: '&cYour flight mode is disabled'
 
+  Actionbar_Welcome: '&aWelcome to ArwenMC!'
+  Actionbar_Welcome_Back: 'Welcome Back to ArwenMC!'
+
+  Welcome: '&aWelcome to ArwenMC!'
+  Welcome_Back: '&aWelcome Back to ArwenMC!'
+
+Help:
+  Message:
+      - '&aIf you Need Help'
+      - '&aContact A Staff!'
+
 
 Gamemode:
     GM0: '&7Your gamemode is now &csurvival'
@@ -20,3 +31,4 @@ Gamemode:
     GM1_ActionBar: '&7Your gamemode is now &acreative'
     GM2_ActionBar: '&7Your gamemode is now &4adventure'
     GM3_ActionBar: '&7Your gamemode is now &6spectator'
+

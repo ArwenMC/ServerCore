@@ -11,3 +11,7 @@ commands:
     aliases: [gm]
     usuage: /gamemode
     description: Command Which Allows Player To Switch Gamemodes!
+  help:
+    aliases: [?]
+    usuage: /help
+    description: Command Which Helps Players!

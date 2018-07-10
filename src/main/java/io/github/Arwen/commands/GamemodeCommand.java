@@ -36,19 +36,19 @@ public class GamemodeCommand implements CommandExecutor {
                 }
                 else if (args.length == 1)
                 {
-                    if ((args[0].equalsIgnoreCase("0")) || (args[0].equalsIgnoreCase("survival")))
+                    if ((args[0].equalsIgnoreCase("0")) || (args[0].equalsIgnoreCase("survival")) || (args[0].equalsIgnoreCase("s")))
                     {
                         player.setGameMode(GameMode.SURVIVAL);
                         player.sendMessage(plugin.prefix + plugin.gm0);
                         ActionBar.send(player, plugin.actionbar0);
                     }
-                    if ((args[0].equalsIgnoreCase("1")) || (args[0].equalsIgnoreCase("creative")))
+                    if ((args[0].equalsIgnoreCase("1")) || (args[0].equalsIgnoreCase("creative")) || (args[0].equalsIgnoreCase("c")))
                     {
                         player.setGameMode(GameMode.CREATIVE);
                         player.sendMessage(plugin.prefix + plugin.gm1);
                         ActionBar.send(player, plugin.actionbar1);
                     }
-                    if ((args[0].equalsIgnoreCase("2")) || (args[0].equalsIgnoreCase("adventure")))
+                    if ((args[0].equalsIgnoreCase("2")) || (args[0].equalsIgnoreCase("adventure")) || (args[0].equalsIgnoreCase("a")))
                     {
                         player.setGameMode(GameMode.ADVENTURE);
                         player.sendMessage(plugin.prefix + plugin.gm2);
@@ -69,19 +69,19 @@ public class GamemodeCommand implements CommandExecutor {
                         player.sendMessage(plugin.prefix + plugin.notOnline);
                         return true;
                     }
-                    if ((args[0].equalsIgnoreCase("0")) || (args[0].equalsIgnoreCase("survival")))
+                    if ((args[0].equalsIgnoreCase("0")) || (args[0].equalsIgnoreCase("survival")) || (args[0].equalsIgnoreCase("s")))
                     {
                         t.setGameMode(GameMode.SURVIVAL);
                         t.sendMessage(plugin.prefix + plugin.gm0);
                         ActionBar.send(t, plugin.actionbar0);
                     }
-                    if ((args[0].equalsIgnoreCase("1")) || (args[0].equalsIgnoreCase("creative")))
+                    if ((args[0].equalsIgnoreCase("1")) || (args[0].equalsIgnoreCase("creative")) || (args[0].equalsIgnoreCase("c")))
                     {
                         t.setGameMode(GameMode.CREATIVE);
                         t.sendMessage(plugin.prefix + plugin.gm1);
                         ActionBar.send(t, plugin.actionbar1);
                     }
-                    if ((args[0].equalsIgnoreCase("2")) || (args[0].equalsIgnoreCase("adventure")))
+                    if ((args[0].equalsIgnoreCase("2")) || (args[0].equalsIgnoreCase("adventure")) || (args[0].equalsIgnoreCase("a")))
                     {
                         t.setGameMode(GameMode.ADVENTURE);
                         t.sendMessage(plugin.prefix + plugin.gm2);

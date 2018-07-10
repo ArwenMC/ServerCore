@@ -2,6 +2,8 @@ package io.github.Arwen;
 
 import io.github.Arwen.commands.FlyCommand;
 import io.github.Arwen.commands.GamemodeCommand;
+import io.github.Arwen.commands.HelpCommand;
+import io.github.Arwen.events.FirstPlayerJoin;
 import io.github.Arwen.events.PlayerDisconect;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -15,7 +17,14 @@ public class Main extends JavaPlugin implements Listener {
     public String notPlayer = ChatColor.RED + "You must be a player to use this command.";
     public String noPermission = ChatColor.RED + "You do not have permission to use this command.";
     public String prefix = getConfig().getString("Messages.Prefix").replace('&', '§');
+
+
+    public String actionbarwelcomeback = getConfig().getString("Messages.Actionbar_Welcome_Back").replace('&', '§');
+    public String actionbarwelcome = getConfig().getString("Messages.Actionbar_Welcome").replace('&', '§');
+    public String welcomeback = getConfig().getString("Messages.Welcome_Back").replace('&', '§');
+    public String welcome = getConfig().getString("Messages.Welcome").replace('&', '§');
     public String notOnline = getConfig().getString("Messages.PlayerOffline").replace('&', '§');
+
 
 
     public String flyEnabled = getConfig().getString("Messages.FlyEnabled").replace('&', '§');
@@ -52,8 +61,9 @@ public class Main extends JavaPlugin implements Listener {
 
         getCommand("fly").setExecutor(new FlyCommand(this));
         getCommand("gamemode").setExecutor(new GamemodeCommand(this));
+        getCommand("help").setExecutor(new HelpCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerDisconect(this), this);
-
+        getServer().getPluginManager().registerEvents(new FirstPlayerJoin(this), this);
     }
 
 
