@@ -34,12 +34,12 @@ public class FlyCommand implements CommandExecutor {
                     flymode.add(p);
                     p.setAllowFlight(true);
                     p.setFlying(true);
-                    p.sendMessage(plugin.flyEnabled);
+                    p.sendMessage(plugin.prefix + plugin.flyEnabled);
                 } else {
                     flymode.remove(p);
                     p.setAllowFlight(false);
                     p.setFlying(false);
-                    p.sendMessage(plugin.flyDisabled);
+                    p.sendMessage(plugin.prefix + plugin.flyDisabled);
                 }
             }
             else {
