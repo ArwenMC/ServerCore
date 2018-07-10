@@ -11,7 +11,9 @@ public class Main extends JavaPlugin {
 
     public String notPlayer = ChatColor.RED + "You must be a player to use this command.";
     public String noPermission = ChatColor.RED + "You do not have permission to use this command.";
-    // public DB db = new DB(this);
+
+    public String flyEnabled = getConfig().getString("Messages.FlyEnabled").replace('&', '§');
+    public String flyDisabled = getConfig().getString("Messages.FlyDisabled").replace('&', '§');
 
     public Permission staffFly = new Permission("core.fly");
     public Permission Admin = new Permission("core.admin");
@@ -27,6 +29,9 @@ public class Main extends JavaPlugin {
         for (Permission permission : permissions) {
             Bukkit.getServer().getPluginManager().addPermission(permission);
         }
+
+        getConfig().options().copyDefaults(true);
+        saveDefaultConfig();
 
         getCommand("fly").setExecutor(new FlyCommand(this));
     }

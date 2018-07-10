@@ -1,6 +1,7 @@
 package io.github.Arwen.commands;
 
 import io.github.Arwen.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,35 +14,39 @@ import java.util.UUID;
 
 public class FlyCommand implements CommandExecutor {
 
-    ArrayList<Player> flying = new ArrayList<Player>();
-
     Main plugin;
 
     public FlyCommand(Main instance) {
         plugin = instance;
     }
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("fly")) {
-            if ((sender instanceof Player)) {
-                Player player = (Player) sender;
+    public static ArrayList<Player> flymode = new ArrayList();
 
-                if (player.hasPermission(plugin.staffFly)) {
-                    if (player.getAllowFlight()) {
-                        player.setFlying(false);
-                        player.setAllowFlight(false);
-                        player.sendMessage("Disabled fly mode!");
-                    } else {
-                        player.setAllowFlight(true);
-                        player.setFlySpeed(0.1F);
-                        player.sendMessage("Enabled fly mode!");
-                    }
-                }
-            } else {
-                return false;
-            }
+    public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
+        if (!(sender instanceof Player)) {
+
+            return true;
         }
-        return true;
+        Player p = (Player) sender;
+        if (cmd.getName().equalsIgnoreCase("fly")) {
+            if (p.hasPermission(plugin.staffFly)) {
+                if (!flymode.contains(p)) {
+                    flymode.add(p);
+                    p.setAllowFlight(true);
+                    p.setFlying(true);
+                    p.sendMessage(plugin.flyEnabled);
+                } else {
+                    flymode.remove(p);
+                    p.setAllowFlight(false);
+                    p.setFlying(false);
+                    p.sendMessage(plugin.flyDisabled);
+                }
+            }
+            else {
+                p.sendMessage(plugin.noPermission);
+            }
+                return true;
+            }
+        return false;
     }
 }
