@@ -20,11 +20,14 @@ public class FirstPlayerJoin implements Listener {
     @EventHandler
     public void onFirstPlayerJoinEvent(PlayerJoinEvent event) {
 
+        Title Welcome = new Title(plugin.actionbarwelcome, "",1, 100, 2);
+
         Player player = event.getPlayer();
 
         if (!player.hasPlayedBefore()) {
             ActionBar.send(player, plugin.actionbarwelcome);
             player.sendMessage(plugin.welcome);
+            Welcome.send(player);
         } else {
 
             if (player.hasPlayedBefore()) {
