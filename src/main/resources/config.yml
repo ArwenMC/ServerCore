@@ -1,4 +1,22 @@
 Messages:
-  Prefix: "&cArwen "
+  Prefix: "&7[&5Arwen&7] "
+  PlayerOffline: "&cPlayer is not online!"
+
   FlyEnabled: '&aYour flight mode is enabled'
   FlyDisabled: '&cYour flight mode is disabled'
+
+
+Gamemode:
+    GM0: '&7Your gamemode is now &csurvival'
+    GM1: '&7Your gamemode is now &acreative'
+    GM2: '&7Your gamemode is now &4adventure'
+    GM3: '&7Your gamemode is now &6spectator'
+
+    Usage:
+      - '{prefix} &7Gamemode usage&8:'
+      - '&a /gamemode [mode] <player>'
+
+    GM0_ActionBar: "Survival"
+    GM1_ActionBar: "Creative"
+    GM2_ActionBar: "Adventure"
+    GM3_ActionBar: "Spectator"

@@ -7,3 +7,7 @@ commands:
   fly:
     usage: /fly
     description: Command Which Allows Player To Fly!
+  gamemode:
+    aliases: [gm]
+    usuage: /gamemode
+    description: Command Which Allows Player To Switch Gamemodes!
