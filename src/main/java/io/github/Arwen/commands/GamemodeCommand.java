@@ -26,9 +26,12 @@ public class GamemodeCommand implements CommandExecutor {
             if (player.hasPermission(plugin.Admin)) {
                 if (args.length == 0)
                 {
-
+                    List<String> message = plugin.getConfig().getStringList("Gamemode.Usage");
+                    for (String msg : message)
                     {
-
+                        msg =
+                                msg.replace('&', '§');
+                        player.sendMessage(plugin.prefix + msg);
                     }
                 }
                 else if (args.length == 1)
@@ -97,7 +100,7 @@ public class GamemodeCommand implements CommandExecutor {
                     for (String msg : message)
                     {
                         msg =
-                                msg.replace('&', '§').replace("{prefix}", plugin.prefix);
+                                msg.replace('&', '§');
                         player.sendMessage(plugin.prefix + msg);
                     }
                 }
