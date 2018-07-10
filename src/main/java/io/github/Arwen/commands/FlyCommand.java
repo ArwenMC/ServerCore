@@ -8,39 +8,40 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class FlyCommand implements CommandExecutor {
 
-    ArrayList<UUID> flying = new ArrayList<>();
+    ArrayList<Player> flying = new ArrayList<Player>();
 
     Main plugin;
+
     public FlyCommand(Main instance) {
         plugin = instance;
     }
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
-        if (commandSender instanceof Player) {
-            Player player = (Player) commandSender;
-            if (player.hasPermission(plugin.staffFly)) {
-                if (flying.contains(player.getUniqueId())) {
-                    player.setFlying(true);
-                    player.sendMessage(ChatColor.GREEN + "You are now flying!");
-                    return true;
-                } else {
-                    player.setAllowFlight(false);
-                    player.setFlying(false);
-                    player.sendMessage(ChatColor.RED + "You are no longer flying!");
-                    return true;
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("fly")) {
+            if ((sender instanceof Player)) {
+                Player player = (Player) sender;
+
+                if (player.hasPermission(plugin.staffFly)) {
+                    if (player.getAllowFlight()) {
+                        player.setFlying(false);
+                        player.setAllowFlight(false);
+                        player.sendMessage("Disabled fly mode!");
+                    } else {
+                        player.setAllowFlight(true);
+                        player.setFlySpeed(0.1F);
+                        player.sendMessage("Enabled fly mode!");
+                    }
                 }
             } else {
-                player.sendMessage(plugin.noPermission);
-                return true;
+                return false;
             }
-        } else {
-            commandSender.sendMessage(plugin.notPlayer);
-            return true;
         }
+        return true;
     }
 }

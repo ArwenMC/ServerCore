@@ -2,6 +2,7 @@ name: Server-Core
 version: 0.1
 author: ArwenMC
 authors: ["Alexander Milanovich"]
+main: io.github.Arwen.Main
 commands:
   fly:
     usage: /fly
