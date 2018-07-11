@@ -3,6 +3,7 @@ package io.github.Arwen;
 import io.github.Arwen.commands.FlyCommand;
 import io.github.Arwen.commands.GamemodeCommand;
 import io.github.Arwen.commands.HelpCommand;
+import io.github.Arwen.commands.MuteChatCommand;
 import io.github.Arwen.events.FirstPlayerJoin;
 import io.github.Arwen.events.PlayerDisconect;
 import org.bukkit.Bukkit;
@@ -11,7 +12,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Main extends JavaPlugin implements Listener {
+
+
+    private Connection connection;
 
 
     public String notPlayer = ChatColor.RED + "You must be a player to use this command.";
@@ -24,7 +32,6 @@ public class Main extends JavaPlugin implements Listener {
     public String welcomeback = getConfig().getString("Messages.Welcome_Back").replace('&', '§');
     public String welcome = getConfig().getString("Messages.Welcome").replace('&', '§');
     public String notOnline = getConfig().getString("Messages.PlayerOffline").replace('&', '§');
-
 
 
     public String flyEnabled = getConfig().getString("Messages.FlyEnabled").replace('&', '§');
@@ -41,6 +48,13 @@ public class Main extends JavaPlugin implements Listener {
     public String actionbar3 = getConfig().getString("Gamemode.GM3_ActionBar").replace('&', '§');
 
 
+    public String host = this.getConfig().getString("MySQL.Host");
+    public int port = this.getConfig().getInt("MySQL.Port");
+    public String database = this.getConfig().getString("MySQL.Database");
+    public String username = this.getConfig().getString("MySQL.Username");
+    public String password = this.getConfig().getString("MySQL.Password");
+
+
     public Permission staffFly = new Permission("core.fly");
     public Permission Admin = new Permission("core.admin");
 
@@ -49,21 +63,34 @@ public class Main extends JavaPlugin implements Listener {
     };
 
 
-
     @Override
     public void onEnable() {
         for (Permission permission : permissions) {
             Bukkit.getServer().getPluginManager().addPermission(permission);
         }
 
+       /* try {
+            openConnection();
+            Statement statement = connection.createStatement();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        */
+
+
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+
 
         getCommand("fly").setExecutor(new FlyCommand(this));
         getCommand("gamemode").setExecutor(new GamemodeCommand(this));
         getCommand("help").setExecutor(new HelpCommand(this));
+        getCommand("mutechat").setExecutor(new MuteChatCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerDisconect(this), this);
         getServer().getPluginManager().registerEvents(new FirstPlayerJoin(this), this);
+        getServer().getPluginManager().registerEvents(new MuteChatCommand(this), this);
     }
 
 
@@ -71,4 +98,20 @@ public class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         super.onDisable();
     }
+
+    public void openConnection() throws SQLException, ClassNotFoundException {
+        if (connection != null && !connection.isClosed()) {
+            return;
+        }
+
+        synchronized (this) {
+            if (connection != null && !connection.isClosed()) {
+                return;
+            }
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database, this.username, this.password);
+
+        }
+    }
 }
+
