@@ -1,2 +1,2 @@
-# Server-Core
-WIP plugin for a full built server core. All Basic commands and more
+# ServerCore
+Why have 8 plugins, when you can have 1? Fully customisable. Fast. Easy to use.
