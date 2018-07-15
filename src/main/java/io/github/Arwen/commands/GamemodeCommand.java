@@ -1,7 +1,7 @@
 package io.github.Arwen.commands;
 
 
-import io.github.Arwen.Main;
+import io.github.Arwen.ServerCore;
 import io.github.Arwen.api.ActionBar;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -13,9 +13,9 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 public class GamemodeCommand implements CommandExecutor {
-    Main plugin;
+    ServerCore plugin;
 
-    public GamemodeCommand(Main instance) {
+    public GamemodeCommand(ServerCore instance) {
         plugin = instance;
     }
 

@@ -1,6 +1,6 @@
 package io.github.Arwen.events;
 
-import io.github.Arwen.Main;
+import io.github.Arwen.ServerCore;
 import io.github.Arwen.commands.FlyCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,9 +9,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerDisconect implements Listener {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public PlayerDisconect(Main instance) {
+    public PlayerDisconect(ServerCore instance) {
         plugin = instance;
     }
 

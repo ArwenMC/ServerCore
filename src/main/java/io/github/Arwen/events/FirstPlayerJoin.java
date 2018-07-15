@@ -1,6 +1,6 @@
 package io.github.Arwen.events;
 
-import io.github.Arwen.Main;
+import io.github.Arwen.ServerCore;
 import io.github.Arwen.api.ActionBar;
 import io.github.Arwen.api.Title;
 import org.bukkit.ChatColor;
@@ -11,9 +11,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class FirstPlayerJoin implements Listener {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public FirstPlayerJoin(Main instance) {
+    public FirstPlayerJoin(ServerCore instance) {
         plugin = instance;
     }
 

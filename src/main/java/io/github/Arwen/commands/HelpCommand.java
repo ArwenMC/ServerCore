@@ -1,6 +1,6 @@
 package io.github.Arwen.commands;
 
-import io.github.Arwen.Main;
+import io.github.Arwen.ServerCore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,9 +10,9 @@ import java.util.List;
 
 public class HelpCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public HelpCommand(Main instance) {
+    public HelpCommand(ServerCore instance) {
         plugin = instance;
     }
     public boolean onCommand(CommandSender sender, Command cmd, String l, String[] args) {

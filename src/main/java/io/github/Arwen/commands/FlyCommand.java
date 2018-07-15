@@ -1,6 +1,6 @@
 package io.github.Arwen.commands;
 
-import io.github.Arwen.Main;
+import io.github.Arwen.ServerCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -14,9 +14,9 @@ import java.util.UUID;
 
 public class FlyCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public FlyCommand(Main instance) {
+    public FlyCommand(ServerCore instance) {
         plugin = instance;
     }
 

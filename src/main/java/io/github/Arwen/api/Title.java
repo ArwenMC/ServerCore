@@ -21,7 +21,7 @@ public class Title {
     /**
      * Constructs a {@link Title} object.
      *
-     * @param title    The text of the main title.
+     * @param title    The text of the ServerCore title.
      * @param subtitle The text of the subtitle.
      * @param fadeIn   The fade-in time of the title (in ticks).
      * @param stay     The stay time of the title (in ticks).
@@ -38,7 +38,7 @@ public class Title {
     /**
      * Constructs a {@link Title} object.
      *
-     * @param title    The text of the main title. Must be in /tellraw JSON format.
+     * @param title    The text of the ServerCore title. Must be in /tellraw JSON format.
      * @param subtitle The text of the subtitle. Must be in /tellraw JSON
      *                 format.
      * @param fadeIn   The fade-in time of the title, in ticks.
@@ -104,27 +104,27 @@ public class Title {
     }
 
     /**
-     * Getter for the text of the main title.
+     * Getter for the text of the ServerCore title.
      *
-     * @return Text of main title.
+     * @return Text of ServerCore title.
      */
     public JSONObject getTitle() {
         return title;
     }
 
     /**
-     * Setter for the text of the main title.
+     * Setter for the text of the ServerCore title.
      *
-     * @param title New main title text.
+     * @param title New ServerCore title text.
      */
     public void setTitle(String title) {
         this.title = convert(title);
     }
 
     /**
-     * Setter for the text of the main title.
+     * Setter for the text of the ServerCore title.
      *
-     * @param title New main title text. Must be in /tellraw JSON format.
+     * @param title New ServerCore title text. Must be in /tellraw JSON format.
      */
     public void setTitle(JSONObject title) {
         this.title = title;
