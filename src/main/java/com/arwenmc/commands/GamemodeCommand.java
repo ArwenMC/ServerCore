@@ -1,8 +1,8 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
 
-import io.github.Arwen.ServerCore;
-import io.github.Arwen.api.ActionBar;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.ActionBar;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;

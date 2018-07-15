@@ -1,7 +1,7 @@
-package io.github.Arwen.events;
+package com.arwenmc.events;
 
-import io.github.Arwen.ServerCore;
-import io.github.Arwen.commands.FlyCommand;
+import com.arwenmc.commands.FlyCommand;
+import com.arwenmc.ServerCore;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

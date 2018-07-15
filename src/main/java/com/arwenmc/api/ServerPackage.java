@@ -1,4 +1,4 @@
-package io.github.Arwen.api;
+package com.arwenmc.api;
 
 import org.bukkit.Bukkit;
 

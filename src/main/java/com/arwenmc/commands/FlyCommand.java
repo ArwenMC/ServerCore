@@ -1,16 +1,12 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.ServerCore;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import com.arwenmc.ServerCore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 public class FlyCommand implements CommandExecutor {
 

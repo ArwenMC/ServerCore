@@ -1,9 +1,7 @@
-package io.github.Arwen.events;
+package com.arwenmc.events;
 
-import io.github.Arwen.ServerCore;
-import io.github.Arwen.api.ActionBar;
-import io.github.Arwen.api.Title;
-import org.bukkit.ChatColor;
+import com.arwenmc.api.ActionBar;
+import com.arwenmc.ServerCore;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

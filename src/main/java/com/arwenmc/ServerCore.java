@@ -1,10 +1,10 @@
-package io.github.Arwen;
+package com.arwenmc;
 
-import io.github.Arwen.commands.FlyCommand;
-import io.github.Arwen.commands.GamemodeCommand;
-import io.github.Arwen.commands.HelpCommand;
-import io.github.Arwen.events.FirstPlayerJoin;
-import io.github.Arwen.events.PlayerDisconect;
+import com.arwenmc.commands.FlyCommand;
+import com.arwenmc.commands.GamemodeCommand;
+import com.arwenmc.commands.HelpCommand;
+import com.arwenmc.events.FirstPlayerJoin;
+import com.arwenmc.events.PlayerDisconect;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Listener;
