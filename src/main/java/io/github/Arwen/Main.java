@@ -1,9 +1,6 @@
 package io.github.Arwen;
 
-import io.github.Arwen.commands.FlyCommand;
-import io.github.Arwen.commands.GamemodeCommand;
-import io.github.Arwen.commands.HelpCommand;
-import io.github.Arwen.commands.MuteChatCommand;
+import io.github.Arwen.commands.*;
 import io.github.Arwen.events.FirstPlayerJoin;
 import io.github.Arwen.events.PlayerDisconect;
 import org.bukkit.Bukkit;
@@ -26,6 +23,9 @@ public class Main extends JavaPlugin implements Listener {
     public String noPermission = ChatColor.RED + "You do not have permission to use this command.";
     public String prefix = getConfig().getString("Messages.Prefix").replace('&', '§');
 
+    public boolean spawnSound = getConfig().getBoolean("Spawn.Explosion_Sound_On_Spawn");
+    public String spawnMessage = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Spawn.Message"));
+    public String setSpawnMessage = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Spawn.Set_Spawn_Message"));
 
     public String actionbarwelcomeback = getConfig().getString("Messages.Actionbar_Welcome_Back").replace('&', '§');
     public String actionbarwelcome = getConfig().getString("Messages.Actionbar_Welcome").replace('&', '§');
@@ -88,6 +88,8 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("gamemode").setExecutor(new GamemodeCommand(this));
         getCommand("help").setExecutor(new HelpCommand(this));
         getCommand("mutechat").setExecutor(new MuteChatCommand(this));
+        getCommand("spawn").setExecutor(new SpawnCommand(this));
+        getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerDisconect(this), this);
         getServer().getPluginManager().registerEvents(new FirstPlayerJoin(this), this);
         getServer().getPluginManager().registerEvents(new MuteChatCommand(this), this);

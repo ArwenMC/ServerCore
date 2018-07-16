@@ -18,3 +18,9 @@ commands:
   MuteChat:
     usuage: /MuteChat
     description: Stop Players from chating!
+  Spawn:
+    usuage: /Spawn
+    description: Teleports Players to spawn!
+  SetSpawn:
+    usuage: /SetSpawn
+    description: Sets the world spawn!
