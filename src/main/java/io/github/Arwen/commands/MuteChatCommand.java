@@ -10,6 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+
+//Please note that this command is not working
+
 public class MuteChatCommand implements CommandExecutor, Listener {
 
     Main plugin;
