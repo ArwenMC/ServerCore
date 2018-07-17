@@ -12,7 +12,7 @@ import org.bukkit.potion.PotionEffectType;
 
  ItemStack itemstack = new PotionBuilder(Material.POTION, 1)
             .addCustomEffect(PotionEffectType.REGENERATION, durationInTicks, 0)
-            .setColor(Color.RED) // Only available in 1.11 - 1.12.2
+            .setColor(Color.RED)
             .build();
  */
 

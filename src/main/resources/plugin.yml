@@ -24,3 +24,18 @@ commands:
   SetSpawn:
     usuage: /SetSpawn
     description: Sets the world spawn!
+  EntitySpawn:
+    usuage: /EntitySpawn
+    description: A test command to check if the API is working
+  BannerBuilder:
+    usuage: /BannerBuilder
+    description: A test command to check if the API is working
+  PotionSpawn:
+    usuage: /Potionspawn
+    description: A test command to check if the API is working
+  EggSpawn:
+    usuage: /EggSpawn
+    description: A test command to check if the API is working
+  FireworkSpawn:
+    usuage: /FireworkSpawn
+    description: A test command to check if the API is working

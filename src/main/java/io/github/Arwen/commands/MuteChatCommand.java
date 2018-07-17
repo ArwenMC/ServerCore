@@ -1,7 +1,9 @@
 package io.github.Arwen.commands;
 
 import io.github.Arwen.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -76,8 +78,10 @@ public class MuteChatCommand implements CommandExecutor, Listener {
                 (!e.getMessage().startsWith("/")) &&
                 (!player.hasPermission(plugin.Admin)))
         {
-            e.setCancelled(true);
+
+            Bukkit.getServer().broadcastMessage("Chat Event Works!");
             player.sendMessage(ChatColor.RED + plugin.getConfig().getString("MuteChat.ChatMuted"));
+            e.setCancelled(true);
         }
     }
 }
