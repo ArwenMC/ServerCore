@@ -1,8 +1,7 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.EntityBuilder.EntityBuilder;
-import io.github.Arwen.api.ItemBuilder.PotionBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.ItemBuilder.PotionBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -16,9 +15,9 @@ import org.bukkit.potion.PotionEffectType;
 
 public class PotionBuildCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public PotionBuildCommand(Main instance) {
+    public PotionBuildCommand(ServerCore instance) {
         plugin = instance;
     }
 

@@ -1,7 +1,7 @@
-package io.github.Arwen.events;
+package com.arwenmc.events;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.ScoreboardBuilder.ScoreboardBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.ScoreboardBuilder.ScoreboardBuilder;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,9 +12,9 @@ import java.util.Arrays;
 
 public class PlayerJoin implements Listener {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public PlayerJoin(Main instance) {
+    public PlayerJoin(ServerCore instance) {
         plugin = instance;
     }
 

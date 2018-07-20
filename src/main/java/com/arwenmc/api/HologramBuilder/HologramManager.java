@@ -1,6 +1,7 @@
-package io.github.Arwen.api.HologramBuilder;
+package com.arwenmc.api.HologramBuilder;
 
-import io.github.Arwen.api.FileBuilder.FileBuilder;
+import com.arwenmc.api.FileBuilder.FileBuilder;
+import com.arwenmc.api.HologramBuilder.HologramBuilder;
 
 public class HologramManager
 {

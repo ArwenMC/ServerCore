@@ -1,8 +1,8 @@
-package io.github.Arwen.api.HologramBuilder;
+package com.arwenmc.api.HologramBuilder;
 
 import com.google.common.collect.Lists;
-import io.github.Arwen.api.EntityBuilder.EntityBuilder;
-import io.github.Arwen.api.FileBuilder.FileBuilder;
+import com.arwenmc.api.FileBuilder.FileBuilder;
+import com.arwenmc.api.EntityBuilder.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

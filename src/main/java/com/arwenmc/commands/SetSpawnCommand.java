@@ -1,6 +1,6 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
+import com.arwenmc.ServerCore;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 public class SetSpawnCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public SetSpawnCommand(Main instance) {
+    public SetSpawnCommand(ServerCore instance) {
         plugin = instance;
     }
 

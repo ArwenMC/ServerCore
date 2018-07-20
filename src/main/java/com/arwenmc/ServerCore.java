@@ -1,16 +1,19 @@
 package com.arwenmc;
 
-import com.arwenmc.commands.FlyCommand;
-import com.arwenmc.commands.GamemodeCommand;
-import com.arwenmc.commands.HelpCommand;
+import com.arwenmc.commands.*;
 import com.arwenmc.events.FirstPlayerJoin;
 import com.arwenmc.events.PlayerDisconect;
+import com.arwenmc.events.PlayerJoin;
 import com.mongodb.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Listener;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ServerCore extends JavaPlugin implements Listener {
 

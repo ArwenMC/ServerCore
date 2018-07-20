@@ -2,6 +2,7 @@ package com.arwenmc.events;
 
 import com.arwenmc.api.ActionBar;
 import com.arwenmc.ServerCore;
+import com.arwenmc.api.Title;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

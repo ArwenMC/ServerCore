@@ -1,8 +1,7 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.EntityBuilder.EntityBuilder;
-import io.github.Arwen.api.ItemBuilder.BannerBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.ItemBuilder.BannerBuilder;
 import org.bukkit.DyeColor;
 import org.bukkit.block.banner.PatternType;
 import org.bukkit.command.Command;
@@ -15,9 +14,9 @@ import org.bukkit.inventory.ItemStack;
 
 public class BannerBuildCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public BannerBuildCommand(Main instance) {
+    public BannerBuildCommand(ServerCore instance) {
         plugin = instance;
     }
 

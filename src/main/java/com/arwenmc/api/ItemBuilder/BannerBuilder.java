@@ -1,4 +1,4 @@
-package io.github.Arwen.api.ItemBuilder;
+package com.arwenmc.api.ItemBuilder;
 
 import org.bukkit.DyeColor;
 import org.bukkit.Material;

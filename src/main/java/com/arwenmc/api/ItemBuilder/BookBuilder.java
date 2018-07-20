@@ -1,4 +1,4 @@
-package io.github.Arwen.api.ItemBuilder;
+package com.arwenmc.api.ItemBuilder;
 
 import java.util.List;
 import org.bukkit.Material;
