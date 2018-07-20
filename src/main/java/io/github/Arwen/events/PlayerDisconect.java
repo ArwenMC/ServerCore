@@ -2,6 +2,7 @@ package io.github.Arwen.events;
 
 import io.github.Arwen.Main;
 import io.github.Arwen.commands.FlyCommand;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,6 +20,8 @@ public class PlayerDisconect implements Listener {
     public void onPlayerDisconect(PlayerQuitEvent event) {
 
         Player player = event.getPlayer();
+
+        player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 
         if (!FlyCommand.flymode.contains(player)) {
             FlyCommand.flymode.remove(player);

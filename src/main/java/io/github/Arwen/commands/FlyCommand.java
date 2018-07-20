@@ -1,6 +1,7 @@
 package io.github.Arwen.commands;
 
 import io.github.Arwen.Main;
+import io.github.Arwen.api.CoolDown.Cooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -21,6 +22,7 @@ public class FlyCommand implements CommandExecutor {
     }
 
     public static ArrayList<Player> flymode = new ArrayList();
+
 
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (!(sender instanceof Player)) {

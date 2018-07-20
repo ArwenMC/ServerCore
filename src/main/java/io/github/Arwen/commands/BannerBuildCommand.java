@@ -29,13 +29,15 @@ public class BannerBuildCommand implements CommandExecutor {
 
         Player player = (Player) sender;
         if ((!(sender instanceof Player)) || (
-                (cmd.getName().equalsIgnoreCase("bannerbuilder"))))
+                (cmd.getName().equalsIgnoreCase("bannerbuild"))))
 
         {
             ItemStack itemstack = new BannerBuilder(1)
                     .setBaseColor(DyeColor.WHITE)
                     .addPattern(DyeColor.RED, PatternType.CIRCLE_MIDDLE)
                     .build();
+
+            player.getInventory().addItem(new ItemStack(itemstack));
 
         }
 

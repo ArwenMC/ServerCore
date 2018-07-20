@@ -5,6 +5,13 @@ MySQL:
   Username: "test"
   Password: "test"
 
+Spawn:
+  #Do you want an explosion sound effect to play when a player spawns?
+  Explosion_Sound_On_Spawn: true
+  Message: "SPawn!"
+  Set_Spawn_Message: "Gg xd"
+
+
 #These Messages are the "Main" Server Messages
 Messages:
   Prefix: "&7[&5Arwen&7] "

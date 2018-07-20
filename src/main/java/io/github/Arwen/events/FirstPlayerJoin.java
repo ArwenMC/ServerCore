@@ -4,6 +4,7 @@ import io.github.Arwen.Main;
 import io.github.Arwen.api.ActionBar;
 import io.github.Arwen.api.ScoreboardBuilder.ScoreboardBuilder;
 import io.github.Arwen.api.Title;
+//import io.github.Arwen.database.MongoDB;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,6 +33,7 @@ public class FirstPlayerJoin implements Listener {
             ActionBar.send(player, plugin.actionbarwelcome);
             player.sendMessage(plugin.welcome);
             Welcome.send(player);
+
         } else {
 
             if (player.hasPlayedBefore()) {

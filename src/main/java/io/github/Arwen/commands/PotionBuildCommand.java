@@ -29,14 +29,17 @@ public class PotionBuildCommand implements CommandExecutor {
 
         Player player = (Player) sender;
         if ((!(sender instanceof Player)) || (
-                (cmd.getName().equalsIgnoreCase("potionspawn"))))
+                (cmd.getName().equalsIgnoreCase("potionbuild"))))
 
         {
             ItemStack itemstack = new PotionBuilder(Material.POTION, 1)
                     .addCustomEffect(PotionEffectType.REGENERATION, 200, 0)
                     .setColor(Color.RED)
                     .build();
+
+            player.getInventory().addItem(new ItemStack(itemstack));
         }
+
 
         return true;
     }

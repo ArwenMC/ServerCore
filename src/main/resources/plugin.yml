@@ -27,15 +27,18 @@ commands:
   EntitySpawn:
     usuage: /EntitySpawn
     description: A test command to check if the API is working
-  BannerBuilder:
-    usuage: /BannerBuilder
+  BannerBuild:
+    usuage: /BannerBuild
     description: A test command to check if the API is working
-  PotionSpawn:
-    usuage: /Potionspawn
+  Potionbuild:
+    usuage: /Potionbuild
     description: A test command to check if the API is working
-  EggSpawn:
-    usuage: /EggSpawn
+  SpawnEgg:
+    usuage: /spawnegg
     description: A test command to check if the API is working
   FireworkSpawn:
     usuage: /FireworkSpawn
+    description: A test command to check if the API is working
+  Skull:
+    usuage: /Skull
     description: A test command to check if the API is working
