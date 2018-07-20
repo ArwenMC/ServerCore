@@ -102,7 +102,7 @@ public class ServerCore extends JavaPlugin implements Listener {
         getCommand("bannerbuild").setExecutor(new BannerBuildCommand(this));
         getCommand("potionbuild").setExecutor(new PotionBuildCommand(this));
         getCommand("spawnegg").setExecutor(new SpawnEggCommand(this));
-        getCommand("fireworkspawn").setExecutor(new FireworkCommand(this));
+        getCommand("firework").setExecutor(new FireworkCommand(this));
         getCommand("skull").setExecutor(new SkullCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         getServer().getPluginManager().registerEvents(new PlayerDisconect(this), this);

@@ -36,9 +36,10 @@ commands:
   spawnegg:
     usuage: /spawnegg
     description: A test command to check if the API is working
-  fireworkspawn:
-    usuage: /fireworkspawn
+  firework:
+    usuage: /firework
     description: A test command to check if the API is working
+    aliases: [fw, fireworkspawn]
   skull:
     usuage: /skull
     description: A test command to check if the API is working
