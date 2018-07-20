@@ -1,7 +1,44 @@
-package io.github.Arwen.database;
+package com.arwenmc.database;
 
-import com.mongodb.*;
-import io.github.Arwen.Main;
+import com.arwenmc.ServerCore;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+
+import java.io.IOException;
+
+public class MongoDB {
+
+    ServerCore plugin;
+
+    public MongoDB(ServerCore instance, String ip, int port, ) {
+        plugin = instance;
+
+        this.ip = ip;
+        this.port = port;
+    }
+
+    public MongoDB(ServerCore instance, String ip) {
+        plugin = instance;
+
+        this.ip = ip;
+        this.port = 27017; // MongoDB default port.
+    }
+
+    private String ip;
+    private int port;
+    private String database
+
+    private DBCollection players;
+    private DB database;
+    private MongoClient client;
+
+    public void connect() throws IOException {
+        client = new MongoClient(this.ip, this.port);
+        // database = client.getDB("severcore");
+    }
+
+}
 
 /*
 
