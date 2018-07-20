@@ -13,7 +13,6 @@ public class PlayerMuteChatEvent implements Listener {
     ServerCore plugin;
     public PlayerMuteChatEvent(ServerCore instance) {
         plugin = instance;
-        plugin.getServer().getPluginManager().registerEvents(this, plugin); // registered listener
     }
 
     @EventHandler

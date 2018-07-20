@@ -4,6 +4,7 @@ import com.arwenmc.commands.*;
 import com.arwenmc.events.FirstPlayerJoin;
 import com.arwenmc.events.PlayerDisconect;
 import com.arwenmc.events.PlayerJoin;
+import com.arwenmc.events.PlayerMuteChatEvent;
 import com.mongodb.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -60,7 +61,6 @@ public class ServerCore extends JavaPlugin implements Listener {
     public String username = this.getConfig().getString("MySQL.Username");
     public String password = this.getConfig().getString("MySQL.Password");
 
-
     public Permission staffFly = new Permission("core.fly");
     public Permission Admin = new Permission("core.admin");
 
@@ -91,7 +91,7 @@ public class ServerCore extends JavaPlugin implements Listener {
 
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
-
+        getServer().getPluginManager().registerEvents(new PlayerMuteChatEvent(this), this);
 
         getCommand("fly").setExecutor(new FlyCommand(this));
         getCommand("gamemode").setExecutor(new GamemodeCommand(this));
