@@ -15,30 +15,30 @@ commands:
     aliases: [?]
     usuage: /help
     description: Command Which Helps Players!
-  MuteChat:
+  mutechat:
     usuage: /MuteChat
     description: Stop Players from chating!
-  Spawn:
+  spawn:
     usuage: /Spawn
     description: Teleports Players to spawn!
-  SetSpawn:
+  setspawn:
     usuage: /SetSpawn
     description: Sets the world spawn!
-  EntitySpawn:
+  entityspawn:
     usuage: /EntitySpawn
     description: A test command to check if the API is working
-  BannerBuild:
+  bannerbuild:
     usuage: /BannerBuild
     description: A test command to check if the API is working
-  Potionbuild:
+  potionbuild:
     usuage: /Potionbuild
     description: A test command to check if the API is working
-  SpawnEgg:
+  spawnegg:
     usuage: /spawnegg
     description: A test command to check if the API is working
-  FireworkSpawn:
+  fireworkspawn:
     usuage: /FireworkSpawn
     description: A test command to check if the API is working
-  Skull:
+  skull:
     usuage: /Skull
     description: A test command to check if the API is working
