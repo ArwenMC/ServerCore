@@ -52,6 +52,7 @@ public class ServerCore extends JavaPlugin implements Listener {
     public String actionbar2 = getConfig().getString("Gamemode.GM2_ActionBar").replace('&', '§');
     public String actionbar3 = getConfig().getString("Gamemode.GM3_ActionBar").replace('&', '§');
 
+    public boolean chatMuted;
 
     public String host = this.getConfig().getString("MySQL.Host");
     public int port = this.getConfig().getInt("MySQL.Port");
