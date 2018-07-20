@@ -1,4 +1,4 @@
-package io.github.Arwen.api.VillagerTradeBuilder;
+package com.arwenmc.api.VillagerTradeBuilder;
 
 import java.util.ArrayList;
 import org.bukkit.Bukkit;

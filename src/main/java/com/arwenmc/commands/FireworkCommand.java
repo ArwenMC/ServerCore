@@ -1,8 +1,7 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.FireworkBuilder.FireworkBuilder;
-import io.github.Arwen.api.ItemBuilder.SpawnEggBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.FireworkBuilder.FireworkBuilder;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.command.Command;
@@ -14,9 +13,9 @@ import org.bukkit.inventory.ItemStack;
 
 public class FireworkCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public FireworkCommand(Main instance) {
+    public FireworkCommand(ServerCore instance) {
         plugin = instance;
     }
 

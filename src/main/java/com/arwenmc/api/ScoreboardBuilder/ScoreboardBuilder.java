@@ -1,4 +1,4 @@
-package io.github.Arwen.api.ScoreboardBuilder;
+package com.arwenmc.api.ScoreboardBuilder;
 
 import com.google.common.collect.Lists;
 import java.util.List;

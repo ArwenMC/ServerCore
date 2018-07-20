@@ -1,8 +1,8 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.EntityBuilder.EntityBuilder;
-import io.github.Arwen.api.VillagerTradeBuilder.VillagerTradeBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.EntityBuilder.EntityBuilder;
+import com.arwenmc.api.VillagerTradeBuilder.VillagerTradeBuilder;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,9 +15,9 @@ import org.bukkit.inventory.ItemStack;
 
 public class EntitySpawnCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public EntitySpawnCommand(Main instance) {
+    public EntitySpawnCommand(ServerCore instance) {
         plugin = instance;
     }
 

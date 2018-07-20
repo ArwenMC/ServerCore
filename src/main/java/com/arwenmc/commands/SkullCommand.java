@@ -1,9 +1,9 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.ActionBar;
-import io.github.Arwen.api.ItemBuilder.SkullBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.ItemBuilder.SkullBuilder;
 import org.bukkit.GameMode;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,9 +14,9 @@ import java.util.List;
 
 public class SkullCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public SkullCommand(Main instance) {
+    public SkullCommand(ServerCore instance) {
         plugin = instance;
     }
 
@@ -27,7 +27,7 @@ public class SkullCommand implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("skull")) {
             if (player.hasPermission(plugin.Admin)) {
                 if (args.length == 0) {
-                    List<String> message = plugin.getConfig().getStringList("Gamemode.Usage");
+                    List<String> message = plugin.getConfig().getStringList("");
                     for (String msg : message) {
                         msg =
                                 msg.replace('&', '§');

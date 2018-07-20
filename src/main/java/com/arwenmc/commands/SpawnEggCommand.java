@@ -1,8 +1,7 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
-import io.github.Arwen.api.ItemBuilder.PotionBuilder;
-import io.github.Arwen.api.ItemBuilder.SpawnEggBuilder;
+import com.arwenmc.ServerCore;
+import com.arwenmc.api.ItemBuilder.SpawnEggBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -15,9 +14,9 @@ import org.bukkit.potion.PotionEffectType;
 
 public class SpawnEggCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public SpawnEggCommand(Main instance) {
+    public SpawnEggCommand(ServerCore instance) {
         plugin = instance;
     }
 

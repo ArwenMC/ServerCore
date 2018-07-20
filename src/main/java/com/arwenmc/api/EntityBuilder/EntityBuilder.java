@@ -1,4 +1,4 @@
-package io.github.Arwen.api.EntityBuilder;
+package com.arwenmc.api.EntityBuilder;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

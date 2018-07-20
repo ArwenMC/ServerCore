@@ -1,6 +1,6 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
+import com.arwenmc.ServerCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -13,9 +13,9 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class SpawnCommand implements CommandExecutor {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public SpawnCommand(Main instance) {
+    public SpawnCommand(ServerCore instance) {
         plugin = instance;
     }
 

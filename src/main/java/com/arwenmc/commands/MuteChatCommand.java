@@ -1,6 +1,6 @@
-package io.github.Arwen.commands;
+package com.arwenmc.commands;
 
-import io.github.Arwen.Main;
+import com.arwenmc.ServerCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -17,9 +17,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class MuteChatCommand implements CommandExecutor, Listener {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public MuteChatCommand(Main instance) {
+    public MuteChatCommand(ServerCore instance) {
         plugin = instance;
     }
 
