@@ -20,6 +20,8 @@ public class PlayerDisconect implements Listener {
 
         Player player = event.getPlayer();
 
+        player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+
         if (!FlyCommand.flymode.contains(player)) {
             FlyCommand.flymode.remove(player);
             player.setFlying(false);

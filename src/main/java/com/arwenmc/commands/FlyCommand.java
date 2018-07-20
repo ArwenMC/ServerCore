@@ -18,9 +18,10 @@ public class FlyCommand implements CommandExecutor {
 
     public static ArrayList<Player> flymode = new ArrayList();
 
+
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (!(sender instanceof Player)) {
-
+            sender.sendMessage(plugin.notPlayer);
             return true;
         }
         Player p = (Player) sender;

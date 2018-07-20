@@ -6,6 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scoreboard.Scoreboard;
+
+import java.util.Arrays;
 
 public class FirstPlayerJoin implements Listener {
 
@@ -18,11 +21,15 @@ public class FirstPlayerJoin implements Listener {
     @EventHandler
     public void onFirstPlayerJoinEvent(PlayerJoinEvent event) {
 
+        Title Welcome = new Title(plugin.actionbarwelcome, "", 1, 100, 2);
+
         Player player = event.getPlayer();
 
         if (!player.hasPlayedBefore()) {
             ActionBar.send(player, plugin.actionbarwelcome);
             player.sendMessage(plugin.welcome);
+            Welcome.send(player);
+
         } else {
 
             if (player.hasPlayedBefore()) {

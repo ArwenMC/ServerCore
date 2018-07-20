@@ -1,3 +1,18 @@
+MySQL:
+  Host: "192.168.2.0"
+  Port: 3306
+  Database: "test"
+  Username: "test"
+  Password: "test"
+
+Spawn:
+  #Do you want an explosion sound effect to play when a player spawns?
+  Explosion_Sound_On_Spawn: true
+  Message: "SPawn!"
+  Set_Spawn_Message: "Gg xd"
+
+
+#These Messages are the "Main" Server Messages
 Messages:
   Prefix: "&7[&5Arwen&7] "
   PlayerOffline: "&cPlayer is not online!"
@@ -11,12 +26,16 @@ Messages:
   Welcome: '&aWelcome to ArwenMC!'
   Welcome_Back: '&aWelcome Back to ArwenMC!'
 
+
+#These Messages are for the /help Command
 Help:
   Message:
       - '&aIf you Need Help'
       - '&aContact A Staff!'
 
 
+
+#These Messages are for the /gamemode Command
 Gamemode:
     GM0: '&7Your gamemode is now &csurvival'
     GM1: '&7Your gamemode is now &acreative'
@@ -32,3 +51,11 @@ Gamemode:
     GM2_ActionBar: '&7Your gamemode is now &4adventure'
     GM3_ActionBar: '&7Your gamemode is now &6spectator'
 
+
+MuteChat:
+   ChatMuted: "Chat is Muted!"
+   ChatNotMuted: "Chat is not muted!"
+   ChatUnMuted: "Chat is Unmuted!"
+   ChatAlreadyMuted: "Chat is already muted"
+   NeedArg: "Missing Arguments"
+   UnknownArg: "Unknown Argument"
