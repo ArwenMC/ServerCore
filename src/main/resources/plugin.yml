@@ -1,7 +1,7 @@
 name: Server-Core
 version: 0.1
 author: ArwenMC
-authors: ["Alexander Milanovich"]
+authors: ["Alexander Milanovich", "Christopher Nethercott"]
 main: com.arwenmc.ServerCore
 commands:
   fly:
