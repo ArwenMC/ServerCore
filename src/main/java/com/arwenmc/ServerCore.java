@@ -12,7 +12,6 @@ public class ServerCore extends JavaPlugin {
     public String NO_PERMISSION = colour(config.getString("general.no_permission"));
     public String MISSING_ARGUMENT = colour(config.getString("general.missing_argument"));
     public String UNKOWN_ARGUMENT = colour(config.getString("general.unknown_argument"));
-    public String PREFIX = colour(config.getSTr)
 
     @Override
     public void onEnable() {}
