@@ -1,7 +1,7 @@
-package io.github.Arwen.database;
+package com.arwenmc.database;
 
 import com.mongodb.*;
-import io.github.Arwen.Main;
+import com.arwenmc.ServerCore;
 
 /*
 
