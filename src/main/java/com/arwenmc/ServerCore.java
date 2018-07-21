@@ -1,12 +1,12 @@
 package com.arwenmc;
 
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ServerCore extends JavaPlugin {
-    
+
+    // General Config Values
     public String NOT_PLAYER = GAC("general.not_player");
     public String NO_PERMISSION = GAC("general.no_permission");
     public String MISSING_ARGUMENT = GAC("general.missing_argument");
@@ -14,8 +14,14 @@ public class ServerCore extends JavaPlugin {
     public String PREFIX = GAC("general.prefix");
     public String PLAYER_OFFLINE = GAC("general.player_offline");
 
+    // Custom Permission System.
     public Permission ADMIN_PERMISSION = new Permission(getConfig().getString("general.admin_permission"));
     public Permission PLAYER_PERMISSION = new Permission(getConfig().getString("general.player_permission"));
+
+    // Fly Config Values
+    public boolean FLY_ENABLE = getConfig().getBoolean("features.fly.fly_enable");
+    public String FLY_ENABLED = GAC("features.fly.fly_enabled");
+    public String FLY_DISABLED = GAC("features.fly.fly_disabled");
 
     @Override
     public void onEnable() {}
