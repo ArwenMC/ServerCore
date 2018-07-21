@@ -7,6 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ServerCore extends JavaPlugin {
 
     // General Config Values
@@ -31,6 +34,16 @@ public class ServerCore extends JavaPlugin {
     public boolean WELCOME_BACK_MESSAGE = getConfig().getBoolean("features.welcome.welcome_back_messages");
     public boolean WELCOME_ENABLE_ACTIONBAR = getConfig().getBoolean("features.welcome.welcome_actionbar_messages");
     public String WELCOME_ACTIONBAR_MESSAGE = GAC("features.welcome.");*/
+
+    // Chat Config Values
+    public boolean MUTECHAT_ENABLED = getConfig().getBoolean("features.chat.mutechat_enabled");
+    public boolean isChatMuted;
+    public String CHAT_NOW_MUTED = GAC("features.chat.chat_now_muted");
+    public String CHAT_NOW_UNMUTED = GAC("features.chat.chat_now_unmuted");
+
+    // Help
+    public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
+    
 
     @Override
     public void onEnable() {
