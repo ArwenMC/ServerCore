@@ -1,23 +1,22 @@
 package com.arwenmc.database;
 
+import com.arwenmc.api.Title;
 import com.mongodb.*;
 import com.arwenmc.ServerCore;
-
-/*
 
 import java.net.UnknownHostException;
 import java.util.UUID;
 
 public class MongoDB {
 
-    Main plugin;
+    ServerCore plugin;
 
-    public MongoDB(Main instance) {
+    public MongoDB(ServerCore instance) {
         plugin = instance;
     }
 
     private DBCollection players;
-    private DB mcserverdb;
+    private DB Main;
     private MongoClient client;
 
 
@@ -25,25 +24,34 @@ public class MongoDB {
         //Connect to the specified ip and port
         //Default is localhost, 27017
         client = new MongoClient(ip, port);
-        //Get the database called "mcserver"
+        //Get the database called "Main"
         //If it does not exist it will be created automatically
         //once you save something in it
-        mcserverdb = client.getDB("mcserver");
+        Main = client.getDB("Main");
         //Get the collection called "players" in the database "mcserver"
         //Equivalent to the table in MySQL, you can store objects in here
-        players = mcserverdb.getCollection("players");
+        players = Main.getCollection("players");
         return true;
     }
 
-    public void storePlayer(UUID uuid, String name, long tokens, String rank){
-        //Lets store our first player!
+
+    /**
+     * Explanation for storePlayer
+     *
+     * @param uuid  Used to make sure player data is saved even in the event of name change.
+     * @param name Adds verficiation to the uuid
+     * @param rank   Rank will be pulled from either internal permission system or external.
+     * @param pkills Counts how many kills the player has gotten (Named pkills incase we add mobkills)
+     */
+
+    public void storePlayer(UUID uuid, String name, String rank, int pkills){
         //This player has never played before and we just want to create a object for him
         DBObject obj = new BasicDBObject("uuid", uuid);
         obj.put("name", name);
-        obj.put("tokens", tokens);
         obj.put("rank", rank);
-        //Lets insert it in our collection:
+        obj.put("Player Kills", pkills);
+
+        //Inserts Player Into Collection
         players.insert(obj);
     }
 }
-*/
