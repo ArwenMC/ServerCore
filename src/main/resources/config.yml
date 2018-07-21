@@ -23,7 +23,7 @@ features:
   welcome:
     welcome_enable: true
     welcome_back_messages: true # Send any welcome back messages.
-    welcome_back_actionbar_enable: false # Send any actionbar messages
+    welcome_actionbar_messages: false # Send any actionbar messages
     actionbar_welcome: "&aWelcome to ArwenMC!"
     actionbar_welcome_back: "&aWelcome back to ArwenMC!"
     welcome_broadcast_server_message: false # Should we broadcast a message to the server when a player comes back.
