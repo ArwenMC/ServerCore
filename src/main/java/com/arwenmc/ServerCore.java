@@ -1,6 +1,9 @@
 package com.arwenmc;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,8 +26,21 @@ public class ServerCore extends JavaPlugin {
     public String FLY_ENABLED = GAC("features.fly.fly_enabled");
     public String FLY_DISABLED = GAC("features.fly.fly_disabled");
 
+    // Welcome Config Values
+    public boolean WELCOME_ENABLE = getConfig().getBoolean("features.welcome_welcome_enable");
+
     @Override
-    public void onEnable() {}
+    public void onEnable() {
+        getCommand("help").setExecutor(new CommandExecutor() {
+            @Override
+            public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+                for (String message : getConfig().getStringList("features.help.messages")) {
+                    commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                }
+                return true;
+            }
+        });
+    }
 
     @Override
     public void onDisable() {}
