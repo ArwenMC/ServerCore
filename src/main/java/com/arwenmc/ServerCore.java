@@ -29,7 +29,7 @@ public class ServerCore extends JavaPlugin {
     // Welcome Config Values
     public boolean WELCOME_ENABLE = getConfig().getBoolean("features.welcome.welcome_enable");
     public boolean WELCOME_BACK_MESSAGE = getConfig().getBoolean("features.welcome.welcome_back_messages");
-    public boolean WELCOME_ACTIONBAR_MESSAGE = getConfig().getBoolean("features.welcome.welcome_actionbar_messages");
+    public boolean WELCOME_ENABLE_ACTIONBAR = getConfig().getBoolean("features.welcome.welcome_actionbar_messages");
     public String WELCOME_ACTIONBAR_MESSAGE = ;
 
     @Override
