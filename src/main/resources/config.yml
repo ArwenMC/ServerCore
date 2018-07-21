@@ -41,3 +41,8 @@ features:
     chat_muted: "&cChat is muted." # Triggered if some tries to talk while chat is muted.
     chat_now_muted: "&cChat muted is now turned on."
     chat_now_unmuted: "&aChat muted is now turend off."
+  help:
+    help_enable: true
+    messages:
+      - "&aHelp is always there if you need it."
+      - "&aContact a member of Staff."
