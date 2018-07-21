@@ -6,9 +6,7 @@ import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ServerCore extends JavaPlugin {
-
-    private FileConfiguration config = this.getConfig();
-
+    
     public String NOT_PLAYER = GAC("general.not_player");
     public String NO_PERMISSION = GAC("general.no_permission");
     public String MISSING_ARGUMENT = GAC("general.missing_argument");
@@ -18,8 +16,6 @@ public class ServerCore extends JavaPlugin {
 
     public Permission ADMIN_PERMISSION = new Permission(getConfig().getString("general.admin_permission"));
     public Permission PLAYER_PERMISSION = new Permission(getConfig().getString("general.player_permission"));
-
-    
 
     @Override
     public void onEnable() {}
