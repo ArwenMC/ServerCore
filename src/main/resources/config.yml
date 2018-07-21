@@ -36,3 +36,6 @@ features:
     gm_4: "&7Your gamemode is now &6spectator"
     gamemode_actionbar_enable: true # Enable the sending of actionbar messages when the user changes gamemode.
     gamemode_actionbar_same_messages: true # Use the same messages for both the actionbar and chat.
+  mutechat:
+    mutechat_enable: true
+    chat_muted: "&cChat is muted." # Triggered if some tries to talk while chat is muted.
