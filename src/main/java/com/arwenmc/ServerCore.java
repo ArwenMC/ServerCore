@@ -11,7 +11,7 @@ public class ServerCore extends JavaPlugin {
     public String NOT_PLAYER = GAC("general.not_player");
     public String NO_PERMISSION = GAC("general.no_permission");
     public String MISSING_ARGUMENT = GAC("general.missing_argument");
-    public String UNKOWN_ARGUMENT = GAC("general.unknown_argument");
+    public String UNKNOWN_ARGUMENT = GAC("general.unknown_argument");
 
     @Override
     public void onEnable() {}
