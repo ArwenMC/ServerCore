@@ -43,7 +43,13 @@ public class ServerCore extends JavaPlugin {
 
     // Help
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
-    
+    public List<String> HELP_MESSAGES() {
+        List<String> temp = new ArrayList<String>;
+        for(String s : getConfig().getStringList("features.help.messages")) {
+            temp.add(ChatColor.translateAlternateColorCodes('&', s));
+        }
+        return temp;
+    }
 
     @Override
     public void onEnable() {
