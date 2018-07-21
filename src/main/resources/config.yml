@@ -26,3 +26,10 @@ features:
     actionbar_welcome_back: "&aWelcome back to ArwenMC!"
     welcome_broadcast_message: "&aEveryone please welcome {Player} to the Server!"
     welcome_back_broadcast_message: "&aWelcome back {Player} to the Server"
+  gamemode:
+    gamemode_enable: false
+    gamemode_log: console # Log changes to either console or database or false
+    gm_0: "&7Your gamemode is now &csurvival"
+    gm_1: "&7Your gamemode is now &acreative"
+    gm_3: "&7Your gamemode is now &4adventure"
+    gm_4: "&7Your gamemode is now &6spectator"
