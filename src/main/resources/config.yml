@@ -9,3 +9,20 @@ database:
 general:
   not_player: "&cYou must be a player in order to use this command."
   no_permission: "&cYou do not have permission to use this command."
+  missing_argument: "&cYou are missing an argument. Please check the usage."
+  unkown_argument: "&cThe argument you provided is unknown. Please check the usage."
+  preifx: "&7[&5Arwen&7] "
+  player_offline: "&cThe player specified is not online."
+features:
+  fly:
+    fly_enable: true
+    fly_enabled: "&aYour flight mode has been enabled."
+    fly_disabled: "&cYour flight mode has been disabled."
+  welcome:
+    welcome_enable: true
+    welcome_broadcast_message: false # Should we broadcast a message to the server when a player comes back.
+    welcome_back_messages: true
+    actionbar_welcome: "&aWelcome to ArwenMC!"
+    actionbar_welcome_back: "&aWelcome back to ArwenMC!"
+    welcome_broadcast_message: "&aEveryone please welcome {Player} to the Server!"
+    welcome_back_broadcast_message: "&aWelcome back {Player} to the Server"
