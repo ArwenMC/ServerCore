@@ -20,10 +20,11 @@ features:
     fly_disabled: "&cYour flight mode has been disabled."
   welcome:
     welcome_enable: true
-    welcome_broadcast_message: false # Should we broadcast a message to the server when a player comes back.
-    welcome_back_messages: true
+    welcome_back_messages: true # Send any welcome back messages.
+    welcome_back_actionbar_enable: false # Send any actionbar messages
     actionbar_welcome: "&aWelcome to ArwenMC!"
     actionbar_welcome_back: "&aWelcome back to ArwenMC!"
+    welcome_broadcast_message: false # Should we broadcast a message to the server when a player comes back.
     welcome_broadcast_message: "&aEveryone please welcome {Player} to the Server!"
     welcome_back_broadcast_message: "&aWelcome back {Player} to the Server"
   gamemode:
@@ -33,3 +34,5 @@ features:
     gm_1: "&7Your gamemode is now &acreative"
     gm_3: "&7Your gamemode is now &4adventure"
     gm_4: "&7Your gamemode is now &6spectator"
+    gamemode_actionbar_enable: true # Enable the sending of actionbar messages when the user changes gamemode.
+    gamemode_actionbar_same_messages: true # Use the same messages for both the actionbar and chat.
