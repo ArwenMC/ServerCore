@@ -16,7 +16,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ServerCore extends JavaPlugin implements Listener {
+@Deprecated
+public class ServerCore_Old extends JavaPlugin implements Listener {
 
 
     static Connection connection;
