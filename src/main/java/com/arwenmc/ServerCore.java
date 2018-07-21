@@ -27,10 +27,10 @@ public class ServerCore extends JavaPlugin {
     public String FLY_DISABLED = GAC("features.fly.fly_disabled");
 
     // Welcome Config Values
-    public boolean WELCOME_ENABLE = getConfig().getBoolean("features.welcome.welcome_enable");
+/*    public boolean WELCOME_ENABLE = getConfig().getBoolean("features.welcome.welcome_enable");
     public boolean WELCOME_BACK_MESSAGE = getConfig().getBoolean("features.welcome.welcome_back_messages");
     public boolean WELCOME_ENABLE_ACTIONBAR = getConfig().getBoolean("features.welcome.welcome_actionbar_messages");
-    public String WELCOME_ACTIONBAR_MESSAGE = ;
+    public String WELCOME_ACTIONBAR_MESSAGE = GAC("features.welcome.");*/
 
     @Override
     public void onEnable() {
