@@ -26,7 +26,7 @@ features:
     welcome_back_actionbar_enable: false # Send any actionbar messages
     actionbar_welcome: "&aWelcome to ArwenMC!"
     actionbar_welcome_back: "&aWelcome back to ArwenMC!"
-    welcome_broadcast_message: false # Should we broadcast a message to the server when a player comes back.
+    welcome_broadcast_server_message: false # Should we broadcast a message to the server when a player comes back.
     welcome_broadcast_message: "&aEveryone please welcome {Player} to the Server!"
     welcome_back_broadcast_message: "&aWelcome back {Player} to the Server"
   gamemode:
