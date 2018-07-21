@@ -1,4 +1,13 @@
 package com.arwenmc;
 
-public class ServerCore {
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class ServerCore extends JavaPlugin {
+
+    @Override
+    public void onEnable() {}
+
+    @Override
+    public void onDisable() {}
+
 }
