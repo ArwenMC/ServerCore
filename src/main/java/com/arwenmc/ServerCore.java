@@ -27,7 +27,7 @@ public class ServerCore extends JavaPlugin {
     public String FLY_DISABLED = GAC("features.fly.fly_disabled");
 
     // Welcome Config Values
-    public boolean WELCOME_ENABLE = getConfig().getBoolean("features.welcome_welcome_enable");
+    public boolean WELCOME_ENABLE = getConfig().getBoolean("features.welcome.welcome_enable");
 
     @Override
     public void onEnable() {
