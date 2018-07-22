@@ -2,7 +2,7 @@ package com.arwenmc.api.util;
 
 import org.bukkit.Bukkit;
 
-enum ServerPackage {
+public enum ServerPackage {
 
     MINECRAFT("net.minecraft.server." + getServerVersion()),
     CRAFTBUKKIT("org.bukkit.craftbukkit." + getServerVersion());

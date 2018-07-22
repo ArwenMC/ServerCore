@@ -1,4 +1,4 @@
-package com.arwenmc.api;
+package com.arwenmc.Inventory;
 import com.arwenmc.api.util.ServerPackage;
 import com.google.common.base.Preconditions;
 import org.bukkit.Bukkit;
