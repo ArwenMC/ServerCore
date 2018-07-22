@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +21,7 @@ public class ServerCore extends JavaPlugin {
     public String UNKNOWN_ARGUMENT = GAC("general.unknown_argument");
     public String PREFIX = GAC("general.prefix");
     public String PLAYER_OFFLINE = GAC("general.player_offline");
-    public String COMMAND_DISABLED = GAC("general")
+    public String COMMAND_DISABLED = GAC("general");
 
     // Custom Permission System.
     public Permission ADMIN_PERMISSION = new Permission(getConfig().getString("general.admin_permission"));
@@ -50,7 +51,17 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("help").setExecutor(new HelpCommand(this));
-        
+        getCommand("test").setTabCompleter(new TabExecutor() {
+            @Override
+            public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+                return false;
+            }
+
+            @Override
+            public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+                return null;
+            }
+        });
     }
 
     @Override
