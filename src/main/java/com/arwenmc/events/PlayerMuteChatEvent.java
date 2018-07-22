@@ -17,7 +17,7 @@ public class PlayerMuteChatEvent implements Listener {
 
     @EventHandler
     public void onPlayerMuteChatEvent(AsyncPlayerChatEvent event) {
-        if (plugin.chatMuted) {
+        if (plugin.isChatMuted) {
             event.setCancelled(true);
             Player player = event.getPlayer();
             player.sendMessage(ChatColor.RED + "The chat is currently muted, further attempts to talk with result in a punishment.");

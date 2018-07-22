@@ -1,17 +1,16 @@
 package com.arwenmc.database;
 
 import com.arwenmc.ServerCore;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class MongoDB {
 
     ServerCore plugin;
 
-    public MongoDB(ServerCore instance, String ip, int port, ) {
+    public MongoDB(ServerCore instance, String ip, int port) {
         plugin = instance;
 
         this.ip = ip;
@@ -27,10 +26,10 @@ public class MongoDB {
 
     private String ip;
     private int port;
-    private String database
+    private String database;
 
     private DBCollection players;
-    private DB database;
+    private DB db;
     private MongoClient client;
 
     public void connect() throws IOException {
@@ -82,7 +81,7 @@ public class MongoDB {
      * @param pkills Counts how many kills the player has gotten (Named pkills incase we add mobkills)
      */
 
-    public void storePlayer(UUID uuid, String name, String rank, int pkills){
+    /*public void storePlayer(UUID uuid, String name, String rank, int pkills){
         //This player has never played before and we just want to create a object for him
         DBObject obj = new BasicDBObject("uuid", uuid);
         obj.put("name", name);
@@ -92,4 +91,4 @@ public class MongoDB {
         //Inserts Player Into Collection
         players.insert(obj);
     }
-}
+}*/
