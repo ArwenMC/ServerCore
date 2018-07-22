@@ -16,16 +16,12 @@ public class HelpCommand implements CommandExecutor {
         plugin = instance;
     }
     public boolean onCommand(CommandSender sender, Command cmd, String l, String[] args) {
-        Player player = (Player) sender;
-        if (cmd.getName().equalsIgnoreCase("help")) {
-            List<String> message = plugin.getConfig().getStringList("Help.Message");
-            for (String msg : message)
-            {
-                msg =
-                        msg.replace('&', '§');
-                player.sendMessage( msg);
+        if (plugin.HELP_ENABLED) {
+            for (String msg : plugin.HELP_MESSAGES()) {
+                sender.sendMessage(msg);
             }
-        }
-            return false;
+            return true;
+        } else {
+
         }
     }
