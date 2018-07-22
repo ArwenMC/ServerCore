@@ -15,6 +15,7 @@ general:
   player_offline: "&cThe player specified is not online."
   admin_permission: "servercore.admin" # the default permisson node that is used. feel free to change this but make to update your own permission system.
   player_permission: "servercore.player" # ^
+  command_disabled: "&cThat particular command has been disabled"
 features:
   fly:
     fly_enable: true
