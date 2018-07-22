@@ -1,4 +1,4 @@
-package com.arwenmc.api;
+package com.arwenmc.api.util;
 
 import org.bukkit.Bukkit;
 

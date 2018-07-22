@@ -35,7 +35,7 @@ public class BannerBuilder
     public BannerBuilder setBaseColor(DyeColor color)
     {
         this.bm = ((BannerMeta)this.is.getItemMeta());
-        this.bm.setBaseColor(color);
+        this.bm.setBaseColor(color); // why is the deprecated?
         this.is.setItemMeta(this.bm);
         return this;
     }

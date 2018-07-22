@@ -1,4 +1,4 @@
-package com.arwenmc.api.CoolDown;
+package com.arwenmc.api.util;
 
 
 import java.util.HashMap;
