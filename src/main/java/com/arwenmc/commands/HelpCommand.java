@@ -18,7 +18,7 @@ public class HelpCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
         if (plugin.HELP_ENABLED) {
-            for (String msg : plugin.HELP_MESSAGES()) {
+            for (String msg : plugin.HELP_MESSAGES()) { // already coloured in the main class.
                 commandSender.sendMessage(msg);
             }
         } else {
