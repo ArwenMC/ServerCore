@@ -1,5 +1,6 @@
 package com.arwenmc;
 
+import com.arwenmc.commands.HelpCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -48,15 +49,8 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getCommand("help").setExecutor(new CommandExecutor() {
-            @Override
-            public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-                for (String message : getConfig().getStringList("features.help.messages")) {
-                    commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
-                }
-                return true;
-            }
-        });
+        getCommand("help").setExecutor(new HelpCommand(this));
+        
     }
 
     @Override
