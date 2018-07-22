@@ -51,17 +51,6 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("help").setExecutor(new HelpCommand(this));
-        getCommand("test").setTabCompleter(new TabExecutor() {
-            @Override
-            public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-                return false;
-            }
-
-            @Override
-            public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
-                return null;
-            }
-        });
     }
 
     @Override
