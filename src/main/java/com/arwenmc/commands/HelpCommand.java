@@ -15,13 +15,15 @@ public class HelpCommand implements CommandExecutor {
     public HelpCommand(ServerCore instance) {
         plugin = instance;
     }
-    public boolean onCommand(CommandSender sender, Command cmd, String l, String[] args) {
+
+    public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
         if (plugin.HELP_ENABLED) {
             for (String msg : plugin.HELP_MESSAGES()) {
-                sender.sendMessage(msg);
+                commandSender.sendMessage(msg);
             }
-            return true;
         } else {
-
+            commandSender.sendMessage(plugin.COMMAND_DISABLED);
         }
+        return true;
     }
+}
