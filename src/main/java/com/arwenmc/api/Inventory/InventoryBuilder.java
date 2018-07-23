@@ -1,4 +1,4 @@
-package com.arwenmc.Inventory;
+package com.arwenmc.api.Inventory;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

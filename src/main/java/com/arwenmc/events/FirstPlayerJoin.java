@@ -1,8 +1,8 @@
 package com.arwenmc.events;
 
-import com.arwenmc.Inventory.ActionBar;
+import com.arwenmc.api.Inventory.ActionBar;
 import com.arwenmc.ServerCore;
-import com.arwenmc.Inventory.Title;
+import com.arwenmc.api.Inventory.Title;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
