@@ -94,7 +94,7 @@ public class ItemBuilder {
 
             dataOutput.writeObject(this.itemStack);
             dataOutput.close();
-            return Base64Coder.encodeLines(outputStream.toByteArray())
+            return Base64Coder.encodeLines(outputStream.toByteArray());
         } catch (Exception e) {
             throw new IllegalStateException("Unable to save ItemStack", e);
         }
