@@ -22,7 +22,7 @@ public class SpawnEggBuilder
     }
 
     public SpawnEggBuilder(int amount) {
-        super(Material.MONSTER_EGG, amount);
+        super(Material., amount);
     }
 
     public SpawnEggBuilder setSpawnType(EntityType entity) {
