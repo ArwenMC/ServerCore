@@ -1,61 +1,42 @@
-MySQL:
-  Host: "192.168.2.0"
-  Port: 3306
-  Database: "test"
-  Username: "test"
-  Password: "test"
-
-Spawn:
-  #Do you want an explosion sound effect to play when a player spawns?
-  Explosion_Sound_On_Spawn: true
-  Message: "SPawn!"
-  Set_Spawn_Message: "Gg xd"
-
-
-#These Messages are the "Main" Server Messages
-Messages:
-  Prefix: "&7[&5Arwen&7] "
-  PlayerOffline: "&cPlayer is not online!"
-
-  FlyEnabled: '&aYour flight mode is enabled'
-  FlyDisabled: '&cYour flight mode is disabled'
-
-  Actionbar_Welcome: '&aWelcome to ArwenMC!'
-  Actionbar_Welcome_Back: 'Welcome Back to ArwenMC!'
-
-  Welcome: '&aWelcome to ArwenMC!'
-  Welcome_Back: '&aWelcome Back to ArwenMC!'
-
-
-#These Messages are for the /help Command
-Help:
-  Message:
-      - '&aIf you Need Help'
-      - '&aContact A Staff!'
-
-
-
-#These Messages are for the /gamemode Command
-Gamemode:
-    GM0: '&7Your gamemode is now &csurvival'
-    GM1: '&7Your gamemode is now &acreative'
-    GM2: '&7Your gamemode is now &4adventure'
-    GM3: '&7Your gamemode is now &6spectator'
-
-    Usage:
-      - '&7Gamemode usage&8:'
-      - '&a /gamemode [mode] <player>'
-
-    GM0_ActionBar: '&7Your gamemode is now &csurvival'
-    GM1_ActionBar: '&7Your gamemode is now &acreative'
-    GM2_ActionBar: '&7Your gamemode is now &4adventure'
-    GM3_ActionBar: '&7Your gamemode is now &6spectator'
-
-
-MuteChat:
-   ChatMuted: "Chat is Muted!"
-   ChatNotMuted: "Chat is not muted!"
-   ChatUnMuted: "Chat is Unmuted!"
-   ChatAlreadyMuted: "Chat is already muted"
-   NeedArg: "Missing Arguments"
-   UnknownArg: "Unknown Argument"
+# ArwencMC ServerCore Configuration
+database:
+  database_type: mysql # mysql or mongodb
+  host: ""
+  port: 3306 # make sure to change this if you are using MongoDB
+  databse: ""
+  username: ""
+  password: ""
+general:
+  not_player: "&cYou must be a player in order to use this command."
+  no_permission: "&cYou do not have permission to use this command."
+  missing_argument: "&cYou are missing an argument. Please check the usage."
+  unkown_argument: "&cThe argument you provided is unknown. Please check the usage."
+  prefix: "&7[&5Arwen&7] "
+  player_offline: "&cThe player specified is not online."
+  admin_permission: "servercore.admin" # the default permisson node that is used. feel free to change this but make to update your own permission system.
+  player_permission: "servercore.player" # ^
+  command_disabled: "&cThat particular command has been disabled"
+features:
+  fly:
+    fly_enable: true
+    fly_enabled: "&aYour flight mode has been enabled."
+    fly_disabled: "&cYour flight mode has been disabled."
+  gamemode:
+    gamemode_enable: false
+    gamemode_log: console # Log changes to either console or database or false
+    gm_0: "&7Your gamemode is now &csurvival"
+    gm_1: "&7Your gamemode is now &acreative"
+    gm_3: "&7Your gamemode is now &4adventure"
+    gm_4: "&7Your gamemode is now &6spectator"
+    gamemode_actionbar_enable: true # Enable the sending of actionbar messages when the user changes gamemode.
+    gamemode_actionbar_same_messages: true # Use the same messages for both the actionbar and chat.
+  chat:
+    mutechat_enable: true
+    chat_muted: "&cChat is muted." # Triggered if some tries to talk while chat is muted.
+    chat_now_muted: "&cChat muted is now turned on."
+    chat_now_unmuted: "&aChat muted is now turend off."
+  help:
+    help_enable: true
+    messages:
+      - "&aHelp is always there if you need it."
+      - "&aContact a member of Staff."

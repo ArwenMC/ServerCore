@@ -1,7 +1,7 @@
-name: Server-Core
+name: ServerCore
 version: 0.1
 author: ArwenMC
-authors: ["Alexander Milanovich"]
+authors: ["Alexander Milanovich", "Christopher Nethercott"]
 main: com.arwenmc.ServerCore
 commands:
   fly:
@@ -15,30 +15,31 @@ commands:
     aliases: [?]
     usuage: /help
     description: Command Which Helps Players!
-  MuteChat:
-    usuage: /MuteChat
+  mutechat:
+    usuage: /mutechat
     description: Stop Players from chating!
-  Spawn:
-    usuage: /Spawn
+  spawn:
+    usuage: /spawn
     description: Teleports Players to spawn!
-  SetSpawn:
-    usuage: /SetSpawn
+  setspawn:
+    usuage: /setspawn
     description: Sets the world spawn!
-  EntitySpawn:
-    usuage: /EntitySpawn
+  entityspawn:
+    usuage: /entityspawn
     description: A test command to check if the API is working
-  BannerBuild:
-    usuage: /BannerBuild
+  bannerbuild:
+    usuage: /bannerbuild
     description: A test command to check if the API is working
-  Potionbuild:
-    usuage: /Potionbuild
+  potionbuild:
+    usuage: /potionbuild
     description: A test command to check if the API is working
-  SpawnEgg:
+  spawnegg:
     usuage: /spawnegg
     description: A test command to check if the API is working
-  FireworkSpawn:
-    usuage: /FireworkSpawn
+  firework:
+    usuage: /firework
     description: A test command to check if the API is working
-  Skull:
-    usuage: /Skull
+    aliases: [fw, fireworkspawn]
+  skull:
+    usuage: /skull
     description: A test command to check if the API is working

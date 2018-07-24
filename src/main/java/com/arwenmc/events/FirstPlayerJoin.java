@@ -1,15 +1,12 @@
 package com.arwenmc.events;
 
-import com.arwenmc.api.ActionBar;
+import com.arwenmc.api.Inventory.ActionBar;
 import com.arwenmc.ServerCore;
-import com.arwenmc.api.Title;
+import com.arwenmc.api.Inventory.Title;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.scoreboard.Scoreboard;
-
-import java.util.Arrays;
 
 public class FirstPlayerJoin implements Listener {
 
