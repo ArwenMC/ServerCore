@@ -1,4 +1,4 @@
-package com.arwenmc.api.VillagerTradeBuilder;
+package com.arwenmc.api.Entities;
 
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;

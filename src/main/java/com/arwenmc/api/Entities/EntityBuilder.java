@@ -1,4 +1,4 @@
-package com.arwenmc.api.EntityBuilder;
+package com.arwenmc.api.Entities;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

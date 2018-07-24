@@ -1,4 +1,4 @@
-package com.arwenmc.api.FireworkBuilder;
+package com.arwenmc.api.Entities;
 
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;

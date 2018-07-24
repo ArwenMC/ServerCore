@@ -1,6 +1,6 @@
 package com.arwenmc.api.HologramBuilder;
 
-import com.arwenmc.api.EntityBuilder.EntityBuilder;
+import com.arwenmc.api.Entities.EntityBuilder;
 import com.arwenmc.api.FileBuilder.FileBuilder;
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;

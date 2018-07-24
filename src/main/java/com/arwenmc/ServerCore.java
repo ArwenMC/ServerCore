@@ -62,6 +62,8 @@ public class ServerCore extends JavaPlugin {
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
         getCommand("servercoretest").setExecutor(new TestCommand(this));
+
+
         for (Permission permission : permissions) {
             Bukkit.getPluginManager().addPermission(permission);
         }
