@@ -50,7 +50,7 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getCommand("help").setExecutor(new HelpCommand(this));
+       // getCommand("help").setExecutor(new HelpCommand(this));
     }
 
     @Override
