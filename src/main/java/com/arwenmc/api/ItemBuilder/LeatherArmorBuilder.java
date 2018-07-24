@@ -22,24 +22,31 @@ import java.util.Random;
 public class LeatherArmorBuilder extends ItemBuilder {
     private LeatherArmorMeta leatherArmorMeta;
     private ItemStack itemStack;
+    private int amount;
 
-    public LeatherArmorMeta(Material armor, int amount) throws IOException {
+    public LeatherArmorBuilder(Material armor, int amount) throws IOException {
+        Material temp;
         switch (armor) {
             case LEATHER_BOOTS:
-                super(Material.LEATHER_BOOTS, amount);
+                temp = Material.LEATHER_BOOTS;
                 break;
             case LEATHER_LEGGINGS:
-                super(Material.LEATHER_LEGGINGS, amount);
+                temp = Material.LEATHER_LEGGINGS;
                 break;
             case LEATHER_CHESTPLATE:
-                super(Material.LEATHER_CHESTPLATE, amount);
+                temp = Material.LEATHER_CHESTPLATE;
                 break;
             case LEATHER_HELMET:
-                super(Material.LEATHER_HELMET, amount);
+                temp = Material.LEATHER_HELMET;
                 break;
             default:
                 throw new IOException("The material must be leather armor.");
         }
+        LAB(temp);
+    }
+
+    private LAB(Material tmp) {
+        super(tmp, amount);
     }
 
     public LeatherArmorBuilder setColor(Color color) {
