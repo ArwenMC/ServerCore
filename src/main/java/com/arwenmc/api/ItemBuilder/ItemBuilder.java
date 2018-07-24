@@ -3,6 +3,7 @@ package com.arwenmc.api.ItemBuilder;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -119,6 +120,14 @@ public class ItemBuilder {
     public ItemStack build() {
         this.itemStack.setItemMeta(this.itemMeta);
         return this.itemStack;
+    }
+
+    /**
+     * Add your item to a player's inventory.
+     * @param player The player you wan to add to the inventory
+     */
+    public void buildPlayer(Player player) {
+        player.getInventory().addItem(this.build());
     }
 
 
