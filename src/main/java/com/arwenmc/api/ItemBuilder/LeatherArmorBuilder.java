@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
+import java.io.IOException;
 import java.util.Random;
 
 /*
@@ -22,9 +23,22 @@ public class LeatherArmorBuilder extends ItemBuilder {
     private LeatherArmorMeta leatherArmorMeta;
     private ItemStack itemStack;
 
-    public LeatherArmorMeta(Material armor, int amount) {
-        if (armor == Material.LEATHER_BOOTS || armor == Material.LEATHER_LEGGINGS || armor == Material.LEATHER_CHESTPLATE || armor == Material.LEATHER_HELMET) {
-
+    public LeatherArmorMeta(Material armor, int amount) throws IOException {
+        switch (armor) {
+            case LEATHER_BOOTS:
+                super(Material.LEATHER_BOOTS, amount);
+                break;
+            case LEATHER_LEGGINGS:
+                super(Material.LEATHER_LEGGINGS, amount);
+                break;
+            case LEATHER_CHESTPLATE:
+                super(Material.LEATHER_CHESTPLATE, amount);
+                break;
+            case LEATHER_HELMET:
+                super(Material.LEATHER_HELMET, amount);
+                break;
+            default:
+                throw new IOException("The material must be leather armor.");
         }
     }
 
