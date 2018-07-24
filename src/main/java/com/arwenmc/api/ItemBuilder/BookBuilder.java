@@ -18,12 +18,11 @@ import java.util.List;
 public class BookBuilder extends ItemBuilder {
     private BookMeta bookMeta;
     private ItemStack itemStack;
+
     public BookBuilder(Material material, int amount) {
         super(Material.BOOK, amount);
         this.itemStack = this.getItemStack();
     }
-
-
 
     public BookBuilder setAuthor(String name) {
         this.bookMeta = ((BookMeta) this.itemStack.getItemMeta());

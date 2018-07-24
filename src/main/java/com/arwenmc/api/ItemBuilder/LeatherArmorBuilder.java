@@ -18,9 +18,15 @@ import java.util.Random;
  */
 
 
-public class LeatherArmorBuilder
-        extends ItemBuilder {
-    private LeatherArmorMeta lm;
+public class LeatherArmorBuilder extends ItemBuilder {
+    private LeatherArmorMeta leatherArmorMeta;
+    private ItemStack itemStack;
+
+    public LeatherArmorMeta(Material armor, int amount) {
+        if (armor == Material.LEATHER_BOOTS || armor == Material.LEATHER_LEGGINGS || armor == Material.LEATHER_CHESTPLATE || armor == Material.LEATHER_HELMET) {
+
+        }
+    }
 
     public LeatherArmorBuilder(ItemStack itemStack) {
         super(itemStack);
@@ -35,23 +41,23 @@ public class LeatherArmorBuilder
     }
 
     public LeatherArmorBuilder setColor(Color color) {
-        this.lm = ((LeatherArmorMeta) this.is.getItemMeta());
-        this.lm.setColor(color);
-        this.is.setItemMeta(this.lm);
+        this.leatherArmorMeta = ((LeatherArmorMeta) this.itemStack.getItemMeta());
+        this.leatherArmorMeta.setColor(color);
+        this.itemStack.setItemMeta(this.leatherArmorMeta);
         return this;
     }
 
     public LeatherArmorBuilder setColor(int red, int green, int blue) {
-        this.lm = ((LeatherArmorMeta) this.is.getItemMeta());
-        this.lm.setColor(Color.fromRGB(red, green, blue));
-        this.is.setItemMeta(this.lm);
+        this.leatherArmorMeta = ((LeatherArmorMeta) this.itemStack.getItemMeta());
+        this.leatherArmorMeta.setColor(Color.fromRGB(red, green, blue));
+        this.itemStack.setItemMeta(this.leatherArmorMeta);
         return this;
     }
 
     public LeatherArmorBuilder setRandomColor() {
-        this.lm = ((LeatherArmorMeta) this.is.getItemMeta());
-        this.lm.setColor(Color.fromRGB(randomColor(255) + 1, randomColor(255) + 1, randomColor(255) + 1));
-        this.is.setItemMeta(this.lm);
+        this.leatherArmorMeta = ((LeatherArmorMeta) this.itemStack.getItemMeta());
+        this.leatherArmorMeta.setColor(Color.fromRGB(randomColor(255) + 1, randomColor(255) + 1, randomColor(255) + 1));
+        this.itemStack.setItemMeta(this.leatherArmorMeta);
         return this;
     }
 
