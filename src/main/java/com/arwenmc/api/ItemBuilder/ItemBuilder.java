@@ -11,6 +11,11 @@ public class ItemBuilder {
     private ItemStack itemStack;
     private ItemMeta itemMeta;
 
+    /**
+     * Intial constructor to build an item.
+     * @param material The material that you like the amount to help.
+     * @param amount The amount for that item.
+     */
     public ItemBuilder(Material material, int amount) {
         this.material = material;
         this.amount = amount;
@@ -18,13 +23,22 @@ public class ItemBuilder {
         this.itemMeta = this.itemStack.getItemMeta();
     }
 
+    /**
+     * Set's the display name, you can pass this with ChatColor or & values
+     * @param name The name of the item you would like to use.
+     * @return
+     */
     public ItemBuilder setDisplayName(String name) {
         this.itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
         return this;
     }
 
-    public ItemBuilder build() {
+    /**
+     * Builds the Item with your custom options.
+     * @return The ItemStack with the custom options.
+     */
+    public ItemStack build() {
         this.itemStack.setItemMeta(this.itemMeta);
-        return this;
+        return this.itemStack;
     }
 }
