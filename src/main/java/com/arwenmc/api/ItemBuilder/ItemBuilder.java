@@ -24,6 +24,15 @@ public class ItemBuilder {
     }
 
     /**
+     * Set the durability for the ItemStack
+     * @param durability The int durability, it is casted to a short.
+     */
+    public ItemBuilder setDurability(int durability) {
+        this.itemStack.setDurability((short) durability);
+        return this;
+    }
+
+    /**
      * Set's the display name, you can pass this with ChatColor or & values
      * @param name The name of the item you would like to use.
      * @return
