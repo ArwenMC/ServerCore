@@ -76,9 +76,9 @@ public class EntityBuilder
         return this;
     }
 
-    public static enum EntityAge
+    public enum EntityAge
     {
-        BABY,  ADULT;
+        BABY,  ADULT
     }
 
     public Entity spawn()

@@ -36,7 +36,7 @@ public class Cooldown
 
     private static Cooldown getCooldown(UUID id, String cooldownName)
     {
-        return (Cooldown)cooldowns.get(id.toString() + cooldownName);
+        return cooldowns.get(id.toString() + cooldownName);
     }
 
     public static int getTimeLeft(UUID id, String cooldownName)

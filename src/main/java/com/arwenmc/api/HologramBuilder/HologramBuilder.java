@@ -102,7 +102,7 @@ public class HologramBuilder
     {
         if (this.entities.containsKey(loc))
         {
-            ((Entity)this.entities.get(loc)).remove();
+            this.entities.get(loc).remove();
             this.entities.remove(loc);
         }
     }

@@ -87,7 +87,7 @@ public class InventoryBuilder
 
     public InventoryBuilder addItem(ItemStack itemstack)
     {
-        this.inv.addItem(new ItemStack[] { itemstack });
+        this.inv.addItem(itemstack);
         return this;
     }
 

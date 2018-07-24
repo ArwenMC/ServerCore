@@ -25,7 +25,7 @@ public class FireworkBuilder
 
     public FireworkBuilder(Location loc, FireworkEffect.Type type, Color color, Color fadeColor, boolean flicker, boolean trail, int power)
     {
-        this.f = ((Firework)loc.getWorld().spawn(loc, Firework.class));
+        this.f = loc.getWorld().spawn(loc, Firework.class);
         FireworkEffect effect = FireworkEffect.builder()
                 .withColor(color)
                 .flicker(flicker)
@@ -40,7 +40,7 @@ public class FireworkBuilder
 
     public FireworkBuilder(Location loc, FireworkEffect.Type type, Color color, boolean flicker, boolean trail, int power)
     {
-        this.f = ((Firework)loc.getWorld().spawn(loc, Firework.class));
+        this.f = loc.getWorld().spawn(loc, Firework.class);
         FireworkEffect effect = FireworkEffect.builder()
                 .withColor(color)
                 .flicker(flicker)

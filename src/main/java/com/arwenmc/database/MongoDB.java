@@ -32,7 +32,7 @@ public class MongoDB {
     private DB db;
     private MongoClient client;
 
-    public void connect() throws IOException {
+    public void connect() {
         client = new MongoClient(this.ip, this.port);
         // database = client.getDB("severcore");
     }

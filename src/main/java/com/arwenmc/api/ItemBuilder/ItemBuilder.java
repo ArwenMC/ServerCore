@@ -134,7 +134,7 @@ public class ItemBuilder
         this.im = this.is.getItemMeta();
         if (!enchantments.isEmpty()) {
             for (Enchantment ench : enchantments.keySet()) {
-                this.im.addEnchant(ench, ((Integer)enchantments.get(ench)).intValue(), true);
+                this.im.addEnchant(ench, enchantments.get(ench).intValue(), true);
             }
         }
         this.is.setItemMeta(this.im);
@@ -144,7 +144,7 @@ public class ItemBuilder
     public ItemBuilder addItemFlag(ItemFlag itemflag)
     {
         this.im = this.is.getItemMeta();
-        this.im.addItemFlags(new ItemFlag[] { itemflag });
+        this.im.addItemFlags(itemflag);
         this.is.setItemMeta(this.im);
         return this;
     }

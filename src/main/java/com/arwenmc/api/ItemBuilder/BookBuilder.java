@@ -40,7 +40,7 @@ public class BookBuilder
     public BookBuilder addPage(String content)
     {
         this.bm = ((BookMeta)this.is.getItemMeta());
-        this.bm.addPage(new String[] { content });
+        this.bm.addPage(content);
         this.is.setItemMeta(this.bm);
         return this;
     }
@@ -49,7 +49,7 @@ public class BookBuilder
     {
         this.bm = ((BookMeta)this.is.getItemMeta());
         for (String content : contents) {
-            this.bm.addPage(new String[] { content });
+            this.bm.addPage(content);
         }
         this.is.setItemMeta(this.bm);
         return this;
