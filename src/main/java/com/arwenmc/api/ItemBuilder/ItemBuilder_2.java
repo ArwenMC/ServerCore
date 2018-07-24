@@ -41,7 +41,7 @@ Example For Builder Items
  */
 
 
-public class ItemBuilder {
+public class ItemBuilder_2 {
     protected ItemStack is;
     protected ItemMeta im;
 
