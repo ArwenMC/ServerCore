@@ -14,7 +14,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -110,6 +109,7 @@ public class ItemBuilder {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return this;
     }
 
     /**
@@ -119,5 +119,22 @@ public class ItemBuilder {
     public ItemStack build() {
         this.itemStack.setItemMeta(this.itemMeta);
         return this.itemStack;
+    }
+
+
+    public Material getMaterial() {
+        return this.material;
+    }
+
+    public int getAmount() {
+        return this.amount;
+    }
+
+    public ItemStack getItemStack() {
+        return this.itemStack;
+    }
+
+    public ItemMeta getItemMeta() {
+        return this.itemMeta;
     }
 }
