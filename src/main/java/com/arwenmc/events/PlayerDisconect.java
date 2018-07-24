@@ -1,7 +1,7 @@
 package com.arwenmc.events;
 
-import com.arwenmc.commands.FlyCommand;
 import com.arwenmc.ServerCore;
+import com.arwenmc.commands.FlyCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

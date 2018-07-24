@@ -1,36 +1,31 @@
 package com.arwenmc.database;
 
 import com.arwenmc.ServerCore;
-import com.mongodb.*;
-
-import java.io.IOException;
-import java.util.UUID;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
 
 public class MongoDB {
 
     ServerCore plugin;
-
+    private String ip;
+    private int port;
+    private String database;
+    private DBCollection players;
+    private DB db;
+    private MongoClient client;
     public MongoDB(ServerCore instance, String ip, int port) {
         plugin = instance;
 
         this.ip = ip;
         this.port = port;
     }
-
     public MongoDB(ServerCore instance, String ip) {
         plugin = instance;
 
         this.ip = ip;
         this.port = 27017; // MongoDB default port.
     }
-
-    private String ip;
-    private int port;
-    private String database;
-
-    private DBCollection players;
-    private DB db;
-    private MongoClient client;
 
     public void connect() {
         client = new MongoClient(this.ip, this.port);

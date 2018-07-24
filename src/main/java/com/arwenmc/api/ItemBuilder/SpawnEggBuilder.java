@@ -14,23 +14,19 @@ import org.bukkit.inventory.meta.SpawnEggMeta;
  */
 
 public class SpawnEggBuilder
-        extends ItemBuilder
-{
+        extends ItemBuilder {
     private SpawnEggMeta sem;
 
-    public SpawnEggBuilder(ItemStack itemStack)
-    {
+    public SpawnEggBuilder(ItemStack itemStack) {
         super(itemStack);
     }
 
-    public SpawnEggBuilder(int amount)
-    {
+    public SpawnEggBuilder(int amount) {
         super(Material.MONSTER_EGG, amount);
     }
 
-    public SpawnEggBuilder setSpawnType(EntityType entity)
-    {
-        this.sem = ((SpawnEggMeta)this.is.getItemMeta());
+    public SpawnEggBuilder setSpawnType(EntityType entity) {
+        this.sem = ((SpawnEggMeta) this.is.getItemMeta());
         this.sem.setSpawnedType(entity);
         this.is.setItemMeta(this.sem);
         return this;

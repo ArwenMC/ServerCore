@@ -18,31 +18,26 @@ import org.bukkit.inventory.meta.BannerMeta;
  */
 
 public class BannerBuilder
-        extends ItemBuilder
-{
+        extends ItemBuilder {
     private BannerMeta bm;
 
-    public BannerBuilder(ItemStack itemStack)
-    {
+    public BannerBuilder(ItemStack itemStack) {
         super(itemStack);
     }
 
-    public BannerBuilder(int amount)
-    {
+    public BannerBuilder(int amount) {
         super(Material.BANNER, amount);
     }
 
-    public BannerBuilder setBaseColor(DyeColor color)
-    {
-        this.bm = ((BannerMeta)this.is.getItemMeta());
+    public BannerBuilder setBaseColor(DyeColor color) {
+        this.bm = ((BannerMeta) this.is.getItemMeta());
         this.bm.setBaseColor(color); // why is the deprecated?
         this.is.setItemMeta(this.bm);
         return this;
     }
 
-    public BannerBuilder addPattern(DyeColor color, PatternType pattern)
-    {
-        this.bm = ((BannerMeta)this.is.getItemMeta());
+    public BannerBuilder addPattern(DyeColor color, PatternType pattern) {
+        this.bm = ((BannerMeta) this.is.getItemMeta());
         this.bm.addPattern(new Pattern(color, pattern));
         this.is.setItemMeta(this.bm);
         return this;

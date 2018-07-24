@@ -1,17 +1,18 @@
 package com.arwenmc.api.HologramBuilder;
 
-import com.google.common.collect.Lists;
+import com.arwenmc.api.EntityBuilder.EntityBuilder;
 import com.arwenmc.api.FileBuilder.FileBuilder;
-import com.arwenmc.api.EntityBuilder.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 /*
@@ -30,65 +31,55 @@ import org.bukkit.entity.EntityType;
  hm.loadHologramsFromFile("plugins/yourFolder", "yourFile.yml");
  */
 
-public class HologramBuilder
-{
+public class HologramBuilder {
     private String name;
     private Location loc;
     private ArrayList<String> lines = new ArrayList();
     private HashMap<Location, Entity> entities = new HashMap();
 
-    public HologramBuilder(String name, Location loc)
-    {
+    public HologramBuilder(String name, Location loc) {
         this.name = name;
         this.loc = loc;
     }
 
-    public HologramBuilder(String name, World world, double x, double y, double z)
-    {
+    public HologramBuilder(String name, World world, double x, double y, double z) {
         Location loc = new Location(world, x, y, z);
         this.name = name;
         this.loc = loc;
     }
 
-    public HologramBuilder(String name, String world, double x, double y, double z)
-    {
+    public HologramBuilder(String name, String world, double x, double y, double z) {
         Location loc = new Location(Bukkit.getWorld(world), x, y, z);
         this.name = name;
         this.loc = loc;
     }
 
-    public HologramBuilder setLine(int line, String text)
-    {
+    public HologramBuilder setLine(int line, String text) {
         this.lines.set(line, text);
         return this;
     }
 
-    public HologramBuilder addLines(List<String> lines)
-    {
+    public HologramBuilder addLines(List<String> lines) {
         for (String line : lines) {
             this.lines.add(line);
         }
         return this;
     }
 
-    public HologramBuilder addLine(String text)
-    {
+    public HologramBuilder addLine(String text) {
         this.lines.add(text);
         return this;
     }
 
-    public HologramBuilder removeLine(String line)
-    {
+    public HologramBuilder removeLine(String line) {
         this.lines.remove(line);
         return this;
     }
 
-    public HologramBuilder spawn()
-    {
+    public HologramBuilder spawn() {
         Location loc = this.loc;
-        for (String line : Lists.reverse(this.lines))
-        {
-            ArmorStand entity = (ArmorStand)new EntityBuilder(EntityType.ARMOR_STAND, this.loc).setCustomName(line).setCustomNameVisible(true).spawn();
+        for (String line : Lists.reverse(this.lines)) {
+            ArmorStand entity = (ArmorStand) new EntityBuilder(EntityType.ARMOR_STAND, this.loc).setCustomName(line).setCustomNameVisible(true).spawn();
             entity.setVisible(false);
             entity.setGravity(false);
             entity.setBasePlate(false);
@@ -98,17 +89,14 @@ public class HologramBuilder
         return this;
     }
 
-    public void remove(Location loc)
-    {
-        if (this.entities.containsKey(loc))
-        {
+    public void remove(Location loc) {
+        if (this.entities.containsKey(loc)) {
             this.entities.get(loc).remove();
             this.entities.remove(loc);
         }
     }
 
-    public void saveInFile(String path, String file)
-    {
+    public void saveInFile(String path, String file) {
         FileBuilder fb = new FileBuilder(path, file);
         fb.set(this.name + ".World", this.loc.getWorld().getName());
         fb.set(this.name + ".X", Double.valueOf(this.loc.getX()));
@@ -118,8 +106,7 @@ public class HologramBuilder
         fb.save();
     }
 
-    public void removeFromFile(String path, String file)
-    {
+    public void removeFromFile(String path, String file) {
         FileBuilder fb = new FileBuilder(path, file);
         fb.set(this.name + ".World", null);
         fb.set(this.name + ".X", null);

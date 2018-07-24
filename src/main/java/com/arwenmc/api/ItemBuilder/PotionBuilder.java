@@ -18,48 +18,40 @@ import org.bukkit.potion.PotionEffectType;
 
 
 public class PotionBuilder
-        extends ItemBuilder
-{
+        extends ItemBuilder {
     private PotionMeta pm;
 
-    public PotionBuilder(ItemStack itemStack)
-    {
+    public PotionBuilder(ItemStack itemStack) {
         super(itemStack);
     }
 
-    public PotionBuilder(Material material, int amount)
-    {
+    public PotionBuilder(Material material, int amount) {
         super(material, amount);
     }
 
-    public PotionBuilder(int id, int amount)
-    {
+    public PotionBuilder(int id, int amount) {
         super(id, amount);
     }
 
     @Deprecated
-    public PotionBuilder(Material material, int amount, int subid)
-    {
+    public PotionBuilder(Material material, int amount, int subid) {
         super(material, amount, subid);
     }
 
     @Deprecated
-    public PotionBuilder(int id, int amount, int subid)
-    {
+    public PotionBuilder(int id, int amount, int subid) {
         super(id, amount, subid);
     }
 
-    public PotionBuilder setColor(Color color)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
+    public PotionBuilder setColor(Color color) {
+        this.pm = ((PotionMeta) this.is.getItemMeta());
         this.pm.setColor(color);
         this.is.setItemMeta(this.pm);
         return this;
     }
 
-    public PotionBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
+    public PotionBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier) {
+        this.pm = ((PotionMeta) this.is.getItemMeta());
         PotionEffect effect = new PotionEffect(type, duration, amplifier, true);
         this.pm.addCustomEffect(effect, true);
         this.is.setItemMeta(this.pm);

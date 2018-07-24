@@ -20,55 +20,46 @@ import org.bukkit.entity.EntityType;
 
  */
 
-public class EntityBuilder
-{
+public class EntityBuilder {
     private Entity en;
 
-    public EntityBuilder(EntityType entity, Location loc)
-    {
+    public EntityBuilder(EntityType entity, Location loc) {
         this.en = loc.getWorld().spawnEntity(loc, entity);
     }
 
-    public EntityBuilder(EntityType entity, World world, double x, double y, double z)
-    {
+    public EntityBuilder(EntityType entity, World world, double x, double y, double z) {
         Location loc = new Location(world, x, y, z);
         this.en = loc.getWorld().spawnEntity(loc, entity);
     }
 
-    public EntityBuilder(EntityType entity, String world, double x, double y, double z)
-    {
+    public EntityBuilder(EntityType entity, String world, double x, double y, double z) {
         Location loc = new Location(Bukkit.getWorld(world), x, y, z);
         this.en = loc.getWorld().spawnEntity(loc, entity);
     }
 
-    public EntityBuilder setCustomName(String name)
-    {
+    public EntityBuilder setCustomName(String name) {
         this.en.setCustomName(name);
         return this;
     }
 
-    public EntityBuilder setCustomNameVisible(boolean visible)
-    {
+    public EntityBuilder setCustomNameVisible(boolean visible) {
         this.en.setCustomNameVisible(visible);
         return this;
     }
 
-    public EntityBuilder setPassenger(Entity entity)
-    {
+    public EntityBuilder setPassenger(Entity entity) {
         this.en.setPassenger(entity);
         return this;
     }
 
-    public EntityBuilder setAge(EntityAge age)
-    {
+    public EntityBuilder setAge(EntityAge age) {
         if ((this.en instanceof Ageable)) {
-            switch (age)
-            {
+            switch (age) {
                 case ADULT:
-                    ((Ageable)this.en).setBaby();
+                    ((Ageable) this.en).setBaby();
                     break;
                 case BABY:
-                    ((Ageable)this.en).setAdult();
+                    ((Ageable) this.en).setAdult();
             }
         } else {
             throw new IllegalArgumentException("Entity's age cannot be modified!");
@@ -76,13 +67,11 @@ public class EntityBuilder
         return this;
     }
 
-    public enum EntityAge
-    {
-        BABY,  ADULT
+    public Entity spawn() {
+        return this.en;
     }
 
-    public Entity spawn()
-    {
-        return this.en;
+    public enum EntityAge {
+        BABY, ADULT
     }
 }

@@ -2,10 +2,7 @@ package com.arwenmc.api.FireworkBuilder;
 
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
-import org.bukkit.FireworkEffect.Builder;
-import org.bukkit.FireworkEffect.Type;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
 
@@ -18,13 +15,11 @@ import org.bukkit.inventory.meta.FireworkMeta;
  FireworkBuilder fb = new FireworkBuilder(player.getLocation(), FireworkEffect.Type.BALL_LARGE, Color.BLUE, false, true, 1).build();
  */
 
-public class FireworkBuilder
-{
+public class FireworkBuilder {
     private Firework f;
     private FireworkMeta fm;
 
-    public FireworkBuilder(Location loc, FireworkEffect.Type type, Color color, Color fadeColor, boolean flicker, boolean trail, int power)
-    {
+    public FireworkBuilder(Location loc, FireworkEffect.Type type, Color color, Color fadeColor, boolean flicker, boolean trail, int power) {
         this.f = loc.getWorld().spawn(loc, Firework.class);
         FireworkEffect effect = FireworkEffect.builder()
                 .withColor(color)
@@ -38,8 +33,7 @@ public class FireworkBuilder
         this.fm.setPower(power);
     }
 
-    public FireworkBuilder(Location loc, FireworkEffect.Type type, Color color, boolean flicker, boolean trail, int power)
-    {
+    public FireworkBuilder(Location loc, FireworkEffect.Type type, Color color, boolean flicker, boolean trail, int power) {
         this.f = loc.getWorld().spawn(loc, Firework.class);
         FireworkEffect effect = FireworkEffect.builder()
                 .withColor(color)
@@ -52,8 +46,7 @@ public class FireworkBuilder
         this.fm.setPower(power);
     }
 
-    public FireworkBuilder build()
-    {
+    public FireworkBuilder build() {
         this.f.setFireworkMeta(this.fm);
         return null;
     }

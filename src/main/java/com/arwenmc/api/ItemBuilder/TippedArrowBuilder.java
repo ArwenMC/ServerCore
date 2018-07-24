@@ -18,31 +18,26 @@ import org.bukkit.potion.PotionEffectType;
 
 
 public class TippedArrowBuilder
-        extends ItemBuilder
-{
+        extends ItemBuilder {
     private PotionMeta pm;
 
-    public TippedArrowBuilder(ItemStack itemStack)
-    {
+    public TippedArrowBuilder(ItemStack itemStack) {
         super(itemStack);
     }
 
-    public TippedArrowBuilder(int amount)
-    {
+    public TippedArrowBuilder(int amount) {
         super(Material.TIPPED_ARROW, amount);
     }
 
-    public TippedArrowBuilder setColor(Color color)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
+    public TippedArrowBuilder setColor(Color color) {
+        this.pm = ((PotionMeta) this.is.getItemMeta());
         this.pm.setColor(color);
         this.is.setItemMeta(this.pm);
         return this;
     }
 
-    public TippedArrowBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
+    public TippedArrowBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier) {
+        this.pm = ((PotionMeta) this.is.getItemMeta());
         PotionEffect effect = new PotionEffect(type, duration, amplifier, true);
         this.pm.addCustomEffect(effect, true);
         this.is.setItemMeta(this.pm);

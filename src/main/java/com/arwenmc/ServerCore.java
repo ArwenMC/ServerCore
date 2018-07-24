@@ -1,6 +1,8 @@
 package com.arwenmc;
 
+import com.arwenmc.commands.TestCommand;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,9 +46,25 @@ public class ServerCore extends JavaPlugin {
         return temp;
     }
 
+    // Permissions
+    // General Permissions
+    public Permission SC_ADMIN = new Permission(getConfig().getString("general.admin_permission"));
+    public Permission SC_PLAYER = new Permission(getConfig().getString("general.user_permission"));
+    // Specific Permissions
+    public Permission SC_TESTCOMMAND = new Permission("sc.commands.test");
+
+    Permission[] permissions = new Permission[] {
+            SC_ADMIN, SC_PLAYER,
+            SC_TESTCOMMAND
+    };
+
     @Override
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
+        getCommand("servercoretest").setExecutor(new TestCommand(this));
+        for (Permission permission : permissions) {
+            Bukkit.getPluginManager().addPermission(permission);
+        }
     }
 
     @Override
