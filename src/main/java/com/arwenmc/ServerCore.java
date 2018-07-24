@@ -26,7 +26,7 @@ public class ServerCore extends JavaPlugin {
     public boolean FLY_ENABLE = getConfig().getBoolean("features.fly.fly_enable");
     public String FLY_ENABLED = GAC("features.fly.fly_enabled");
     public String FLY_DISABLED = GAC("features.fly.fly_disabled");
-    
+
     // Chat Config Values
     public boolean MUTECHAT_ENABLED = getConfig().getBoolean("features.chat.mutechat_enabled");
     public boolean isChatMuted;
@@ -35,9 +35,10 @@ public class ServerCore extends JavaPlugin {
 
     // Help
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
+
     public List<String> HELP_MESSAGES() {
         ArrayList<String> temp = new ArrayList<String>();
-        for(String s : getConfig().getStringList("features.help.messages")) {
+        for (String s : getConfig().getStringList("features.help.messages")) {
             temp.add(ChatColor.translateAlternateColorCodes('&', s));
         }
         return temp;
@@ -45,14 +46,16 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-       // getCommand("help").setExecutor(new HelpCommand(this));
+        // getCommand("help").setExecutor(new HelpCommand(this));
     }
 
     @Override
-    public void onDisable() {}
+    public void onDisable() {
+    }
 
     /**
      * A custom method to simplify the getting of config values and then colour it.
+     *
      * @param path The path to the config value
      * @return String Colourised Config String
      */
