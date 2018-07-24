@@ -1,11 +1,6 @@
 package com.arwenmc;
 
-import com.arwenmc.commands.HelpCommand;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabExecutor;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
