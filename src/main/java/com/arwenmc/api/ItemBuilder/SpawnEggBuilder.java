@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.SpawnEggMeta;
             .build();
  */
 
+@Deprecated
 public class SpawnEggBuilder
         extends ItemBuilder {
     private SpawnEggMeta sem;
@@ -22,7 +23,7 @@ public class SpawnEggBuilder
     }
 
     public SpawnEggBuilder(int amount) {
-        super(Material., amount);
+        super(Material.LEGACY_MONSTER_EGG., amount);
     }
 
     public SpawnEggBuilder setSpawnType(EntityType entity) {
