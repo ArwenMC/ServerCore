@@ -42,18 +42,6 @@ public class LeatherArmorBuilder extends ItemBuilder {
         }
     }
 
-    public LeatherArmorBuilder(ItemStack itemStack) {
-        super(itemStack);
-    }
-
-    public LeatherArmorBuilder(Material material, int amount) {
-        super(material, amount);
-    }
-
-    public LeatherArmorBuilder(int id, int amount) {
-        super(id, amount);
-    }
-
     public LeatherArmorBuilder setColor(Color color) {
         this.leatherArmorMeta = ((LeatherArmorMeta) this.itemStack.getItemMeta());
         this.leatherArmorMeta.setColor(color);
