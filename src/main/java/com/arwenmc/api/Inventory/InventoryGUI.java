@@ -1,16 +1,25 @@
 package com.arwenmc.api.Inventory;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.server.PluginDisableEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
-public class InventoryGUI {
+public class InventoryGUI implements Listener {
 
     private UUID id;
     private String name;
@@ -19,12 +28,65 @@ public class InventoryGUI {
     private ArrayList<UUID> viewing = new ArrayList<>();
     private ItemStack[] itemStacks;
 
-    public InventoryGUI(String name, int rows, onClick click) {
+    public InventoryGUI(String name, int rows, onClick click, JavaPlugin plugin) {
         this.id = UUID.randomUUID();
         this.name = format(name);
         this.click = click;
         this.size = rows * 9; // there are 9 slots on a row
         this.itemStacks = new ItemStack[this.size];
+        Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    @EventHandler
+    public void onPluginDisable(PluginDisableEvent event) {
+        for (UUID uuid : this.getViewers()) {
+            this.close(uuid);
+        }
+    }
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if (event.getSlotType().equals(InventoryType.SlotType.OUTSIDE)) {
+            return;
+        } else {
+            if (viewing.contains(event.getWhoClicked().getUniqueId())) {
+                event.setCancelled(true);
+                Player player = (Player) event.getWhoClicked();
+            }
+        }
+    }
+
+    public InventoryGUI open(UUID uuid) {
+        Bukkit.getPlayer(uuid).openInventory(this.createInventory(uuid));
+        viewing.add(uuid);
+        return this;
+    }
+
+    public InventoryGUI close(UUID uuid) {
+        Player inventoryPlayer = Bukkit.getPlayer(uuid);
+        if (inventoryPlayer.getOpenInventory().getTitle().equalsIgnoreCase(this.name)) {
+            inventoryPlayer.closeInventory();
+            viewing.remove(uuid);
+        }
+        return this;
+    }
+
+    private Inventory createInventory(UUID uuid) {
+        Inventory inventory = Bukkit.createInventory(Bukkit.getPlayer(uuid), this.size, this.name);
+        for (int i = 0; i < itemStacks.length; i++) {
+            if (itemStacks[i] != null) {
+                inventory.setItem(i, itemStacks[i]);
+            }
+        }
+        return inventory;
+    }
+
+    public List<UUID> getViewers() {
+        List<UUID> viewers = new ArrayList<>();
+        for (UUID uuid : viewers) {
+            viewers.add(uuid);
+        }
+        return viewers;
     }
 
     private String[] format(String[] toFormat) {
