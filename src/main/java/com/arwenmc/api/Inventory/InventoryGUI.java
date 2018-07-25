@@ -17,10 +17,14 @@ public class InventoryGUI {
     private int size;
     private onClick click;
     private ArrayList<UUID> viewing = new ArrayList<>();
+    private ItemStack[] itemStacks;
 
     public InventoryGUI(String name, int rows, onClick click) {
         this.id = UUID.randomUUID();
+        this.name = format(name);
+        this.click = click;
         this.size = rows * 9; // there are 9 slots on a row
+        this.itemStacks = new ItemStack[this.size];
     }
 
     private String[] format(String[] toFormat) {
