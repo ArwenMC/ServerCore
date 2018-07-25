@@ -38,4 +38,9 @@ public class PotionBuilder extends ItemBuilder {
         this.itemStack.setItemMeta(this.potionMeta);
         return this;
     }
+
+    public ItemStack build() {
+        this.itemStack.setItemMeta(this.potionMeta);
+        return this.itemStack;
+    }
 }

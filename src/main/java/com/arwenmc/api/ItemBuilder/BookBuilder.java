@@ -47,6 +47,11 @@ public class BookBuilder extends ItemBuilder {
         return this;
     }
 
+    public ItemStack build() {
+        this.itemStack.setItemMeta(this.bookMeta);
+        return this.itemStack;
+    }
+
     public int getPageCount() {
         return this.bookMeta.getPageCount();
     }
