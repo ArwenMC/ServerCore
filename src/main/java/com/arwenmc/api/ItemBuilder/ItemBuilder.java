@@ -1,12 +1,9 @@
 package com.arwenmc.api.ItemBuilder;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -14,192 +11,139 @@ import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
-/*
-Example For Builder Items
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-  ItemStack itemstack = new ItemBuilder(Material.DIAMOND_SWORD, 1, 0)
-            .setDurability(1)
-            .setDisplayName("yourName")
-            .setLore(listOfLores)
-            .setUnbreakable(true) // Only available in 1.11 - 1.12.2
-            .addEnchant(Enchantment.DAMAGE_ALL, 5)
-            .addItemFlag(ItemFlag.HIDE_UNBREAKABLE)
-            .build();
+public class ItemBuilder {
+    private Material material;
+    private int amount;
+    private ItemStack itemStack;
+    private ItemMeta itemMeta;
 
-
-  To save an ItemStack in a String
-
-  String data = new ItemBuilder(Material.DIAMOND_SWORD, 1, 0)
-            .toBase64();
-
- To load an ItemStack from a String
-
-   ItemStack itemstack = new ItemBuilder()
-              .fromBase64(from)
-              .build();
- */
-
-
-public class ItemBuilder
-{
-    protected ItemStack is;
-    protected ItemMeta im;
-
-    public ItemBuilder() {}
-
-    public ItemBuilder(String from)
-    {
-        int id = 0;
-        int subid = 0;
-        int amount = 1;
-        if (from.contains(":"))
-        {
-            String[] array = from.split(":");
-            id = Integer.valueOf(array[0]).intValue();
-            String a = array[1];
-            if (array[1].startsWith("1")) {
-                a = a.substring(0, 2);
-            } else {
-                a = a.substring(0, 1);
-            }
-            subid = Integer.valueOf(a).intValue();
-        }
-        if (from.contains(", "))
-        {
-            String[] array = from.split(", ");
-            amount = Integer.valueOf(array[1]).intValue();
-        }
-        this.is = new ItemStack(id, amount, (short)subid);
+    /**
+     * Intial constructor to build an item.
+     * @param material The material that you like the amount to help.
+     * @param amount The amount for that item.
+     */
+    public ItemBuilder(Material material, int amount) {
+        this.material = material;
+        this.amount = amount;
+        this.itemStack = new ItemStack(this.material);
+        this.itemMeta = this.itemStack.getItemMeta();
     }
 
-    public ItemBuilder(ItemStack itemStack)
-    {
-        this.is = new ItemStack(itemStack);
-    }
-
-    public ItemBuilder(Material material)
-    {
-        this.is = new ItemStack(material);
-    }
-
-    public ItemBuilder(Material material, int amount)
-    {
-        this.is = new ItemStack(material, amount);
-    }
-
-    public ItemBuilder(Material material, int amount, int subid)
-    {
-        this.is = new ItemStack(material, amount, (short)subid);
-    }
-
-    public ItemBuilder(int id)
-    {
-        this.is = new ItemStack(id);
-    }
-
-    public ItemBuilder(int id, int amount)
-    {
-        this.is = new ItemStack(id, amount);
-    }
-
-    public ItemBuilder(int id, int amount, int subid)
-    {
-        this.is = new ItemStack(id, amount, (short)subid);
-    }
-
-    public ItemBuilder setDurability(int durability)
-    {
-        this.is.setDurability((short)durability);
+    /**
+     * Set the durability for the ItemStack
+     * @param durability The int durability, it is casted to a short.
+     */
+    public ItemBuilder setDurability(int durability) {
+        this.itemStack.setDurability((short) durability);
         return this;
     }
 
-    public ItemBuilder setDisplayName(String name)
-    {
-        this.im = this.is.getItemMeta();
-        this.im.setDisplayName(name);
-        this.is.setItemMeta(this.im);
+    /**
+     * Set's the display name, you can pass this with ChatColor or & values
+     * @param name The name of the item you would like to use.
+     * @return
+     */
+    public ItemBuilder setDisplayName(String name) {
+        this.itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
         return this;
     }
 
-    public ItemBuilder addEnchant(Enchantment enchantment, int level)
-    {
-        this.im = this.is.getItemMeta();
-        this.im.addEnchant(enchantment, level, true);
-        this.is.setItemMeta(this.im);
+    public ItemBuilder addEnchant(Enchantment enchantment, int level) {
+        this.itemMeta.addEnchant(enchantment, level, true);
         return this;
     }
 
-    public ItemBuilder addEnchants(Map<Enchantment, Integer> enchantments)
-    {
-        this.im = this.is.getItemMeta();
+    public ItemBuilder addEnchants(Map<Enchantment, Integer> enchantments) {
         if (!enchantments.isEmpty()) {
-            for (Enchantment ench : enchantments.keySet()) {
-                this.im.addEnchant(ench, ((Integer)enchantments.get(ench)).intValue(), true);
+            for (Enchantment enchantment : enchantments.keySet()) {
+                this.itemMeta.addEnchant(enchantment, enchantments.get(enchantment).intValue(), true);
             }
         }
-        this.is.setItemMeta(this.im);
         return this;
     }
 
-    public ItemBuilder addItemFlag(ItemFlag itemflag)
-    {
-        this.im = this.is.getItemMeta();
-        this.im.addItemFlags(new ItemFlag[] { itemflag });
-        this.is.setItemMeta(this.im);
+    public ItemBuilder addItemFlag(ItemFlag itemFlag) {
+        this.itemMeta.addItemFlags(itemFlag);
         return this;
     }
 
-    public ItemBuilder setLore(List<String> lore)
-    {
-        this.im = this.is.getItemMeta();
-        this.im.setLore(lore);
-        this.is.setItemMeta(this.im);
+    public ItemBuilder setLore(List<String> lores) {
+        ArrayList<String> colouredLores = new ArrayList<>();
+        for (String lore : lores) {
+            colouredLores.add(ChatColor.translateAlternateColorCodes('&', lore));
+        }
+        this.itemMeta.setLore(colouredLores);
         return this;
     }
 
-    public ItemBuilder setUnbreakable(boolean unbreakable)
-    {
-        this.im = this.is.getItemMeta();
-        this.im.setUnbreakable(unbreakable);
-        this.is.setItemMeta(this.im);
+    public ItemBuilder setUnbreakable(boolean unbreakable) {
+        this.itemMeta.setUnbreakable(unbreakable);
         return this;
     }
 
-    public String toBase64()
-    {
-        try
-        {
+    public String toBase64() {
+        try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             BukkitObjectOutputStream dataOutput = new BukkitObjectOutputStream(outputStream);
 
-            dataOutput.writeObject(this.is);
+            dataOutput.writeObject(this.itemStack);
             dataOutput.close();
             return Base64Coder.encodeLines(outputStream.toByteArray());
-        }
-        catch (Exception e)
-        {
-            throw new IllegalStateException("Unable to save item stack", e);
+        } catch (Exception e) {
+            throw new IllegalStateException("Unable to save ItemStack", e);
         }
     }
 
-    public ItemBuilder fromBase64(String from)
-    {
-        try
-        {
+    public ItemBuilder fromBase64(String from) {
+        try {
             ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(from));
             BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
-            this.is = ((ItemStack)dataInput.readObject());
+            this.itemStack = ((ItemStack) dataInput.readObject());
             dataInput.close();
-        }
-        catch (IOException|ClassNotFoundException e)
-        {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return this;
     }
 
-    public ItemStack build()
-    {
-        return this.is;
+    /**
+     * Builds the Item with your custom options.
+     * @return The ItemStack with the custom options.
+     */
+    public ItemStack build() {
+        this.itemStack.setItemMeta(this.itemMeta);
+        return this.itemStack;
+    }
+
+    /**
+     * Add your item to a player's inventory.
+     * @param player The player you wan to add to the inventory
+     */
+    public void buildPlayer(Player player) {
+        player.getInventory().addItem(this.build());
+    }
+
+
+    public Material getMaterial() {
+        return this.material;
+    }
+
+    public int getAmount() {
+        return this.amount;
+    }
+
+    public ItemStack getItemStack() {
+        return this.itemStack;
+    }
+
+    public ItemMeta getItemMeta() {
+        return this.itemMeta;
     }
 }

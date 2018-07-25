@@ -1,16 +1,17 @@
 package com.arwenmc.api.Inventory;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /*
@@ -25,22 +26,18 @@ import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
  pib.setItems(pib.fromBase64(from));
  */
 
-public class PlayerInventoryBuilder
-{
+public class PlayerInventoryBuilder {
     Inventory inv;
     Player p;
 
-    public PlayerInventoryBuilder(Player player)
-    {
+    public PlayerInventoryBuilder(Player player) {
         this.p = player;
         this.inv = player.getInventory();
     }
 
-    public PlayerInventoryBuilder setItems(Map<Integer, ItemStack> items)
-    {
+    public PlayerInventoryBuilder setItems(Map<Integer, ItemStack> items) {
         int i = 0;
-        for (ItemStack is : items.values())
-        {
+        for (ItemStack is : items.values()) {
             if (is != null) {
                 this.inv.setItem(i, is);
             }
@@ -49,10 +46,8 @@ public class PlayerInventoryBuilder
         return this;
     }
 
-    public String toBase64()
-    {
-        try
-        {
+    public String toBase64() {
+        try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             BukkitObjectOutputStream dataOutput = new BukkitObjectOutputStream(outputStream);
 
@@ -62,28 +57,22 @@ public class PlayerInventoryBuilder
             }
             dataOutput.close();
             return Base64Coder.encodeLines(outputStream.toByteArray());
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new IllegalStateException("Unable to save item stacks", e);
         }
     }
 
-    public Map<Integer, ItemStack> fromBase64(String from)
-    {
+    public Map<Integer, ItemStack> fromBase64(String from) {
         Map<Integer, ItemStack> items = new HashMap();
-        try
-        {
+        try {
             ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(from));
             BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
             int size = dataInput.readInt();
             for (int i = 0; i < size; i++) {
-                items.put(Integer.valueOf(i), (ItemStack)dataInput.readObject());
+                items.put(Integer.valueOf(i), (ItemStack) dataInput.readObject());
             }
             dataInput.close();
-        }
-        catch (IOException|ClassNotFoundException e)
-        {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return items;

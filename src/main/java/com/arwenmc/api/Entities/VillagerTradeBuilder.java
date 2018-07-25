@@ -1,11 +1,11 @@
-package com.arwenmc.api.VillagerTradeBuilder;
+package com.arwenmc.api.Entities;
 
-import java.util.ArrayList;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Merchant;
 import org.bukkit.inventory.MerchantRecipe;
+
+import java.util.ArrayList;
 
 
 /*

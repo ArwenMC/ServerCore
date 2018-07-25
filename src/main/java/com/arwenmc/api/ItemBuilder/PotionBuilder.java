@@ -16,53 +16,31 @@ import org.bukkit.potion.PotionEffectType;
             .build();
  */
 
+public class PotionBuilder extends ItemBuilder {
+    private PotionMeta potionMeta;
+    private ItemStack itemStack;
 
-public class PotionBuilder
-        extends ItemBuilder
-{
-    private PotionMeta pm;
-
-    public PotionBuilder(ItemStack itemStack)
-    {
-        super(itemStack);
+    public PotionBuilder(Material material, int amount) {
+        super(Material.POTION, amount);
+        this.itemStack = this.getItemStack();
+        this.potionMeta = (PotionMeta) this.getItemMeta();
     }
 
-    public PotionBuilder(Material material, int amount)
-    {
-        super(material, amount);
-    }
-
-    public PotionBuilder(int id, int amount)
-    {
-        super(id, amount);
-    }
-
-    @Deprecated
-    public PotionBuilder(Material material, int amount, int subid)
-    {
-        super(material, amount, subid);
-    }
-
-    @Deprecated
-    public PotionBuilder(int id, int amount, int subid)
-    {
-        super(id, amount, subid);
-    }
-
-    public PotionBuilder setColor(Color color)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
-        this.pm.setColor(color);
-        this.is.setItemMeta(this.pm);
+    public PotionBuilder setColor(Color color) {
+        this.potionMeta.setColor(color);
+        this.itemStack.setItemMeta(this.potionMeta);
         return this;
     }
 
-    public PotionBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
+    public PotionBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier) {
         PotionEffect effect = new PotionEffect(type, duration, amplifier, true);
-        this.pm.addCustomEffect(effect, true);
-        this.is.setItemMeta(this.pm);
+        this.potionMeta.addCustomEffect(effect, true);
+        this.itemStack.setItemMeta(this.potionMeta);
         return this;
+    }
+
+    public ItemStack build() {
+        this.itemStack.setItemMeta(this.potionMeta);
+        return this.itemStack;
     }
 }
