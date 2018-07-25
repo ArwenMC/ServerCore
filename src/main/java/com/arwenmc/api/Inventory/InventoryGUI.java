@@ -1,5 +1,6 @@
 package com.arwenmc.api.Inventory;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -12,6 +13,7 @@ import java.util.UUID;
 public class InventoryGUI {
 
     private UUID id;
+    private String name;
     private int size;
     private onClick click;
     private ArrayList<UUID> viewing = new ArrayList<>();
@@ -19,6 +21,17 @@ public class InventoryGUI {
     public InventoryGUI(String name, int rows, onClick click) {
         this.id = UUID.randomUUID();
         this.size = rows * 9; // there are 9 slots on a row
+    }
+
+    private String[] format(String[] toFormat) {
+        for (int i = 0; i < toFormat.length; i++) {
+            toFormat[i] = format(toFormat[i]);
+        }
+        return toFormat;
+    }
+
+    private String format(String toFormat) {
+        return ChatColor.translateAlternateColorCodes('&', toFormat);
     }
 
     public interface onClick {
