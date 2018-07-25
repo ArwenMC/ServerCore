@@ -17,35 +17,30 @@ import org.bukkit.potion.PotionEffectType;
  */
 
 
-public class TippedArrowBuilder
-        extends ItemBuilder
-{
-    private PotionMeta pm;
+public class TippedArrowBuilder extends ItemBuilder {
+    private ItemStack itemStack;
+    private PotionMeta potionMeta;
 
-    public TippedArrowBuilder(ItemStack itemStack)
-    {
-        super(itemStack);
-    }
-
-    public TippedArrowBuilder(int amount)
-    {
+    public TippedArrowBuilder(int amount) {
         super(Material.TIPPED_ARROW, amount);
+        this.potionMeta = ((PotionMeta) this.itemStack.getItemMeta());
+        this.itemStack.setItemMeta(this.potionMeta);
     }
 
-    public TippedArrowBuilder setColor(Color color)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
-        this.pm.setColor(color);
-        this.is.setItemMeta(this.pm);
+    @Deprecated
+    public TippedArrowBuilder setColor(Color color) {
+        this.potionMeta.setColor(color);
         return this;
     }
 
-    public TippedArrowBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier)
-    {
-        this.pm = ((PotionMeta)this.is.getItemMeta());
+    public TippedArrowBuilder addCustomEffect(PotionEffectType type, int duration, int amplifier) {
         PotionEffect effect = new PotionEffect(type, duration, amplifier, true);
-        this.pm.addCustomEffect(effect, true);
-        this.is.setItemMeta(this.pm);
+        this.potionMeta.addCustomEffect(effect, true);
         return this;
+    }
+
+    public ItemStack build() {
+        this.itemStack.setItemMeta(this.potionMeta);
+        return this.itemStack;
     }
 }

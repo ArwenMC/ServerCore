@@ -1,11 +1,8 @@
 package com.arwenmc;
 
-import com.arwenmc.commands.HelpCommand;
+import com.arwenmc.commands.TestCommand;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabExecutor;
+import org.bukkit.Bukkit;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,7 +28,7 @@ public class ServerCore extends JavaPlugin {
     public boolean FLY_ENABLE = getConfig().getBoolean("features.fly.fly_enable");
     public String FLY_ENABLED = GAC("features.fly.fly_enabled");
     public String FLY_DISABLED = GAC("features.fly.fly_disabled");
-    
+
     // Chat Config Values
     public boolean MUTECHAT_ENABLED = getConfig().getBoolean("features.chat.mutechat_enabled");
     public boolean isChatMuted;
@@ -40,24 +37,45 @@ public class ServerCore extends JavaPlugin {
 
     // Help
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
+
     public List<String> HELP_MESSAGES() {
         ArrayList<String> temp = new ArrayList<String>();
-        for(String s : getConfig().getStringList("features.help.messages")) {
+        for (String s : getConfig().getStringList("features.help.messages")) {
             temp.add(ChatColor.translateAlternateColorCodes('&', s));
         }
         return temp;
     }
 
+    // Permissions
+    // General Permissions
+    public Permission SC_ADMIN = new Permission(getConfig().getString("general.admin_permission"));
+    public Permission SC_PLAYER = new Permission(getConfig().getString("general.user_permission"));
+    // Specific Permissions
+    public Permission SC_TESTCOMMAND = new Permission("sc.commands.test");
+
+    Permission[] permissions = new Permission[] {
+            SC_ADMIN, SC_PLAYER,
+            SC_TESTCOMMAND
+    };
+
     @Override
     public void onEnable() {
-        getCommand("help").setExecutor(new HelpCommand(this));
+        // getCommand("help").setExecutor(new HelpCommand(this));
+        getCommand("servercoretest").setExecutor(new TestCommand(this));
+
+
+        for (Permission permission : permissions) {
+            Bukkit.getPluginManager().addPermission(permission);
+        }
     }
 
     @Override
-    public void onDisable() {}
+    public void onDisable() {
+    }
 
     /**
      * A custom method to simplify the getting of config values and then colour it.
+     *
      * @param path The path to the config value
      * @return String Colourised Config String
      */
