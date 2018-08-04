@@ -83,12 +83,19 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
+    public InventoryGUI refresh(UUID uuid) {
+        Player inventoryPlayer = Bukkit.getPlayer(uuid);
+        for (int i = 0; i < itemStacks.length; i++) {
+            inventoryPlayer.getOpenInventory().setItem(i, itemStacks[i]);
+        }
+    }
+
     public InventoryGUI setSlot(Row row, int position, ItemStack item, String name, String... lore) {
         itemStacks[row.getRow() * 9 + position] = createItem(item, format(name), format(lore));
         return this;
     }
 
-    private ItemStack createItem(ItemStack itemStack, String name, String... lore) {
+    public ItemStack createItem(ItemStack itemStack, String name, String... lore) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(name);
         itemMeta.setLore(Arrays.asList(lore));
