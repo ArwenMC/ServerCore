@@ -29,7 +29,7 @@ public class InventoryGUI implements Listener {
     private ArrayList<UUID> viewing = new ArrayList<>();
     private ItemStack[] itemStacks;
 
-    public InventoryGUI(String name, int rows, onClick click, JavaPlugin plugin) {
+    public InventoryGUI(String name, int rows, onClick click) {
         this.id = UUID.randomUUID();
         this.name = format(name);
         this.click = click;
