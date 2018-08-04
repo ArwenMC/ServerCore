@@ -7,10 +7,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class TestCommand implements CommandExecutor {
+public class ServerCoreCommand implements CommandExecutor {
 
     ServerCore plugin;
-    public TestCommand(ServerCore instance) {
+    public ServerCoreCommand(ServerCore instance) {
         plugin = instance;
     }
 

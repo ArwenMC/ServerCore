@@ -1,7 +1,7 @@
 package com.arwenmc;
 
 import com.arwenmc.api.Inventory.InventoryGUI;
-import com.arwenmc.commands.TestCommand;
+import com.arwenmc.commands.ServerCoreCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -77,7 +77,7 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
-        getCommand("servercoretest").setExecutor(new TestCommand(this));
+        getCommand("servercoretest").setExecutor(new ServerCoreCommand(this));
         getCommand("togglegui").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
