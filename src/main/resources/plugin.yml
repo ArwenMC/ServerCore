@@ -4,9 +4,9 @@ author: ArwenMC
 authors: ["Alexander Milanovich", "Christopher Nethercott"]
 main: com.arwenmc.ServerCore
 commands:
-  servercoretest:
-    usage: /servercoretest
-    description: A test command.
+  servercore:
+    usage: /servercore
+    description: A util command.
   togglegui:
     usage: /togglegui
     description: An example command of how to implement a togglegui.

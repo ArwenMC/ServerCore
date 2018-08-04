@@ -77,7 +77,7 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
-        getCommand("servercoretest").setExecutor(new ServerCoreCommand(this));
+        getCommand("servercore").setExecutor(new ServerCoreCommand(this));
         getCommand("togglegui").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
