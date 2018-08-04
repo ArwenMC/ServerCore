@@ -1,5 +1,6 @@
 package com.arwenmc.api.Inventory;
 
+import com.arwenmc.ServerCore;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -13,7 +14,6 @@ import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public class InventoryGUI implements Listener {
     private ArrayList<UUID> viewing = new ArrayList<>();
     private ItemStack[] itemStacks;
 
-    public InventoryGUI(String name, int rows, JavaPlugin plugin, onClick click) {
+    public InventoryGUI(String name, int rows, ServerCore plugin, onClick click) {
         this.id = UUID.randomUUID();
         this.name = format(name);
         this.click = click;
