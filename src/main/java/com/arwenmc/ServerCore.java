@@ -107,7 +107,6 @@ public class ServerCore extends JavaPlugin {
                     toggleGUI.open(player.getUniqueId());
                     return true;
                 }
-                return false;
             }
         });
 
