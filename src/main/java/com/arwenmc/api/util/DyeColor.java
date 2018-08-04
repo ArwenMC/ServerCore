@@ -2,7 +2,7 @@ package com.arwenmc.api.util;
 
 public enum DyeColor {
 
-    BLACK(0),
+    BLACK(0), // squid
     RED(1),
     GREEN(2),
     BROWN(3),
