@@ -49,7 +49,7 @@ public class ServerCore extends JavaPlugin {
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
 
     public List<String> HELP_MESSAGES() {
-        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList<>();
         for (String s : getConfig().getStringList("features.help.messages")) {
             temp.add(ChatColor.translateAlternateColorCodes('&', s));
         }
