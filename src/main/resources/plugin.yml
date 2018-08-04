@@ -1,45 +1,12 @@
 name: ServerCore
-version: 1.1
+version: 1.2
 author: ArwenMC
 authors: ["Alexander Milanovich", "Christopher Nethercott"]
 main: com.arwenmc.ServerCore
 commands:
-  fly:
-    usage: /fly
-    description: Command Which Allows Player To Fly!
-  gamemode:
-    aliases: [gm]
-    usuage: /gamemode
-    description: Command Which Allows Player To Switch Gamemodes!
-  help:
-    aliases: [?]
-    usuage: /help
-    description: Command Which Helps Players!
-  mutechat:
-    usuage: /mutechat
-    description: Stop Players from chating!
-  spawn:
-    usuage: /spawn
-    description: Teleports Players to spawn!
-  setspawn:
-    usuage: /setspawn
-    description: Sets the world spawn!
-  entityspawn:
-    usuage: /entityspawn
-    description: A test command to check if the API is working
-  bannerbuild:
-    usuage: /bannerbuild
-    description: A test command to check if the API is working
-  potionbuild:
-    usuage: /potionbuild
-    description: A test command to check if the API is working
-  spawnegg:
-    usuage: /spawnegg
-    description: A test command to check if the API is working
-  firework:
-    usuage: /firework
-    description: A test command to check if the API is working
-    aliases: [fw, fireworkspawn]
-  skull:
-    usuage: /skull
-    description: A test command to check if the API is working
+  servercoretest:
+    usage: /servercoretest
+    description: A test command.
+  togglegui:
+    usage: /togglegui
+    description: An example command of how to implement a togglegui.
