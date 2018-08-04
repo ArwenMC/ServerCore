@@ -1,5 +1,6 @@
 # ArwencMC ServerCore Configuration
 database:
+  db_enabled: false
   database_type: mysql # mysql or mongodb
   host: ""
   port: 3306 # make sure to change this if you are using MongoDB

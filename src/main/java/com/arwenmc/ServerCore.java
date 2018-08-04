@@ -21,6 +21,9 @@ public class ServerCore extends JavaPlugin {
     public ServerCore PLUGIN = this;
     public boolean DEBUG = getConfig().getBoolean("debug");
 
+    // Database
+    public boolean DATABASE_ENABLED = getConfig().getBoolean("database.db_enabled");
+
     // General Config Values
     public String NOT_PLAYER = GAC("general.not_player");
     public String NO_PERMISSION = GAC("general.no_permission");
