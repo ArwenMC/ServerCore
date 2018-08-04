@@ -1,13 +1,17 @@
 package com.arwenmc;
 
 import com.arwenmc.api.Inventory.InventoryGUI;
+import com.arwenmc.api.util.DyeColor;
+import com.arwenmc.api.util.GlassColor;
 import com.arwenmc.commands.TestCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -77,7 +81,31 @@ public class ServerCore extends JavaPlugin {
                     commandSender.sendMessage(NOT_PLAYER);
                     return true;
                 } else {
+                    DyeColor lime = DyeColor.LIME;
+                    DyeColor gray = DyeColor.GRAY;
+                    Player player = (Player) commandSender;
 
+                    ItemStack grayDye = new ItemStack(Material.GRAY_DYE);
+                    ItemStack limeDye = new ItemStack(Material.LIME_DYE);
+
+                    toggleGUI = new InventoryGUI("&aTest GUI", 4, (clicker, menu, row, slot, item) -> {
+                        if(item.getType().equals(Material.INK_SAC)) {
+                            if(item.equals(grayDye)) {
+                                toggleGUI.setSlot(toggleGUI.getRow(2), 4, limeDye, "&aEnabled", "&7Click to disable");
+                                player.sendMessage(ChatColor.GREEN + "You enabled this");
+                            } else if(item.equals(limeDye)) {
+                                toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
+                                player.sendMessage(ChatColor.RED + "You disabled this");
+                            }
+                        }
+
+                        toggleGUI.refresh(player);
+                        return true;
+                    });
+                    toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE), "&aEnable or Disable");
+                    toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
+                    toggleGUI.open(player.getUniqueId());
+                    return true;
                 }
                 return false;
             }

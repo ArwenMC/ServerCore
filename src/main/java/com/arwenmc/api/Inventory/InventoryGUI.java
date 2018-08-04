@@ -88,7 +88,7 @@ public class InventoryGUI implements Listener {
         return this;
     }
 
-    private ItemStack createItem(ItemStack itemStack, String name, String... lore) {
+    public ItemStack createItem(ItemStack itemStack, String name, String... lore) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(name);
         itemMeta.setLore(Arrays.asList(lore));
