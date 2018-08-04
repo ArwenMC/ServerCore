@@ -19,6 +19,7 @@ import java.util.List;
 public class ServerCore extends JavaPlugin {
 
     public ServerCore PLUGIN = this;
+    public boolean DEBUG = getConfig().getBoolean("debug");
 
     // General Config Values
     public String NOT_PLAYER = GAC("general.not_player");

@@ -40,3 +40,4 @@ features:
     messages:
       - "&aHelp is always there if you need it."
       - "&aContact a member of Staff."
+debug: false # Enables more logging to the console.
