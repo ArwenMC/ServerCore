@@ -1,8 +1,6 @@
 package com.arwenmc;
 
 import com.arwenmc.api.Inventory.InventoryGUI;
-import com.arwenmc.api.util.DyeColor;
-import com.arwenmc.api.util.GlassColor;
 import com.arwenmc.commands.TestCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
@@ -81,8 +79,6 @@ public class ServerCore extends JavaPlugin {
                     commandSender.sendMessage(NOT_PLAYER);
                     return true;
                 } else {
-                    DyeColor lime = DyeColor.LIME;
-                    DyeColor gray = DyeColor.GRAY;
                     Player player = (Player) commandSender;
 
                     ItemStack grayDye = new ItemStack(Material.GRAY_DYE);
