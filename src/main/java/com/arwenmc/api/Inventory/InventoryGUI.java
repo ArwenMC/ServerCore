@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.inventory.Inventory;
@@ -32,7 +33,7 @@ public class InventoryGUI implements Listener {
         this.id = UUID.randomUUID();
         this.name = format(name);
         this.click = click;
-        this.size = rows * 9; // there are 9 slots on a row
+        this.size = rows * 9; // there are 9 slots in a row
         this.itemStacks = new ItemStack[this.size];
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
@@ -52,7 +53,18 @@ public class InventoryGUI implements Listener {
             if (viewing.contains(event.getWhoClicked().getUniqueId())) {
                 event.setCancelled(true);
                 Player player = (Player) event.getWhoClicked();
+                Row row = getRowFromSlot(event.getSlot());
+                if (!click.onClick(player, this, row, event.getSlot() - row.getRow(), event.getCurrentItem())) {
+                    this.close(player.getUniqueId());
+                }
             }
+        }
+    }
+
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event) {
+        if (viewing.contains(event.getPlayer().getUniqueId()) && event.getInventory().getTitle() == this.name) {
+            viewing.remove(event.getPlayer().getUniqueId());
         }
     }
 
@@ -64,11 +76,24 @@ public class InventoryGUI implements Listener {
 
     public InventoryGUI close(UUID uuid) {
         Player inventoryPlayer = Bukkit.getPlayer(uuid);
-        if (inventoryPlayer.getOpenInventory().getTitle().equalsIgnoreCase(this.name)) {
+        if (inventoryPlayer.getOpenInventory().getTitle().equalsIgnoreCase(this.name) && this.viewing.contains(inventoryPlayer.getUniqueId())) {
             inventoryPlayer.closeInventory();
             viewing.remove(uuid);
         }
         return this;
+    }
+
+    public InventoryGUI setSlot(Row row, int position, ItemStack item, String name, String... lore) {
+        itemStacks[row.getRow() * 9 + position] = createItem(item, format(name), format(lore));
+        return this;
+    }
+
+    private ItemStack createItem(ItemStack itemStack, String name, String... lore) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(name);
+        itemMeta.setLore(Arrays.asList(lore));
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 
     private Inventory createInventory(UUID uuid) {
@@ -89,11 +114,23 @@ public class InventoryGUI implements Listener {
         return viewers;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     private String[] format(String[] toFormat) {
         for (int i = 0; i < toFormat.length; i++) {
             toFormat[i] = format(toFormat[i]);
         }
         return toFormat;
+    }
+
+    public Row getRowFromSlot(int slot) {
+        return new Row(slot / 9, itemStacks);
+    }
+
+    public Row getRow(int row) {
+        return new Row(row, itemStacks);
     }
 
     private String format(String toFormat) {
@@ -128,11 +165,5 @@ public class InventoryGUI implements Listener {
         }
     }
 
-    private ItemStack createItem(ItemStack itemStack, String name, String... lore) {
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setDisplayName(name);
-        itemMeta.setLore(Arrays.asList(lore));
-        itemStack.setItemMeta(itemMeta);
-        return itemStack;
-    }
+
 }
