@@ -99,7 +99,7 @@ public class ServerCore extends JavaPlugin {
                             }
                         }
 
-                        toggleGUI.refresh(player);
+                        toggleGUI.refresh(player.getUniqueId());
                         return true;
                     });
                     toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE), "&aEnable or Disable");

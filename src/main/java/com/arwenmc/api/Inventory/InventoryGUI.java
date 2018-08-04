@@ -88,6 +88,7 @@ public class InventoryGUI implements Listener {
         for (int i = 0; i < itemStacks.length; i++) {
             inventoryPlayer.getOpenInventory().setItem(i, itemStacks[i]);
         }
+        return this;
     }
 
     public InventoryGUI setSlot(Row row, int position, ItemStack item, String name, String... lore) {
