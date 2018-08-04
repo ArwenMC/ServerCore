@@ -84,7 +84,7 @@ public class ServerCore extends JavaPlugin {
                     ItemStack grayDye = new ItemStack(Material.GRAY_DYE);
                     ItemStack limeDye = new ItemStack(Material.LIME_DYE);
 
-                    toggleGUI = new InventoryGUI("&aTest GUI", 4, (clicker, menu, row, slot, item) -> {
+                    toggleGUI = new InventoryGUI("&aTest GUI", 4, this, (clicker, menu, row, slot, item)  -> {
                         if(item.getType().equals(Material.INK_SAC)) {
                             if(item.equals(grayDye)) {
                                 toggleGUI.setSlot(toggleGUI.getRow(2), 4, limeDye, "&aEnabled", "&7Click to disable");
@@ -97,7 +97,7 @@ public class ServerCore extends JavaPlugin {
 
                         toggleGUI.refresh(player.getUniqueId());
                         return true;
-                    });
+                    };
                     toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE), "&aEnable or Disable");
                     toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
                     toggleGUI.open(player.getUniqueId());
