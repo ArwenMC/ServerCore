@@ -1,7 +1,7 @@
 package com.arwenmc;
 
 import com.arwenmc.api.Inventory.InventoryGUI;
-import com.arwenmc.commands.TestCommand;
+import com.arwenmc.commands.ServerCoreCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -19,6 +19,10 @@ import java.util.List;
 public class ServerCore extends JavaPlugin {
 
     public ServerCore PLUGIN = this;
+    public boolean DEBUG = getConfig().getBoolean("debug");
+
+    // Database
+    public boolean DATABASE_ENABLED = getConfig().getBoolean("database.db_enabled");
 
     // General Config Values
     public String NOT_PLAYER = GAC("general.not_player");
@@ -48,7 +52,7 @@ public class ServerCore extends JavaPlugin {
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
 
     public List<String> HELP_MESSAGES() {
-        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList<>();
         for (String s : getConfig().getStringList("features.help.messages")) {
             temp.add(ChatColor.translateAlternateColorCodes('&', s));
         }
@@ -77,7 +81,7 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
-        getCommand("servercoretest").setExecutor(new TestCommand(this));
+        getCommand("servercore").setExecutor(new ServerCoreCommand(this));
         getCommand("togglegui").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
