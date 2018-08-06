@@ -80,6 +80,11 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        for (Permission permission : permissions) {
+            Bukkit.getPluginManager().addPermission(permission);
+        }
+
+
         // getCommand("help").setExecutor(new HelpCommand(this));
         getCommand("servercore").setExecutor(new ServerCoreCommand(this));
         getCommand("togglegui").setExecutor(new CommandExecutor() {
@@ -115,10 +120,6 @@ public class ServerCore extends JavaPlugin {
                 }
             }
         });
-
-        for (Permission permission : permissions) {
-            Bukkit.getPluginManager().addPermission(permission);
-        }
     }
 
     @Override
