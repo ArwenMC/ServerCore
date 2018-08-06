@@ -1,6 +1,5 @@
 package com.arwenmc;
 
-import org.bukkit.Bukkit;
 import org.bukkit.permissions.Permission;
 
 public enum SCPermission {
@@ -33,12 +32,7 @@ public enum SCPermission {
                 return MEMBER.getPermission();
             case "player":
                 return PLAYER.getPermission();
-            default:
-                try {
-                    throw new IllegalAccessException();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
         }
+        return null; // this should never have been reached
     }
 }
