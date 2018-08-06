@@ -14,8 +14,6 @@ general:
   unkown_argument: "&cThe argument you provided is unknown. Please check the usage."
   prefix: "&7[&5Arwen&7] "
   player_offline: "&cThe player specified is not online."
-  admin_permission: "servercore.admin" # the default permisson node that is used. feel free to change this but make to update your own permission system.
-  player_permission: "servercore.player" # ^
   command_disabled: "&cThat particular command has been disabled"
 features:
   fly:

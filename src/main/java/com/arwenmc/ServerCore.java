@@ -3,7 +3,6 @@ package com.arwenmc;
 import com.arwenmc.api.Inventory.InventoryGUI;
 import com.arwenmc.commands.ServerCoreCommand;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -60,17 +59,6 @@ public class ServerCore extends JavaPlugin {
         return temp;
     }
 
-    // Permissions
-    // General Permissions
-    public Permission SC_ADMIN = new Permission(getConfig().getString("general.admin_permission"));
-    public Permission SC_PLAYER = new Permission(getConfig().getString("general.user_permission"));
-    // Specific Permissions
-    public Permission SC_TESTCOMMAND = new Permission("sc.commands.test");
-
-    Permission[] permissions = new Permission[] {
-            SC_ADMIN, SC_PLAYER,
-            SC_TESTCOMMAND
-    };
 
     public ServerCore getPlugin() {
         return this;
@@ -81,11 +69,6 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        for (Permission permission : permissions) {
-            Bukkit.getPluginManager().addPermission(permission);
-        }
-
-
         // getCommand("help").setExecutor(new HelpCommand(this));
         getCommand("servercore").setExecutor(new ServerCoreCommand(this));
         getCommand("togglegui").setExecutor(new CommandExecutor() {
