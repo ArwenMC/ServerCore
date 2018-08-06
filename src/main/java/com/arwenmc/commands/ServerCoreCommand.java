@@ -1,5 +1,6 @@
 package com.arwenmc.commands;
 
+import com.arwenmc.SCPermission;
 import com.arwenmc.ServerCore;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
@@ -21,7 +22,7 @@ public class ServerCoreCommand implements CommandExecutor {
             return true;
         } else {
             Player player = (Player) commandSender;
-            if (player.hasPermission(plugin.SC_PLAYER) || player.hasPermission(plugin.SC_TESTCOMMAND)) {
+            if (player.hasPermission(SCPermission.ADMIN)) {
                 if (args.length == 0 ) {
                     player.sendMessage(plugin.MISSING_ARGUMENT);
                     return false;
