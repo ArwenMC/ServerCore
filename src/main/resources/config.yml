@@ -17,10 +17,12 @@ general:
   command_disabled: "&cThat particular command has been disabled"
 features:
   fly:
+    fly_permission: staff
     fly_enable: true
     fly_enabled: "&aYour flight mode has been enabled."
     fly_disabled: "&cYour flight mode has been disabled."
   gamemode:
+    gamemode_permission: admin
     gamemode_enable: false
     gamemode_log: console # Log changes to either console or database or false
     gm_0: "&7Your gamemode is now &csurvival"
@@ -30,11 +32,13 @@ features:
     gamemode_actionbar_enable: true # Enable the sending of actionbar messages when the user changes gamemode.
     gamemode_actionbar_same_messages: true # Use the same messages for both the actionbar and chat.
   chat:
+    chat_permission: staff
     mutechat_enable: true
     chat_muted: "&cChat is muted." # Triggered if some tries to talk while chat is muted.
     chat_now_muted: "&cChat muted is now turned on."
     chat_now_unmuted: "&aChat muted is now turend off."
   help:
+    help_permission: player
     help_enable: true
     messages:
       - "&aHelp is always there if you need it."
