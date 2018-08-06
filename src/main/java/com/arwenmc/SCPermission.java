@@ -6,10 +6,11 @@ import org.bukkit.permissions.Permission;
 public class SCPermission {
 
     public Permission SC_ADMIN = new Permission("sc.admin");
+    public Permission SC_STAFF = new Permission("sc.staff");
     public Permission SC_PLAYER = new Permission("sc.player");
 
     Permission[] allPermissions = {
-            SC_ADMIN, SC_PLAYER
+            SC_ADMIN, SC_STAFF, SC_PLAYER
     };
 
 
