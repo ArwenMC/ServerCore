@@ -25,7 +25,4 @@ public class SCPermission {
             Bukkit.getPluginManager().addPermission(permission);
         }
     }
-
-
-
 }
