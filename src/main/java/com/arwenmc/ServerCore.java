@@ -19,6 +19,7 @@ import java.util.List;
 public class ServerCore extends JavaPlugin {
 
     public ServerCore PLUGIN = this;
+    public SCPermission PERMISSION = new SCPermission(PLUGIN);
     public boolean DEBUG = getConfig().getBoolean("debug");
 
     // Database
