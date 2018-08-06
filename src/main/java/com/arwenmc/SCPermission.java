@@ -28,10 +28,18 @@ public class SCPermission {
         }
     }
 
-    public Permission getPermission(String config) {
+    public Permission getPermission(String config) throws IllegalAccessException {
         switch (plugin.getConfig().getString(config)) {
-            case "none":
-
+            case "player":
+                return this.SC_PLAYER;
+            case "member":
+                return this.SC_MEMBER;
+            case "staff":
+                return this.SC_STAFF;
+            case "admin":
+                return this.SC_ADMIN;
+            default:
+                throw new IllegalAccessException();
         }
     }
 }
