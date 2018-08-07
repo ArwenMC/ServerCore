@@ -3,7 +3,6 @@ package com.arwenmc;
 import com.arwenmc.api.Inventory.InventoryGUI;
 import com.arwenmc.commands.ServerCoreCommand;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -59,17 +58,6 @@ public class ServerCore extends JavaPlugin {
         return temp;
     }
 
-    // Permissions
-    // General Permissions
-    public Permission SC_ADMIN = new Permission(getConfig().getString("general.admin_permission"));
-    public Permission SC_PLAYER = new Permission(getConfig().getString("general.user_permission"));
-    // Specific Permissions
-    public Permission SC_TESTCOMMAND = new Permission("sc.commands.test");
-
-    Permission[] permissions = new Permission[] {
-            SC_ADMIN, SC_PLAYER,
-            SC_TESTCOMMAND
-    };
 
     public ServerCore getPlugin() {
         return this;
@@ -80,11 +68,6 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        for (Permission permission : permissions) {
-            Bukkit.getPluginManager().addPermission(permission);
-        }
-
-
         // getCommand("help").setExecutor(new HelpCommand(this));
         getCommand("servercore").setExecutor(new ServerCoreCommand(this));
         getCommand("togglegui").setExecutor(new CommandExecutor() {
@@ -99,12 +82,12 @@ public class ServerCore extends JavaPlugin {
                     ItemStack grayDye = new ItemStack(Material.GRAY_DYE);
                     ItemStack limeDye = new ItemStack(Material.LIME_DYE);
 
-                    toggleGUI = new InventoryGUI("&aTest GUI", 4, PLUGIN, (clicker, menu, row, slot, item)  -> {
-                        if(item.getType().equals(Material.INK_SAC)) {
-                            if(item.equals(grayDye)) {
+                    toggleGUI = new InventoryGUI("&aTest GUI", 4, PLUGIN, (clicker, menu, row, slot, item) -> {
+                        if (item.getType().equals(Material.INK_SAC)) {
+                            if (item.equals(grayDye)) {
                                 toggleGUI.setSlot(toggleGUI.getRow(2), 4, limeDye, "&aEnabled", "&7Click to disable");
                                 player.sendMessage(ChatColor.GREEN + "You enabled this");
-                            } else if(item.equals(limeDye)) {
+                            } else if (item.equals(limeDye)) {
                                 toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
                                 player.sendMessage(ChatColor.RED + "You disabled this");
                             }
@@ -112,7 +95,7 @@ public class ServerCore extends JavaPlugin {
 
                         toggleGUI.refresh(player.getUniqueId());
                         return true;
-                        });
+                    });
                     toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE), "&aEnable or Disable");
                     toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
                     toggleGUI.open(player.getUniqueId());
