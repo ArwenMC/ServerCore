@@ -22,6 +22,8 @@ public class PlayerJoin implements Listener {
     public void PlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
+        ScoreboardBuilder sb = new ScoreboardBuilder("")
+
         Scoreboard sb = new ScoreboardBuilder("MainBoard", "Test Server 1.12.2", Arrays.asList("yourScore", "yourNextScore"))
                 .build();
         player.setScoreboard(sb);

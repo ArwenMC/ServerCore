@@ -15,8 +15,8 @@ public class ScoreboardBuilder {
     private Scoreboard scoreboard = this.scoreboardManager.getMainScoreboard();
     private Objective objective;
 
-    public ScoreboardBuilder(String objectiveName) {
-        this.objective = this.scoreboard.registerNewObjective(objectiveName, "dummy", objectiveName);
+    public ScoreboardBuilder(String scoreboardName) {
+        this.objective = this.scoreboard.registerNewObjective(scoreboardName, "dummy", scoreboardName);
     }
 
     public ScoreboardBuilder addEntries(List<String> entries) {
