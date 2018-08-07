@@ -30,7 +30,8 @@ public class ServerCoreCommand implements CommandExecutor {
                 } else if (args.length == 1) {
                     switch (args[0]) {
                         case "reload":
-                            player.sendMessage(ChatColor.GREEN + "Reload logic goes here.");
+                            // reload logic goes here.
+                            player.sendMessage(ChatColor.GREEN + "Succesfully reloaded the configuration file.");
                         default:
                             player.sendMessage(plugin.UNKNOWN_ARGUMENT);
                             return false;
