@@ -26,8 +26,9 @@ public class ItemBuilder {
 
     /**
      * Intial constructor to build an item.
+     *
      * @param material The material that you like the amount to help.
-     * @param amount The amount for that item.
+     * @param amount   The amount for that item.
      */
     public ItemBuilder(Material material, int amount) {
         this.material = material;
@@ -38,6 +39,7 @@ public class ItemBuilder {
 
     /**
      * Set the durability for the ItemStack
+     *
      * @param durability The int durability, it is casted to a short.
      */
     public ItemBuilder setDurability(int durability) {
@@ -47,6 +49,7 @@ public class ItemBuilder {
 
     /**
      * Set's the display name, you can pass this with ChatColor or & values
+     *
      * @param name The name of the item you would like to use.
      * @return
      */
@@ -115,6 +118,7 @@ public class ItemBuilder {
 
     /**
      * Builds the Item with your custom options.
+     *
      * @return The ItemStack with the custom options.
      */
     public ItemStack build() {
@@ -124,6 +128,7 @@ public class ItemBuilder {
 
     /**
      * Add your item to a player's inventory.
+     *
      * @param player The player you wan to add to the inventory
      */
     public void buildPlayer(Player player) {

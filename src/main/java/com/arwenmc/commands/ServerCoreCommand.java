@@ -1,5 +1,6 @@
 package com.arwenmc.commands;
 
+import com.arwenmc.SCPermission;
 import com.arwenmc.ServerCore;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
@@ -10,6 +11,7 @@ import org.bukkit.entity.Player;
 public class ServerCoreCommand implements CommandExecutor {
 
     ServerCore plugin;
+
     public ServerCoreCommand(ServerCore instance) {
         plugin = instance;
     }
@@ -21,14 +23,15 @@ public class ServerCoreCommand implements CommandExecutor {
             return true;
         } else {
             Player player = (Player) commandSender;
-            if (player.hasPermission(plugin.SC_PLAYER) || player.hasPermission(plugin.SC_TESTCOMMAND)) {
-                if (args.length == 0 ) {
+            if (player.hasPermission(SCPermission.ADMIN.getPermission())) {
+                if (args.length == 0) {
                     player.sendMessage(plugin.MISSING_ARGUMENT);
                     return false;
                 } else if (args.length == 1) {
                     switch (args[0]) {
                         case "reload":
-                            player.sendMessage(ChatColor.GREEN + "Reload logic goes here.");
+                            // reload logic goes here.
+                            player.sendMessage(ChatColor.GREEN + "Succesfully reloaded the configuration file.");
                         default:
                             player.sendMessage(plugin.UNKNOWN_ARGUMENT);
                             return false;

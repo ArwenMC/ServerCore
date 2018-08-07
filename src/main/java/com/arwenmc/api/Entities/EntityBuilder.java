@@ -47,6 +47,7 @@ public class EntityBuilder {
         return this;
     }
 
+    @Deprecated
     public EntityBuilder setPassenger(Entity entity) {
         this.en.setPassenger(entity);
         return this;

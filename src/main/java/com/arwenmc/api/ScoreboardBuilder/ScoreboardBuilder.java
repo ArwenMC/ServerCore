@@ -9,30 +9,33 @@ import org.bukkit.scoreboard.ScoreboardManager;
 
 import java.util.List;
 
-/*
- Example Of ScoreboardBuilder
-
- Scoreboard sb = new ScoreboardBuilder("yourObjective", "yourTitle", Arrays.asList("yourScore", "yourNextScore"))
-            .build();
- player.setScoreboard(sb);
- */
-
 public class ScoreboardBuilder {
-    private ScoreboardManager mg = Bukkit.getScoreboardManager();
-    private Scoreboard sb = this.mg.getMainScoreboard();
 
-    public ScoreboardBuilder(String objective, String title, List<String> entrys) {
-        Objective obj = this.sb.registerNewObjective(objective, "dummy");
+    private ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
+    private Scoreboard scoreboard = this.scoreboardManager.getMainScoreboard();
+    private Objective objective;
+
+    public ScoreboardBuilder(String scoreboardName) {
+        this.objective = this.scoreboard.registerNewObjective(scoreboardName, "dummy", scoreboardName);
+    }
+
+    public ScoreboardBuilder addEntries(List<String> entries) {
         int i = 0;
-        for (String score : Lists.reverse(entrys)) {
+        for (String score : Lists.reverse(entries)) {
             i++;
-            obj.getScore(score).setScore(i);
+            objective.getScore(score).setScore(i);
         }
-        obj.setDisplayName(title);
-        obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+        return this;
+    }
+
+    public ScoreboardBuilder setTitle(String title) {
+        objective.setDisplayName(title);
+        return this;
     }
 
     public Scoreboard build() {
-        return this.sb;
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+        return this.scoreboard;
     }
+
 }
