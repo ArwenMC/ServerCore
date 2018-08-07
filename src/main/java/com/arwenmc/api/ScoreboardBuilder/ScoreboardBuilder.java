@@ -1,14 +1,5 @@
 package com.arwenmc.api.ScoreboardBuilder;
 
-import com.google.common.collect.Lists;
-import org.bukkit.Bukkit;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
-
-import java.util.List;
-
 /*
  Example Of ScoreboardBuilder
 
@@ -17,7 +8,7 @@ import java.util.List;
  player.setScoreboard(sb);
  */
 
-public class ScoreboardBuilder {
+/*public class ScoreboardBuilder {
     private ScoreboardManager mg = Bukkit.getScoreboardManager();
     private Scoreboard sb = this.mg.getMainScoreboard();
 
@@ -35,4 +26,20 @@ public class ScoreboardBuilder {
     public Scoreboard build() {
         return this.sb;
     }
+}*/
+
+import org.bukkit.Bukkit;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
+
+public class ScoreboardBuilder {
+
+    private ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
+    private Scoreboard scoreboard = this.scoreboardManager.getMainScoreboard();
+
+    public ScoreboardBuilder(String objectiveName) {
+        Objective objective = this.scoreboard.re
+    }
+
 }
