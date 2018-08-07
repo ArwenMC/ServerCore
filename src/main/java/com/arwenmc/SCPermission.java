@@ -1,5 +1,6 @@
 package com.arwenmc;
 
+import org.bukkit.Bukkit;
 import org.bukkit.permissions.Permission;
 
 public enum SCPermission {
@@ -34,7 +35,9 @@ public enum SCPermission {
                 return MEMBER.getPermission();
             case "player":
                 return PLAYER.getPermission();
+            default:
+                Bukkit.getLogger().severe("That group doesn't exist, and so the command may work without any permission checks. I'd highly suggest checking your config.");
+                throw new IllegalArgumentException("That group doesn't exist, please check your config.");
         }
-        return null; // this should never have been reached
     }
 }
