@@ -5,3 +5,6 @@ If they are spelling mistakes then plesae let us know so we can get right on the
 We are currently working on database support and we aim to get that out before version 2.0 but no promises; it is about finding a balance between information and speed because we don't want to slow down your server.  
 ## Permission System
 ServerCore uses a slightly unusual permission system that instead of you having to lookup indivdual permission nodes you just set what group is allowed to use the command.
+| Group Name | Permission Node | Description |
+| --- | --- | --- |
+| Player | `sc.player` | The default group that everyone should be a part of. |
