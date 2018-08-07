@@ -11,9 +11,11 @@ public enum SCPermission {
     PLAYER("sc.player");
 
     private String permissionNode;
+    private Permission permission;
 
     SCPermission(String permissionNode) {
         this.permissionNode = permissionNode;
+        this.permission = new Permission(this.permissionNode);
     }
 
     public Permission getPermission() {

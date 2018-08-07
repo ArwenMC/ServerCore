@@ -126,13 +126,6 @@ public class InventoryGUI implements Listener {
         return this.name;
     }
 
-    private String[] format(String[] toFormat) {
-        for (int i = 0; i < toFormat.length; i++) {
-            toFormat[i] = format(toFormat[i]);
-        }
-        return toFormat;
-    }
-
     public Row getRowFromSlot(int slot) {
         return new Row(slot / 9, itemStacks);
     }
@@ -143,6 +136,13 @@ public class InventoryGUI implements Listener {
 
     private String format(String toFormat) {
         return ChatColor.translateAlternateColorCodes('&', toFormat);
+    }
+
+    private String[] format(String[] toFormat) {
+        for (int i = 0; i < toFormat.length; i++) {
+            toFormat[i] = format(toFormat[i]);
+        }
+        return toFormat;
     }
 
     public interface onClick {
