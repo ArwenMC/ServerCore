@@ -1,8 +1,14 @@
 package com.arwenmc;
 
-import org.bukkit.permissions.Permission;
+public class SCPermission {
+    public enum SCGroup {
+        ADMIM, STAFF, DONATOR, MEMBER, PlAYER
+    }
+}
 
-public enum SCPermission {
+
+
+/*enum SCPermission {
 
     ADMIN("sc.admin"),
     STAFF("sc.staff"),
@@ -35,4 +41,4 @@ public enum SCPermission {
         }
         return null; // this should never have been reached
     }
-}
+}*/
