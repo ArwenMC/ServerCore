@@ -1,5 +1,5 @@
 # ArwencMC ServerCore Configuration
-# Each
+# Each command can have its permission set from one of 5 modes: admin, staff, donator, member or player. More information is in the readme.
 database:
   db_enabled: false
   database_type: mysql # mysql or mongodb
