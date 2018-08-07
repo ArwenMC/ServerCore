@@ -31,7 +31,7 @@ public class ServerCoreCommand implements CommandExecutor {
                     switch (args[0]) {
                         case "reload":
                             // reload logic goes here.
-                            player.sendMessage(ChatColor.GREEN + "Succesfully reloaded the configuration file.");
+                            player.sendMessage(ChatColor.GREEN + "Successfully reloaded the configuration file.");
                         default:
                             player.sendMessage(plugin.UNKNOWN_ARGUMENT);
                             return false;
