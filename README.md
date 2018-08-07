@@ -4,7 +4,6 @@ Everything is configurable within the `config.yml`. I like consistency throughou
 If they are spelling mistakes then plesae let us know so we can get right on them, same goes for bugs. I did try and squish as many as possible.  
 We are currently working on database support and we aim to get that out before version 2.0 but no promises; it is about finding a balance between information and speed because we don't want to slow down your server.  
 ## Permission System
-ServerCore uses a slightly unusual permission system that instead of you having to lookup individual permission nodes you just set what group is allowed to use the command.  
 | Group Name | Permission Node | Description                                        |
 |------------|-----------------|----------------------------------------------------|
 | Admin      | `sc.admin`      | The administrator group - the highest in the land. |
@@ -12,3 +11,5 @@ ServerCore uses a slightly unusual permission system that instead of you having 
 | Donator    | `sc.donator`    | Access to the fun commands!                        |
 | Member     | `sc.member`     | A trusted a member of the community.               |
 | Player     | `sc.player`     | Should be given to your default group.             |
+Instead of using individual permission nodes - you can choose from 5 groups in the config. Our system will automatically detect which group you have used and only allow that group to use that command.
+We've got some default ones already there but feel free to change them!
