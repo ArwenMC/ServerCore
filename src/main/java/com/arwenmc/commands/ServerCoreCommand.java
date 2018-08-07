@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 public class ServerCoreCommand implements CommandExecutor {
 
     ServerCore plugin;
+
     public ServerCoreCommand(ServerCore instance) {
         plugin = instance;
     }
@@ -23,7 +24,7 @@ public class ServerCoreCommand implements CommandExecutor {
         } else {
             Player player = (Player) commandSender;
             if (player.hasPermission(SCPermission.ADMIN.getPermission())) {
-                if (args.length == 0 ) {
+                if (args.length == 0) {
                     player.sendMessage(plugin.MISSING_ARGUMENT);
                     return false;
                 } else if (args.length == 1) {

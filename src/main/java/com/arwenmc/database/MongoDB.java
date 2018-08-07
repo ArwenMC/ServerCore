@@ -14,12 +14,14 @@ public class MongoDB {
     private DBCollection players;
     private DB db;
     private MongoClient client;
+
     public MongoDB(ServerCore instance, String ip, int port) {
         plugin = instance;
 
         this.ip = ip;
         this.port = port;
     }
+
     public MongoDB(ServerCore instance, String ip) {
         plugin = instance;
 

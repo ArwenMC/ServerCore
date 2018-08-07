@@ -49,6 +49,8 @@ public class ServerCore extends JavaPlugin {
 
     // Help
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
+    // Inventory GUI
+    InventoryGUI toggleGUI;
 
     public List<String> HELP_MESSAGES() {
         ArrayList<String> temp = new ArrayList<>();
@@ -58,13 +60,9 @@ public class ServerCore extends JavaPlugin {
         return temp;
     }
 
-
     public ServerCore getPlugin() {
         return this;
     }
-
-    // Inventory GUI
-    InventoryGUI toggleGUI;
 
     @Override
     public void onEnable() {
