@@ -29,7 +29,6 @@ package com.arwenmc.api.ScoreboardBuilder;
 }*/
 
 import org.bukkit.Bukkit;
-import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
@@ -39,7 +38,6 @@ public class ScoreboardBuilder {
     private Scoreboard scoreboard = this.scoreboardManager.getMainScoreboard();
 
     public ScoreboardBuilder(String objectiveName) {
-        Objective objective = this.scoreboard.re
     }
 
 }
