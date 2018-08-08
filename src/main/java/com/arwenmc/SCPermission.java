@@ -19,6 +19,7 @@ public class SCPermission {
                 return groupPermissions.PLAYER.getPermission();
             default:
                 Bukkit.getLogger().severe("That group doesn't exist, and so the command may work without any permission checks. I'd highly suggest checking your config.");
+                Bukkit.getLogger().severe("Offending path is " + configPath);
                 throw new IllegalArgumentException("That group doesn't exist, please check your config.");
         }
     }
