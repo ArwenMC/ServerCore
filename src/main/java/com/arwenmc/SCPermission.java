@@ -1,22 +1,34 @@
 package com.arwenmc;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 
 public class SCPermission {
 
-    public Permission getCommandPermission(String configPath) {
-        switch (new ServerCore().getConfig().getString(configPath)) {
+    public boolean permissionCheck(Player player, ConfigPath configPath) {
+        Permission permission = getCommandPermission(configPath);
+
+        if (player.hasPermission(permission)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public Permission getCommandPermission(ConfigPath configPath) {
+        switch (configPath.getConfigPath()) {
             case "admin":
-                return groupPermissions.ADMIN.getPermission();
+                return GroupPermission.ADMIN.getPermission();
             case "staff":
-                return groupPermissions.STAFF.getPermission();
+                return GroupPermission.STAFF.getPermission();
             case "donator":
-                return groupPermissions.DONATOR.getPermission();
+                return GroupPermission.DONATOR.getPermission();
             case "member":
-                return groupPermissions.MEMBER.getPermission();
+                return GroupPermission.MEMBER.getPermission();
             case "player":
-                return groupPermissions.PLAYER.getPermission();
+                return GroupPermission.PLAYER.getPermission();
             default:
                 Bukkit.getLogger().severe("That group doesn't exist, and so the command may work without any permission checks. I'd highly suggest checking your config.");
                 Bukkit.getLogger().severe("Offending path is " + configPath);
@@ -24,7 +36,7 @@ public class SCPermission {
         }
     }
 
-    public enum configPath {
+    public enum ConfigPath {
         FLY("fly.fly_permission"),
         GAMEMODE("gamemode.gamemode_permission"),
         CHAT("chat.chat_permission"),
@@ -32,7 +44,7 @@ public class SCPermission {
 
         private String configPath;
 
-        configPath(String configPath) {
+        ConfigPath(String configPath) {
             this.configPath = configPath;
         }
 
@@ -41,7 +53,7 @@ public class SCPermission {
         }
     }
 
-    public enum groupPermissions {
+    public enum GroupPermission {
         ADMIN("sc.admin"),
         STAFF("sc.staff"),
         DONATOR("sc.donator"),
@@ -50,7 +62,7 @@ public class SCPermission {
 
         private String permissionNode;
 
-        groupPermissions(String permissionNode) {
+        GroupPermission(String permissionNode) {
             this.permissionNode = permissionNode;
         }
 

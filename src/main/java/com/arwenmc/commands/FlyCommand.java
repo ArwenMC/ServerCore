@@ -20,7 +20,7 @@ public class FlyCommand implements CommandExecutor {
             return true;
         } else {
             Player player = (Player) commandSender;
-            if (player.hasPermission(new SCPermission().getCommandPermission(SCPermission.configPath.FLY.getConfigPath()))) {
+            if (new SCPermission().permissionCheck(player, SCPermission.ConfigPath.FLY)) {
                 // flying logic here.
                 return true;
             } else {
