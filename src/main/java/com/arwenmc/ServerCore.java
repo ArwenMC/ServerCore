@@ -30,7 +30,7 @@ public class ServerCore extends JavaPlugin {
     public String UNKNOWN_ARGUMENT = GAC("general.unknown_argument");
     public String PREFIX = GAC("general.prefix");
     public String PLAYER_OFFLINE = GAC("general.player_offline");
-    public String COMMAND_DISABLED = GAC("general");
+    public String COMMAND_DISABLED = GAC("general.command_disabled");
 
     // Custom Permission System.
     public Permission ADMIN_PERMISSION = new Permission(getConfig().getString("general.admin_permission"));
