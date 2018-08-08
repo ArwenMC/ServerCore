@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 public class FlyCommand implements CommandExecutor {
 
     ServerCore plugin;
+
     public FlyCommand(ServerCore instance) {
         plugin = instance;
     }

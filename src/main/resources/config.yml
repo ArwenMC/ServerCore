@@ -42,6 +42,6 @@ features:
     help_permission: "player"
     help_enable: true
     messages:
-      - "&aHelp is always there if you need it."
-      - "&aContact a member of Staff."
+    - "&aHelp is always there if you need it."
+    - "&aContact a member of Staff."
 debug: false # Enables more logging to the console.

@@ -116,19 +116,19 @@ public class Title {
     /**
      * Setter for the text of the ServerCore title.
      *
-     * @param title New ServerCore title text.
+     * @param title New ServerCore title text. Must be in /tellraw JSON format.
      */
-    public void setTitle(String title) {
-        this.title = convert(title);
+    public void setTitle(JSONObject title) {
+        this.title = title;
     }
 
     /**
      * Setter for the text of the ServerCore title.
      *
-     * @param title New ServerCore title text. Must be in /tellraw JSON format.
+     * @param title New ServerCore title text.
      */
-    public void setTitle(JSONObject title) {
-        this.title = title;
+    public void setTitle(String title) {
+        this.title = convert(title);
     }
 
     /**
@@ -143,19 +143,19 @@ public class Title {
     /**
      * Setter for the text of the subtitle.
      *
-     * @param subtitle New subtitle text.
+     * @param subtitle New subtitle text. Must be in /tellraw JSON format.
      */
-    public void setSubtitle(String subtitle) {
-        this.subtitle = convert(subtitle);
+    public void setSubtitle(JSONObject subtitle) {
+        this.subtitle = subtitle;
     }
 
     /**
      * Setter for the text of the subtitle.
      *
-     * @param subtitle New subtitle text. Must be in /tellraw JSON format.
+     * @param subtitle New subtitle text.
      */
-    public void setSubtitle(JSONObject subtitle) {
-        this.subtitle = subtitle;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = convert(subtitle);
     }
 
     /**
