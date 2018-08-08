@@ -40,7 +40,7 @@ public class SCPermission {
         }
     }
 
-    public enum groupPermissions {
+    private enum groupPermissions {
         ADMIN("sc.admin"),
         STAFF("sc.staff"),
         DONATOR("sc.donator"),
