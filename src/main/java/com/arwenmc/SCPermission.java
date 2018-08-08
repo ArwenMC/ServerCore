@@ -25,7 +25,7 @@ public class SCPermission {
         }
     }
 
-    public Permission getCommandPermission(ConfigPath configPath) {
+    private Permission getCommandPermission(ConfigPath configPath) {
         switch (configPath.getConfigPath()) {
             case "admin":
                 return GroupPermission.ADMIN.getPermission();
