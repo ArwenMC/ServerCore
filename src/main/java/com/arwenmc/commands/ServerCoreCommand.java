@@ -23,7 +23,7 @@ public class ServerCoreCommand implements CommandExecutor {
             return true;
         } else {
             Player player = (Player) commandSender;
-            if (player.hasPermission(SCPermission.GroupPermission.ADMIN.getPermission())) {
+            if (new SCPermission().permissionCheck(player, SCPermission.GroupPermission.ADMIN)) {
                 if (args.length == 0) {
                     player.sendMessage(plugin.MISSING_ARGUMENT);
                     return false;

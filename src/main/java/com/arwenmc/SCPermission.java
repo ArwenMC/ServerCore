@@ -17,6 +17,14 @@ public class SCPermission {
 
     }
 
+    public boolean permissionCheck(Player player, GroupPermission groupPermission) {
+        if (player.hasPermission(groupPermission.getPermission())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Permission getCommandPermission(ConfigPath configPath) {
         switch (configPath.getConfigPath()) {
             case "admin":
