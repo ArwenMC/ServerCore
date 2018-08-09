@@ -43,7 +43,6 @@ public class ServerCore extends JavaPlugin {
 
     // Chat Config Values
     public boolean MUTECHAT_ENABLED = getConfig().getBoolean("features.chat.mutechat_enabled");
-    public boolean isChatMuted;
     public String CHAT_NOW_MUTED = GAC("features.chat.chat_now_muted");
     public String CHAT_NOW_UNMUTED = GAC("features.chat.chat_now_unmuted");
 
