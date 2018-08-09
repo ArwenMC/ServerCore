@@ -8,13 +8,11 @@ public class SCPermission {
 
     public boolean permissionCheck(Player player, ConfigPath configPath) {
         Permission permission = getCommandPermission(configPath);
-
         if (player.hasPermission(permission)) {
             return true;
         } else {
             return false;
         }
-
     }
 
     public boolean permissionCheck(Player player, GroupPermission groupPermission) {
