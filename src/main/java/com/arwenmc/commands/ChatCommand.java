@@ -17,6 +17,7 @@ public class ChatCommand implements CommandExecutor, Listener {
         plugin = instance;
     }
 
+    private boolean isChatMuted;
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
@@ -35,9 +36,9 @@ public class ChatCommand implements CommandExecutor, Listener {
 
     @EventHandler
     public void onPlayerChatEvent(AsyncPlayerChatEvent event) {
+        if (isChatMuted) {
 
+        }
 
     }
-
-
 }
