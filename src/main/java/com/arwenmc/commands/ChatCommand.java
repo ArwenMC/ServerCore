@@ -26,7 +26,9 @@ public class ChatCommand implements CommandExecutor, Listener {
         } else {
             Player player = (Player) commandSender;
             if (new SCPermission().permissionCheck(player, SCPermission.ConfigPath.CHAT)) {
-
+                if (isChatMuted) {
+                    player.sendMessage("");
+                }
             } else {
                 player.sendMessage(plugin.NO_PERMISSION);
                 return true;
@@ -37,7 +39,9 @@ public class ChatCommand implements CommandExecutor, Listener {
     @EventHandler
     public void onPlayerChatEvent(AsyncPlayerChatEvent event) {
         if (isChatMuted) {
-
+            if (!(new SCPermission().permissionCheck(event.getPlayer(), SCPermission.ConfigPath.CHAT_BYPASS))) {
+                event.setCancelled(true);
+            }
         }
 
     }
