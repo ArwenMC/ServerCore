@@ -3,18 +3,18 @@ package com.arwenmc.api;
 public class SCConfig {
 
     public enum Database {
-        DB_ENABLED("database.db_enabled"),
-        DB_TYPE("database.database_type"),
-        DB_HOST("database.host"),
-        DB_PORT("database.port"), // should be int
-        DB_DATABASE("database.database"),
-        DB_USERNAME("database.username"),
-        DB_PASSWORD("database.password");
+        ENABLED("database.db_enabled"),
+        TYPE("database.database_type"),
+        HOST("database.host"),
+        PORT("database.port"), // should be int
+        DATABASE("database.database"),
+        USERNAME("database.username"),
+        PASSWORD("database.password");
 
         private String configPath;
 
         Database(String configPath) {
-            this.configPath = configPath
+            this.configPath = configPath;
         }
 
         public String getConfigPath() {
@@ -22,8 +22,4 @@ public class SCConfig {
         }
 
     }
-
-
-
-
 }
