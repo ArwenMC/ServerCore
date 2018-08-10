@@ -42,10 +42,14 @@ public class SCPermission {
         }
     }
 
+    /**
+     *  
+     */
     public enum ConfigPath {
         FLY("fly.fly_permission"),
         GAMEMODE("gamemode.gamemode_permission"),
         CHAT("chat.chat_permission"),
+        CHAT_BYPASS("chat.chat_bypass_permission"),
         HELP("help.help_permission");
 
         private String configPath;
