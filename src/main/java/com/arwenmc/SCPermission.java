@@ -43,10 +43,9 @@ public class SCPermission {
     }
 
     /**
-     *  
+     * A much easier way for getting paths from config.
      */
     public enum ConfigPath {
-        FLY("fly.fly_permission"),
         GAMEMODE("gamemode.gamemode_permission"),
         CHAT("chat.chat_permission"),
         CHAT_BYPASS("chat.chat_bypass_permission"),
