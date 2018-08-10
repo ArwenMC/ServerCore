@@ -1,5 +1,8 @@
 package com.arwenmc.api;
 
+import com.arwenmc.ServerCore;
+import net.md_5.bungee.api.ChatColor;
+
 public class SCConfig {
 
     public enum Database {
