@@ -12,6 +12,7 @@ public class SCConfig {
 
     public String getAndColour(Enum enumValue) {
         String value = new ServerCore().getConfig().getString(enumValue.toString());
+
         return ChatColor.translateAlternateColorCodes('&', value);
     }
 
@@ -51,7 +52,29 @@ public class SCConfig {
         }
     }
 
-    public enum F_Fly { // Features Fly
-        
+    public enum Features {
+        enum FLY {
+            PERMISSION("features.fly.fly_permission"),
+            ENABLE("features.fly.fly_enable"),
+            M_ENABLED("features.fly.fly_enabled"),
+            M_DISABLED("features.fly.fly_disabled");
+
+            private String configPath;
+
+            FLY(String configPath) {
+                this.configPath = configPath;
+            }
+
+            public String getConfigPath() {
+                return this.configPath;
+            }
+        }
+
+
+        private String configPath;
+
+        Features(String configPath) {
+            this.configPath = configPath;
+        }
     }
 }
