@@ -2,6 +2,7 @@ package com.arwenmc.commands;
 
 import com.arwenmc.SCPermission;
 import com.arwenmc.ServerCore;
+import com.arwenmc.api.SCConfig;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,7 +22,7 @@ public class FlyCommand implements CommandExecutor {
             return true;
         } else {
             Player player = (Player) commandSender;
-            if (new SCPermission().permissionCheck(player, SCPermission.ConfigPath.FLY)) {
+            if (new SCConfig().(player, SCConfig.Features.FLY.PERMISSION)) {
                 // flying logic here.
                 return true;
             } else {
