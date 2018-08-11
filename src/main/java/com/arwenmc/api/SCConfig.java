@@ -52,8 +52,8 @@ public class SCConfig {
         }
     }
 
-    public enum Features {
-        enum FLY {
+    public static class Features {
+        public enum FLY {
             PERMISSION("features.fly.fly_permission"),
             ENABLE("features.fly.fly_enable"),
             M_ENABLED("features.fly.fly_enabled"),
