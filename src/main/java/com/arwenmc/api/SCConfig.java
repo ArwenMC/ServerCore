@@ -68,6 +68,11 @@ public class SCConfig {
             public String getConfigPath() {
                 return this.configPath;
             }
+        },
+        enum GAMEMODE {
+            TEST("test.test");
+
+
         }
 
 
