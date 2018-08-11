@@ -1,4 +1,4 @@
-package com.arwenmc.api;
+package com.arwenmc;
 
 import com.arwenmc.SCManage;
 import com.arwenmc.ServerCore;
