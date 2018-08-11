@@ -39,5 +39,15 @@ public class SCConfig {
         }
     }
 
+    public enum General {
+        NOT_PLAYER("general.not_player"),
+        NO_PERMISSION("general.no_permission"),
+        MISSING_ARUGMENT("general.missing_argment");
+
+        private String configPath;
+
+        General(String configPath) {
+            this.configPath = configPath;
+        }
     }
 }
