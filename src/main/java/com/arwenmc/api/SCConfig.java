@@ -50,4 +50,8 @@ public class SCConfig {
             this.configPath = configPath;
         }
     }
+
+    public enum F_Fly { // Features Fly
+        
+    }
 }
