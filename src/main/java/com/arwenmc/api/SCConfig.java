@@ -5,6 +5,20 @@ import net.md_5.bungee.api.ChatColor;
 
 public class SCConfig {
 
+    ServerCore plugin;
+    public SCConfig(ServerCore plugin) {
+        this.plugin = plugin;
+    }
+
+    public String getAndColour(Enum enumValue) {
+        String value = new ServerCore().getConfig().getString(enumValue.toString());
+        return ChatColor.translateAlternateColorCodes('&', value);
+    }
+
+    public boolean getConfigBoolean(Enum enumField) {
+        return plugin.getConfig().getBoolean(enumField.toString());
+    }
+
     public enum Database {
         ENABLED("database.db_enabled"),
         TYPE("database.database_type"),
@@ -23,6 +37,7 @@ public class SCConfig {
         public String getConfigPath() {
             return this.configPath;
         }
+    }
 
     }
 }
