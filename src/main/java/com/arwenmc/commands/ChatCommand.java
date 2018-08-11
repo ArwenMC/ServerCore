@@ -1,6 +1,6 @@
 package com.arwenmc.commands;
 
-import com.arwenmc.SCPermission;
+import com.arwenmc.SCManage;
 import com.arwenmc.ServerCore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,7 +25,7 @@ public class ChatCommand implements CommandExecutor, Listener {
 
         } else {
             Player player = (Player) commandSender;
-            if (new SCPermission().permissionCheck(player, SCPermission.ConfigPath.CHAT)) {
+            if (new SCManage().permissionCheck(player, SCManage.ConfigPath.CHAT)) {
                 if (isChatMuted) {
                     player.sendMessage("");
                 }
@@ -39,7 +39,7 @@ public class ChatCommand implements CommandExecutor, Listener {
     @EventHandler
     public void onPlayerChatEvent(AsyncPlayerChatEvent event) {
         if (isChatMuted) {
-            if (!(new SCPermission().permissionCheck(event.getPlayer(), SCPermission.ConfigPath.CHAT_BYPASS))) {
+            if (!(new SCManage().permissionCheck(event.getPlayer(), SCManage.ConfigPath.CHAT_BYPASS))) {
                 event.setCancelled(true);
             }
         }

@@ -1,6 +1,6 @@
 package com.arwenmc.api;
 
-import com.arwenmc.SCPermission;
+import com.arwenmc.SCManage;
 import com.arwenmc.ServerCore;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
@@ -25,18 +25,18 @@ public class SCConfig {
         return plugin.getConfig().getBoolean(enumField.toString());
     }
 
-    private Permission getCommandPermission(SCPermission.ConfigPath configPath) {
+    private Permission getCommandPermission(SCManage.ConfigPath configPath) {
         switch (configPath.getConfigPath()) {
             case "admin":
-                return SCPermission.GroupPermission.ADMIN.getPermission();
+                return SCManage.GroupPermission.ADMIN.getPermission();
             case "staff":
-                return SCPermission.GroupPermission.STAFF.getPermission();
+                return SCManage.GroupPermission.STAFF.getPermission();
             case "donator":
-                return SCPermission.GroupPermission.DONATOR.getPermission();
+                return SCManage.GroupPermission.DONATOR.getPermission();
             case "member":
-                return SCPermission.GroupPermission.MEMBER.getPermission();
+                return SCManage.GroupPermission.MEMBER.getPermission();
             case "player":
-                return SCPermission.GroupPermission.PLAYER.getPermission();
+                return SCManage.GroupPermission.PLAYER.getPermission();
             default:
                 Bukkit.getLogger().severe("That group doesn't exist, and so the command may work without any permission checks. I'd highly suggest checking your config.");
                 Bukkit.getLogger().severe("Offending path is " + configPath);

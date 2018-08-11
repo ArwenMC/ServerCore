@@ -1,6 +1,5 @@
 package com.arwenmc.commands;
 
-import com.arwenmc.SCPermission;
 import com.arwenmc.ServerCore;
 import com.arwenmc.api.SCConfig;
 import org.bukkit.command.Command;

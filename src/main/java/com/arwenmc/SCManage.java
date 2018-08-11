@@ -4,7 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 
-public class SCPermission {
+public class SCManage {
 
     public boolean permissionCheck(Player player, ConfigPath configPath) {
         Permission permission = getCommandPermission(configPath);
