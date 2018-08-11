@@ -10,6 +10,8 @@ public class SCConfig {
         this.plugin = plugin;
     }
 
+    public SCConfig() {}
+
     public String getAndColour(Enum enumValue) {
         String value = new ServerCore().getConfig().getString(enumValue.toString());
 
