@@ -75,4 +75,6 @@ public class SCConfig {
 
         }
     }
+
+    public boolean DEBUG = plugin.getConfig().getBoolean("debug");
 }
