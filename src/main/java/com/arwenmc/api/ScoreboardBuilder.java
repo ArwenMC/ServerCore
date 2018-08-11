@@ -1,4 +1,4 @@
-package com.arwenmc.api.ScoreboardBuilder;
+package com.arwenmc.api;
 
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
