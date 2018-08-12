@@ -20,6 +20,11 @@ public class SCConfig {
         return ChatColor.translateAlternateColorCodes('&', value);
     }
 
+    /**
+     * Get and Colour - get path from config and colourise it.
+     * @param configPath The path of the config value
+     * @return colourised String.
+     */
     public String GAC(String configPath) {
         String configValue = plugin.getConfig().getString(configPath);
         return ChatColor.translateAlternateColorCodes('&', configPath);
