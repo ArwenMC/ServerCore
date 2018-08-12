@@ -92,11 +92,6 @@ public class SCConfig {
                 return this.configPath;
             }
         }
-        enum GAMEMODE {
-            TEST("test.test");
-
-
-        }
     }
 
     public boolean permissionCheck(Player player, ConfigPath configPath) {
@@ -115,7 +110,7 @@ public class SCConfig {
             return false;
         }
     }
-    
+
     /**
      * A much easier way for getting paths from config.
      */
