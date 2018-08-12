@@ -24,18 +24,18 @@ public class SCConfig {
         return plugin.getConfig().getBoolean(enumField.toString());
     }
 
-    private Permission getCommandPermission(SCManage.ConfigPath configPath) {
+    private Permission getCommandPermission(ConfigPath configPath) {
         switch (configPath.getConfigPath()) {
             case "admin":
-                return SCManage.GroupPermission.ADMIN.getPermission();
+                return GroupPermission.ADMIN.getPermission();
             case "staff":
-                return SCManage.GroupPermission.STAFF.getPermission();
+                return GroupPermission.STAFF.getPermission();
             case "donator":
-                return SCManage.GroupPermission.DONATOR.getPermission();
+                return GroupPermission.DONATOR.getPermission();
             case "member":
-                return SCManage.GroupPermission.MEMBER.getPermission();
+                return GroupPermission.MEMBER.getPermission();
             case "player":
-                return SCManage.GroupPermission.PLAYER.getPermission();
+                return GroupPermission.PLAYER.getPermission();
             default:
                 Bukkit.getLogger().severe("That group doesn't exist, and so the command may work without any permission checks. I'd highly suggest checking your config.");
                 Bukkit.getLogger().severe("Offending path is " + configPath);
@@ -115,26 +115,7 @@ public class SCConfig {
             return false;
         }
     }
-
-    private Permission getCommandPermission(ConfigPath configPath) {
-        switch (configPath.getConfigPath()) {
-            case "admin":
-                return GroupPermission.ADMIN.getPermission();
-            case "staff":
-                return GroupPermission.STAFF.getPermission();
-            case "donator":
-                return GroupPermission.DONATOR.getPermission();
-            case "member":
-                return GroupPermission.MEMBER.getPermission();
-            case "player":
-                return GroupPermission.PLAYER.getPermission();
-            default:
-                Bukkit.getLogger().severe("That group doesn't exist, and so the command may work without any permission checks. I'd highly suggest checking your config.");
-                Bukkit.getLogger().severe("Offending path is " + configPath);
-                throw new IllegalArgumentException("That group doesn't exist, please check your config.");
-        }
-    }
-
+    
     /**
      * A much easier way for getting paths from config.
      */
