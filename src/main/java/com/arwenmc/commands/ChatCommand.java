@@ -1,6 +1,5 @@
 package com.arwenmc.commands;
 
-import com.arwenmc.SCManage;
 import com.arwenmc.ServerCore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

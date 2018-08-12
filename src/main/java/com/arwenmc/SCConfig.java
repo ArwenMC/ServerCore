@@ -1,7 +1,5 @@
 package com.arwenmc;
 
-import com.arwenmc.SCManage;
-import com.arwenmc.ServerCore;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
