@@ -104,17 +104,6 @@ public class ServerCore extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        // Disable Method
     }
-
-    /**
-     * A custom method to simplify the getting of config values and then colour it.
-     *
-     * @param path The path to the config value
-     * @return String Colourised Config String
-     */
-    private String scConfig.GAC(String path) { // scConfig.GAC = get and colour.
-        String config = getConfig().getString(path);
-        return ChatColor.translateAlternateColorCodes('&', config);
-    }
-
 }
