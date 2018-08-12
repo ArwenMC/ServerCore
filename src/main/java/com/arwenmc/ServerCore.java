@@ -24,13 +24,13 @@ public class ServerCore extends JavaPlugin {
     public boolean DATABASE_ENABLED = getConfig().getBoolean("database.db_enabled");
 
     // General Config Values
-    public String NOT_PLAYER = scConfig.GAC("general.not_player");
-    public String NO_PERMISSION = scConfig.GAC("general.no_permission");
-    public String MISSING_ARGUMENT = scConfig.GAC("general.missing_argument");
-    public String UNKNOWN_ARGUMENT = scConfig.GAC("general.unknown_argument");
-    public String PREFIX = scConfig.GAC("general.prefix");
-    public String PLAYER_OFFLINE = scConfig.GAC("general.player_offline");
-    public String COMMAND_DISABLED = scConfig.GAC("general.command_disabled");
+    public String NOT_PLAYER = scConfig.getAndColour("general.not_player");
+    public String NO_PERMISSION = scConfig.getAndColour("general.no_permission");
+    public String MISSING_ARGUMENT = scConfig.getAndColour("general.missing_argument");
+    public String UNKNOWN_ARGUMENT = scConfig.getAndColour("general.unknown_argument");
+    public String PREFIX = scConfig.getAndColour("general.prefix");
+    public String PLAYER_OFFLINE = scConfig.getAndColour("general.player_offline");
+    public String COMMAND_DISABLED = scConfig.getAndColour("general.command_disabled");
 
     // Custom Permission System.
     public Permission ADMIN_PERMISSION = new Permission(getConfig().getString("general.admin_permission"));
@@ -38,13 +38,13 @@ public class ServerCore extends JavaPlugin {
 
     // Fly Config Values
     public boolean FLY_ENABLE = getConfig().getBoolean("features.fly.fly_enable");
-    public String FLY_ENABLED = scConfig.GAC("features.fly.fly_enabled");
-    public String FLY_DISABLED = scConfig.GAC("features.fly.fly_disabled");
+    public String FLY_ENABLED = scConfig.getAndColour("features.fly.fly_enabled");
+    public String FLY_DISABLED = scConfig.getAndColour("features.fly.fly_disabled");
 
     // Chat Config Values
     public boolean MUTECHAT_ENABLED = getConfig().getBoolean("features.chat.mutechat_enabled");
-    public String CHAT_NOW_MUTED = scConfig.GAC("features.chat.chat_now_muted");
-    public String CHAT_NOW_UNMUTED = scConfig.GAC("features.chat.chat_now_unmuted");
+    public String CHAT_NOW_MUTED = scConfig.getAndColour("features.chat.chat_now_muted");
+    public String CHAT_NOW_UNMUTED = scConfig.getAndColour("features.chat.chat_now_unmuted");
 
     // Help
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");

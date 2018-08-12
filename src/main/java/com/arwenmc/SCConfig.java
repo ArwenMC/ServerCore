@@ -26,7 +26,7 @@ public class SCConfig {
      * @return colourised String.
      */
     @Deprecated
-    public String GAC(String configPath) {
+    public String getAndColour(String configPath) {
         String configValue = plugin.getConfig().getString(configPath);
         return ChatColor.translateAlternateColorCodes('&', configPath);
     }
