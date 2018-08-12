@@ -20,6 +20,11 @@ public class SCConfig {
         return ChatColor.translateAlternateColorCodes('&', value);
     }
 
+    public String GAC(String configPath) {
+        String configValue = plugin.getConfig().getString(configPath);
+        return ChatColor.translateAlternateColorCodes('&', configPath);
+    }
+
     public boolean getConfigBoolean(Enum enumField) {
         return plugin.getConfig().getBoolean(enumField.toString());
     }
