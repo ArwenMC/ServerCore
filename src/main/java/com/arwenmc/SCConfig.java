@@ -122,26 +122,6 @@ public class SCConfig {
         }
     }
 
-    /**
-     * A much easier way for getting paths from config.
-     */
-    public enum ConfigPath {
-        GAMEMODE("gamemode.gamemode_permission"),
-        CHAT("chat.chat_permission"),
-        CHAT_BYPASS("chat.chat_bypass_permission"),
-        HELP("help.help_permission");
-
-        private String configPath;
-
-        ConfigPath(String configPath) {
-            this.configPath = configPath;
-        }
-
-        public String getConfigPath() {
-            return this.configPath;
-        }
-    }
-
     public enum GroupPermission {
         ADMIN("sc.admin"),
         STAFF("sc.staff"),
