@@ -54,40 +54,38 @@ public class SCConfig {
         }
     }
 
-    public enum Database {
-        ENABLED("database.db_enabled"),
-        TYPE("database.database_type"),
-        HOST("database.host"),
-        PORT("database.port"), // should be int
-        DATABASE("database.database"),
-        USERNAME("database.username"),
-        PASSWORD("database.password");
+    public enum Config {
+        enum Database {
+            ENABLED("database.db_enabled"),
+            TYPE("database.database_type"),
+            HOST("database.host"),
+            PORT("database.port"), // should be int
+            DATABASE("database.database"),
+            USERNAME("database.username"),
+            PASSWORD("database.password");
 
-        private String configPath;
+            private String configPath;
 
-        Database(String configPath) {
-            this.configPath = configPath;
-        }
+            Database(String configPath) {
+                this.configPath = configPath;
+            }
 
-        public String getConfigPath() {
-            return this.configPath;
-        }
-    }
+            public String getConfigPath() {
+                return this.configPath;
+            }
+        },
+        enum General {
+            NOT_PLAYER("general.not_player"),
+            NO_PERMISSION("general.no_permission"),
+            MISSING_ARUGMENT("general.missing_argment");
 
-    public enum General {
-        NOT_PLAYER("general.not_player"),
-        NO_PERMISSION("general.no_permission"),
-        MISSING_ARUGMENT("general.missing_argment");
+            private String configPath;
 
-        private String configPath;
-
-        General(String configPath) {
-            this.configPath = configPath;
-        }
-    }
-
-    public static class Features {
-        public enum FLY {
+            General(String configPath) {
+                this.configPath = configPath;
+            }
+        },
+        enum FLY {
             PERMISSION("features.fly.fly_permission"),
             ENABLE("features.fly.fly_enable"),
             M_ENABLED("features.fly.fly_enabled"),
@@ -102,7 +100,13 @@ public class SCConfig {
             public String getConfigPath() {
                 return this.configPath;
             }
-        }
+        };
+    }
+
+    public
+    public
+    public static class Features {
+        public
     }
 
     public boolean permissionCheck(Player player, GroupPermission groupPermission) {
