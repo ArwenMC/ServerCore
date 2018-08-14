@@ -25,11 +25,7 @@ public class SCConfig {
     }
 
     public boolean permissionCheck(Player player, GroupPermissions permissionNode) {
-        if (player.hasPermission(permissionNode.getPermission())) {
-            return true;
-        } else {
-            return false;
-        }
+        return (player.hasPermission(permissionNode.getPermission())) ? true : false;
     }
 
     public enum GroupPermissions {
