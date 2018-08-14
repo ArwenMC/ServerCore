@@ -103,10 +103,8 @@ public class SCConfig {
         };
     }
 
-    public
-    public
     public static class Features {
-        public
+        
     }
 
     public boolean permissionCheck(Player player, GroupPermission groupPermission) {
