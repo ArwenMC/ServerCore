@@ -16,5 +16,4 @@ public class SCConfig {
         String configValue = config.getString(configPath);
         return ChatColor.translateAlternateColorCodes('&', configValue);
     }
-
 }
