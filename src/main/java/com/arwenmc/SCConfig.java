@@ -14,6 +14,10 @@ public class SCConfig {
         this.config = plugin.getConfig();
     }
 
+    public SCConfig() {
+        this.config = plugin.getConfig();
+    }
+
     public String getAndColour(String configPath) {
         String configValue = config.getString(configPath);
         return ChatColor.translateAlternateColorCodes('&', configValue);
@@ -28,8 +32,11 @@ public class SCConfig {
     }
 
     public enum GroupPermissions {
-        TEST("test.test"),
-        TEST2("test.test2");
+        ADMIN("sc.admin"),
+        STAFF("sc.staff"),
+        DONATOR("sc.donator").
+        MEMBER("sc.member"),
+        PLAYER("sc.player");
 
         private Permission permission;
 
