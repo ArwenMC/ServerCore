@@ -19,7 +19,7 @@ public class SCConfig {
         return ChatColor.translateAlternateColorCodes('&', configValue);
     }
 
-    public boolean permissionCheck(Player player, PermissionNode permissionNode) {
+    public boolean permissionCheck(Player player, GroupPermissions permissionNode) {
         if (player.hasPermission(permissionNode.getPermission())) {
             return true;
         } else {
@@ -27,13 +27,13 @@ public class SCConfig {
         }
     }
 
-    public enum PermissionNode {
+    public enum GroupPermissions {
         TEST("test.test"),
         TEST2("test.test2");
 
         private Permission permission;
 
-        public PermissionNode(String permissionPath) {
+        public GroupPermissions(String permissionPath) {
             this.permission = new Permission(permissionPath);
         }
 
