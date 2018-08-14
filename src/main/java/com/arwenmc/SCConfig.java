@@ -51,6 +51,7 @@ public class SCConfig {
     }
 
     public enum CommandPermissions {
+        // these are hard coded paths to config
         FLY("features.fly.fly_permission"),
         GAMEMODE("features.gamemode.gamemode_permission"),
         CHAT("features.chat.chat_permission"),
