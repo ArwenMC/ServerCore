@@ -48,4 +48,15 @@ public class SCConfig {
             return this.permission;
         }
     }
+
+    public enum CommandPermissions {
+        FLY("features.fly.fly_permission"),
+        GAMEMODE("features.gamemode.gamemode_permission"),
+        CHAT("features.chat.chat_permission"),
+        HELP("features.help.help_permission");
+
+        CommandPermissions(String configPath) {
+
+        }
+    }
 }
