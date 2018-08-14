@@ -1,7 +1,6 @@
 package com.arwenmc;
 
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class SCConfig {
@@ -10,7 +9,7 @@ public class SCConfig {
     FileConfiguration config;
     public SCConfig(ServerCore plugin) {
         this.plugin = plugin;
-        this.config = plugin.getConfig()
+        this.config = plugin.getConfig();
     }
 
     public String getAndColour(String configPath) {
