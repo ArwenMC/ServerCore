@@ -15,6 +15,8 @@ public class SCConfig {
         this.config = plugin.getConfig();
     }
 
+    public boolean DEBUG = config.getBoolean("debug"); // public variable on whether debug is enabled.
+
     public SCConfig() {
         this.config = plugin.getConfig();
     }
