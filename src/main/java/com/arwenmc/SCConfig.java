@@ -1,6 +1,7 @@
 package com.arwenmc;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
@@ -34,7 +35,7 @@ public class SCConfig {
     public enum GroupPermissions {
         ADMIN("sc.admin"),
         STAFF("sc.staff"),
-        DONATOR("sc.donator").
+        DONATOR("sc.donator"),
         MEMBER("sc.member"),
         PLAYER("sc.player");
 
@@ -55,8 +56,33 @@ public class SCConfig {
         CHAT("features.chat.chat_permission"),
         HELP("features.help.help_permission");
 
-        CommandPermissions(String configPath) {
+        private GroupPermissions permissionGroup;
 
+        CommandPermissions(String configPath) {
+            switch (new SCConfig().config.getString(configPath)) {
+                case "admin":
+                    this.permissionGroup = GroupPermissions.ADMIN;
+                    break;
+                case "staff":
+                    this.permissionGroup = GroupPermissions.STAFF;
+                    break;
+                case "donator":
+                    this.permissionGroup = GroupPermissions.DONATOR;
+                    break;
+                case "member":
+                    this.permissionGroup = GroupPermissions.MEMBER;
+                    break;
+                case "player":
+                    this.permissionGroup = GroupPermissions.PLAYER;
+                    break;
+                default:
+                    Bukkit.getLogger().severe("Configuration Path invalid at config Path: " + configPath);
+                    throw new IllegalArgumentException("Configuration Path invalid at config Path: " + configPath);
+            }
+        }
+
+        public GroupPermissions getPermissionGroup() {
+            return this.permissionGroup;
         }
     }
 }
