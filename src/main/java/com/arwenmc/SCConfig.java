@@ -26,8 +26,8 @@ public class SCConfig {
         return ChatColor.translateAlternateColorCodes('&', configValue);
     }
 
-    public boolean permissionCheck(Player player, GroupPermissions permissionNode) {
-        return player.hasPermission(permissionNode.getPermission());
+    public boolean permissionCheck(Player player, CommandPermissions permissionNode) {
+        return player.hasPermission(permissionNode.getPermissionGroup().getPermission());
     }
 
     public enum GroupPermissions {
