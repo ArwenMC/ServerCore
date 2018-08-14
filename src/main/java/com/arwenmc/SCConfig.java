@@ -40,7 +40,7 @@ public class SCConfig {
 
         private Permission permission;
 
-        public GroupPermissions(String permissionPath) {
+        GroupPermissions(String permissionPath) {
             this.permission = new Permission(permissionPath);
         }
 
