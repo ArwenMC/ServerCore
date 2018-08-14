@@ -30,6 +30,10 @@ public class SCConfig {
         return player.hasPermission(permissionNode.getPermissionGroup().getPermission());
     }
 
+    public boolean permissionCheck(Player player, GroupPermissions permission) {
+        return player.hasPermission(permission.getPermission());
+    }
+
     public enum GroupPermissions {
         ADMIN("sc.admin"),
         STAFF("sc.staff"),
