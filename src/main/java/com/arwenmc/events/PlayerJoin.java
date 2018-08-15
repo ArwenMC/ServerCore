@@ -1,7 +1,7 @@
 package com.arwenmc.events;
 
 import com.arwenmc.ServerCore;
-import com.arwenmc.api.ScoreboardBuilder.ScoreboardBuilder;
+import com.arwenmc.api.ScoreboardBuilder;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

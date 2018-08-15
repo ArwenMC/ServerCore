@@ -1,12 +1,8 @@
 package com.arwenmc;
 
 import com.arwenmc.api.Inventory.InventoryGUI;
-import com.arwenmc.commands.ServerCoreCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
@@ -18,19 +14,19 @@ import java.util.List;
 public class ServerCore extends JavaPlugin {
 
     public ServerCore PLUGIN = this;
-    public boolean DEBUG = getConfig().getBoolean("debug");
+    public SCConfig config = new SCConfig(PLUGIN);
 
     // Database
     public boolean DATABASE_ENABLED = getConfig().getBoolean("database.db_enabled");
 
     // General Config Values
-    public String NOT_PLAYER = GAC("general.not_player");
-    public String NO_PERMISSION = GAC("general.no_permission");
-    public String MISSING_ARGUMENT = GAC("general.missing_argument");
-    public String UNKNOWN_ARGUMENT = GAC("general.unknown_argument");
-    public String PREFIX = GAC("general.prefix");
-    public String PLAYER_OFFLINE = GAC("general.player_offline");
-    public String COMMAND_DISABLED = GAC("general");
+    public String NOT_PLAYER = config.getAndColour("general.not_player");
+    public String NO_PERMISSION = config.getAndColour("general.no_permission");
+    public String MISSING_ARGUMENT = config.getAndColour("general.missing_argument");
+    public String UNKNOWN_ARGUMENT = config.getAndColour("general.unknown_argument");
+    public String PREFIX = config.getAndColour("general.prefix");
+    public String PLAYER_OFFLINE = config.getAndColour("general.player_offline");
+    public String COMMAND_DISABLED = config.getAndColour("general.command_disabled");
 
     // Custom Permission System.
     public Permission ADMIN_PERMISSION = new Permission(getConfig().getString("general.admin_permission"));
@@ -38,14 +34,13 @@ public class ServerCore extends JavaPlugin {
 
     // Fly Config Values
     public boolean FLY_ENABLE = getConfig().getBoolean("features.fly.fly_enable");
-    public String FLY_ENABLED = GAC("features.fly.fly_enabled");
-    public String FLY_DISABLED = GAC("features.fly.fly_disabled");
+    public String FLY_ENABLED = config.getAndColour("features.fly.fly_enabled");
+    public String FLY_DISABLED = config.getAndColour("features.fly.fly_disabled");
 
     // Chat Config Values
     public boolean MUTECHAT_ENABLED = getConfig().getBoolean("features.chat.mutechat_enabled");
-    public boolean isChatMuted;
-    public String CHAT_NOW_MUTED = GAC("features.chat.chat_now_muted");
-    public String CHAT_NOW_UNMUTED = GAC("features.chat.chat_now_unmuted");
+    public String CHAT_NOW_MUTED = config.getAndColour("features.chat.chat_now_muted");
+    public String CHAT_NOW_UNMUTED = config.getAndColour("features.chat.chat_now_unmuted");
 
     // Help
     public boolean HELP_ENABLED = getConfig().getBoolean("features.help.help_enable");
@@ -67,55 +62,40 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
-        getCommand("servercore").setExecutor(new ServerCoreCommand(this));
-        getCommand("togglegui").setExecutor(new CommandExecutor() {
-            @Override
-            public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-                if (!(commandSender instanceof Player)) {
-                    commandSender.sendMessage(NOT_PLAYER);
-                    return true;
-                } else {
-                    Player player = (Player) commandSender;
+        getCommand("togglegui").setExecutor((commandSender, command, s, strings) -> {
+            if (!(commandSender instanceof Player)) {
+                commandSender.sendMessage(NOT_PLAYER);
+                return true;
+            } else {
+                Player player = (Player) commandSender;
 
-                    ItemStack grayDye = new ItemStack(Material.GRAY_DYE);
-                    ItemStack limeDye = new ItemStack(Material.LIME_DYE);
+                ItemStack grayDye = new ItemStack(Material.GRAY_DYE);
+                ItemStack limeDye = new ItemStack(Material.LIME_DYE);
 
-                    toggleGUI = new InventoryGUI("&aTest GUI", 4, PLUGIN, (clicker, menu, row, slot, item) -> {
-                        if (item.getType().equals(Material.INK_SAC)) {
-                            if (item.equals(grayDye)) {
-                                toggleGUI.setSlot(toggleGUI.getRow(2), 4, limeDye, "&aEnabled", "&7Click to disable");
-                                player.sendMessage(ChatColor.GREEN + "You enabled this");
-                            } else if (item.equals(limeDye)) {
-                                toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
-                                player.sendMessage(ChatColor.RED + "You disabled this");
-                            }
+                toggleGUI = new InventoryGUI("&aTest GUI", 4, PLUGIN, (clicker, menu, row, slot, item) -> {
+                    if (item.getType().equals(Material.INK_SAC)) {
+                        if (item.equals(grayDye)) {
+                            toggleGUI.setSlot(toggleGUI.getRow(2), 4, limeDye, "&aEnabled", "&7Click to disable");
+                            player.sendMessage(ChatColor.GREEN + "You enabled this");
+                        } else if (item.equals(limeDye)) {
+                            toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
+                            player.sendMessage(ChatColor.RED + "You disabled this");
                         }
+                    }
 
-                        toggleGUI.refresh(player.getUniqueId());
-                        return true;
-                    });
-                    toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE), "&aEnable or Disable");
-                    toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
-                    toggleGUI.open(player.getUniqueId());
+                    toggleGUI.refresh(player.getUniqueId());
                     return true;
-                }
+                });
+                toggleGUI.setSlot(toggleGUI.getRow(1), 4, new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE), "&aEnable or Disable");
+                toggleGUI.setSlot(toggleGUI.getRow(2), 4, grayDye, "&cDisabled", "&7Click to enable");
+                toggleGUI.open(player.getUniqueId());
+                return true;
             }
         });
     }
 
     @Override
     public void onDisable() {
+        // Disable Method
     }
-
-    /**
-     * A custom method to simplify the getting of config values and then colour it.
-     *
-     * @param path The path to the config value
-     * @return String Colourised Config String
-     */
-    private String GAC(String path) { // GAC = get and colour.
-        String config = getConfig().getString(path);
-        return ChatColor.translateAlternateColorCodes('&', config);
-    }
-
 }
