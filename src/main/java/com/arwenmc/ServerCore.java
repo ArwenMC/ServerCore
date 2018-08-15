@@ -1,8 +1,6 @@
 package com.arwenmc;
 
 import com.arwenmc.api.Inventory.InventoryGUI;
-import com.arwenmc.commands.ChatCommand;
-import com.arwenmc.commands.ServerCoreCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
