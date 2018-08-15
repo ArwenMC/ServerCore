@@ -64,8 +64,6 @@ public class ServerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         // getCommand("help").setExecutor(new HelpCommand(this));
-        getCommand("servercore").setExecutor(new ServerCoreCommand(PLUGIN));
-        getCommand("chatcontrol").setExecutor(new ChatCommand(PLUGIN));
         getCommand("togglegui").setExecutor((commandSender, command, s, strings) -> {
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage(NOT_PLAYER);
