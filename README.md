@@ -11,6 +11,7 @@ We are currently working on database support and we aim to get that out before v
 | Donator    | `sc.donator`    | Access to the fun commands!                        |
 | Member     | `sc.member`     | A trusted a member of the community.               |
 | Player     | `sc.player`     | Should be given to your default group.             |
+  
 Instead of using individual permission nodes - you can choose from 5 groups in the config. Our system will automatically detect which group you have used and only allow that group to use that command.
 We've got some default ones already there but feel free to change them!
 ## Credit
